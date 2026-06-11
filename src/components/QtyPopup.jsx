@@ -1,30 +1,23 @@
-import React, { useState, useMemo } from 'react';
-import { Plus, Minus, AlertTriangle } from 'lucide-react';
+import React, { useState } from 'react';
+import { Plus, Minus, ShoppingCart } from 'lucide-react';
 
 const formatCurrency = (amount) =>
   new Intl.NumberFormat('id-ID').format(amount);
 
-const QtyPopup = ({ product, customer, currentBalance, onConfirm, onCancel }) => {
+const QtyPopup = ({ product, onConfirm, onCancel }) => {
   const [qty, setQty] = useState(1);
 
   const maxByStock = product.stokSekarang;
-  const maxByBalance = product.harga > 0 ? Math.floor(currentBalance / product.harga) : Infinity;
-  const maxQty = Math.max(0, Math.min(maxByStock, maxByBalance));
-
-  const subtotal = qty * product.harga;
-  const remainingBalance = currentBalance - subtotal;
-  const isBalanceNegative = remainingBalance < 0;
-  const canConfirm = qty > 0 && !isBalanceNegative;
 
   const handleQtyChange = (newQty) => {
-    const clamped = Math.max(0, Math.min(newQty, maxByStock));
+    const clamped = Math.max(1, Math.min(newQty, maxByStock));
     setQty(clamped);
   };
 
   const handleInputChange = (e) => {
     const val = e.target.value;
     if (val === '') {
-      setQty(0);
+      setQty(1);
       return;
     }
     const num = parseInt(val, 10);
@@ -32,6 +25,8 @@ const QtyPopup = ({ product, customer, currentBalance, onConfirm, onCancel }) =>
       handleQtyChange(num);
     }
   };
+
+  const subtotal = qty * product.harga;
 
   return (
     <div
@@ -61,7 +56,7 @@ const QtyPopup = ({ product, customer, currentBalance, onConfirm, onCancel }) =>
             type="number"
             value={qty}
             onChange={handleInputChange}
-            min={0}
+            min={1}
             max={maxByStock}
             className="w-20 h-14 text-center text-3xl font-bold text-slate-100 bg-slate-800/60 border border-slate-700/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-violet-500/40 focus:border-violet-500/40 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
           />
@@ -75,27 +70,13 @@ const QtyPopup = ({ product, customer, currentBalance, onConfirm, onCancel }) =>
           </button>
         </div>
 
-        {/* Balance Preview */}
+        {/* Subtotal Preview */}
         <div className="rounded-xl bg-slate-800/50 border border-slate-700/40 p-4 text-center">
-          <p className="text-xs text-slate-400 mb-1">Sisa Saldo</p>
-          <p
-            className={`text-2xl font-bold tabular-nums transition-all duration-300 ${
-              isBalanceNegative ? 'text-rose-400' : 'text-emerald-400'
-            }`}
-          >
-            {formatCurrency(remainingBalance)}
+          <p className="text-xs text-slate-400 mb-1">Subtotal</p>
+          <p className="text-2xl font-bold tabular-nums text-violet-400">
+            {formatCurrency(subtotal)}
           </p>
         </div>
-
-        {/* Warning */}
-        {isBalanceNegative && (
-          <div className="flex items-start gap-2.5 p-3 rounded-xl bg-amber-500/10 border border-amber-500/20 animate-fade-in">
-            <AlertTriangle className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" />
-            <p className="text-sm text-amber-300/90">
-              Saldo customer tidak mencukupi untuk jumlah ini.
-            </p>
-          </div>
-        )}
 
         {/* Buttons */}
         <div className="flex gap-3">
@@ -104,11 +85,11 @@ const QtyPopup = ({ product, customer, currentBalance, onConfirm, onCancel }) =>
           </button>
           <button
             onClick={() => onConfirm(qty)}
-            disabled={!canConfirm}
+            disabled={qty < 1}
             className="btn-primary flex-1 flex items-center justify-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed"
           >
-            <Plus className="w-4 h-4" />
-            <span>Tambah</span>
+            <ShoppingCart className="w-4 h-4" />
+            <span>Ke Keranjang</span>
           </button>
         </div>
       </div>

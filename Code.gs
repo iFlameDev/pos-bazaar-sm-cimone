@@ -46,6 +46,9 @@ function doPost(e) {
       case "BATCH_UPDATE_CART":
         result = handleBatchUpdateCart(payload);
         break;
+      case "BATCH_ADD_TRANSACTIONS":
+        result = handleBatchAddTransactions(payload);
+        break;
       default:
         result = { success: false, error: "Unknown action: " + action };
     }
@@ -268,6 +271,52 @@ function handleBatchUpdateCart(payload) {
 
     // Write the entire data block back to the sheet
     sheet.getRange(1, 1, data.length, data[0].length).setValues(data);
+
+    return { success: true };
+
+  } catch (err) {
+    throw err;
+  } finally {
+    lock.releaseLock();
+  }
+}
+
+/**
+ * BATCH_ADD_TRANSACTIONS
+ * Appends multiple transaction rows at once using setValues() for efficiency.
+ * Uses LockService to prevent race conditions.
+ */
+function handleBatchAddTransactions(payload) {
+  var lock = LockService.getScriptLock();
+  try {
+    lock.waitLock(10000);
+
+    var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Transaksi");
+    if (!sheet) {
+      throw new Error("Sheet 'Transaksi' not found.");
+    }
+
+    var transactions = payload.transactions;
+    if (!transactions || transactions.length === 0) {
+      return { success: true };
+    }
+
+    var rows = [];
+    for (var i = 0; i < transactions.length; i++) {
+      var t = transactions[i];
+      rows.push([
+        t.idTransaksi,
+        t.idProduk,
+        t.qty,
+        t.idCustomer,
+        t.transaksiPic,
+        "",  // Update PIC
+        ""   // Delete PIC
+      ]);
+    }
+
+    var lastRow = sheet.getLastRow();
+    sheet.getRange(lastRow + 1, 1, rows.length, 7).setValues(rows);
 
     return { success: true };
 

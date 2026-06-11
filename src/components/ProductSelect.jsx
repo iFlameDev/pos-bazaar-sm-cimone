@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { ArrowLeft, Search, ShoppingCart, Package } from 'lucide-react';
+import { ArrowLeft, Search, ShoppingCart, ClipboardList, Package } from 'lucide-react';
 import CustomerProfile from './CustomerProfile';
 
 const formatCurrency = (amount) =>
@@ -22,17 +22,12 @@ const ProductCard = ({ product, onClick, index }) => {
       }`}
       style={{ animationDelay: `${index * 40}ms` }}
     >
-      {/* Product Name */}
       <h3 className="font-semibold text-slate-100 text-sm mb-1 line-clamp-2 leading-snug">
         {product.namaProduk}
       </h3>
-
-      {/* Price */}
       <p className="text-violet-400 font-bold text-base mb-2.5">
         {formatCurrency(product.harga)}
       </p>
-
-      {/* Stock Indicator */}
       <div className="flex items-center justify-between">
         <span
           className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-medium ${
@@ -55,13 +50,14 @@ const ProductCard = ({ product, onClick, index }) => {
 const ProductSelect = ({
   products,
   customer,
-  sessionItems,
   onProductClick,
   onOpenCart,
+  onOpenPurchased,
   cartItemCount,
+  purchasedItemCount,
   onBack,
   currentBalance,
-  cartBump,
+  cartDelta,
 }) => {
   const [activeCategory, setActiveCategory] = useState('Semua');
   const [search, setSearch] = useState('');
@@ -103,7 +99,11 @@ const ProductSelect = ({
           </div>
 
           {/* Customer Profile */}
-          <CustomerProfile customer={customer} adjustedBalance={currentBalance} />
+          <CustomerProfile
+            customer={customer}
+            adjustedBalance={currentBalance}
+            cartDelta={cartDelta}
+          />
 
           {/* Category Tabs */}
           <div
@@ -161,21 +161,34 @@ const ProductSelect = ({
         )}
       </main>
 
-      {/* ── Cart FAB ───────────────────────────────── */}
-      {cartItemCount > 0 && (
+      {/* ── FABs ───────────────────────────────────── */}
+      <div className="fixed bottom-6 right-6 z-40 flex flex-col gap-3 items-center">
+        {/* Purchased FAB */}
+        {purchasedItemCount > 0 && (
+          <button
+            onClick={onOpenPurchased}
+            className="relative w-12 h-12 rounded-full bg-gradient-to-br from-emerald-600 to-emerald-500 flex items-center justify-center shadow-xl shadow-emerald-500/30 transition-transform duration-200 hover:scale-110 focus:outline-none focus:ring-4 focus:ring-emerald-500/30"
+          >
+            <ClipboardList className="w-5 h-5 text-white" />
+          </button>
+        )}
+
+        {/* Cart FAB */}
         <button
           onClick={onOpenCart}
-          className={`fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full bg-gradient-to-br from-violet-600 to-violet-500 flex items-center justify-center shadow-xl shadow-violet-500/30 transition-transform duration-200 hover:scale-110 focus:outline-none focus:ring-4 focus:ring-violet-500/30 ${
-            cartBump ? 'animate-cart-bump' : ''
-          }`}
+          className="relative w-14 h-14 rounded-full bg-gradient-to-br from-violet-600 to-violet-500 flex items-center justify-center shadow-xl shadow-violet-500/30 transition-transform duration-200 hover:scale-110 focus:outline-none focus:ring-4 focus:ring-violet-500/30"
         >
-          {/* Pulse ring */}
           <span className="absolute inset-0 rounded-full bg-violet-500/40 animate-pulse-ring" />
-
           <ShoppingCart className="w-6 h-6 text-white relative z-10" />
 
+          {/* Badge */}
+          {cartItemCount > 0 && (
+            <span className="absolute -top-1 -right-1 z-20 min-w-[20px] h-5 px-1 rounded-full bg-rose-500 text-white text-[11px] font-bold flex items-center justify-center shadow-md ring-2 ring-slate-950">
+              {cartItemCount > 99 ? '99+' : cartItemCount}
+            </span>
+          )}
         </button>
-      )}
+      </div>
     </div>
   );
 };

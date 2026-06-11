@@ -73,3 +73,15 @@ export async function batchUpdateCart(transactions) {
     transactions,
   });
 }
+
+/**
+ * Batch-add multiple new transaction rows at once.
+ * @param {Array<{ idTransaksi: string, idProduk: string, qty: number, idCustomer: string, transaksiPic: string }>} transactions
+ * @returns {Promise<{ success: boolean }>}
+ */
+export async function batchAddTransactions(transactions) {
+  return gasPost({
+    action: 'BATCH_ADD_TRANSACTIONS',
+    transactions,
+  });
+}

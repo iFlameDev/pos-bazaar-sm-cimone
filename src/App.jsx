@@ -1,15 +1,31 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
-import { ShoppingCart } from 'lucide-react';
 import PicModal from './components/PicModal';
 import CustomerSelect from './components/CustomerSelect';
 import ProductSelect from './components/ProductSelect';
 import QtyPopup from './components/QtyPopup';
 import CartView from './components/CartView';
-import { fetchMasterData, addTransaction, getCustomerCart } from './utils/api';
+import PurchasedView from './components/PurchasedView';
+import { fetchMasterData, batchAddTransactions, getCustomerCart } from './utils/api';
+import {
+  getCachedMasterData,
+  setCachedMasterData,
+  clearMasterDataCache,
+  updateCachedProductStock,
+  updateCachedCustomerBalance,
+} from './utils/cacheStorage';
+import {
+  getCart,
+  addToCart,
+  updateCartItem,
+  removeFromCart,
+  clearCart,
+  getCartItemCount,
+  getCartTotal,
+} from './utils/cartStorage';
 import useLocalStorage from './hooks/useLocalStorage';
 
 export default function App() {
-  // ── Workflow step: 1=customer, 2=product, 4=cart ──
+  // ── Workflow step: 1=customer, 2=product, 3=cart, 4=purchased ──
   const [step, setStep] = useState(1);
 
   // ── PIC (Person In Charge) ──
@@ -19,28 +35,22 @@ export default function App() {
   // ── Customer & master data ──
   const [selectedCustomer, setSelectedCustomer] = useState(null);
   const [masterData, setMasterData] = useState({ products: [], customers: [] });
-  const [masterDataLoaded, setMasterDataLoaded] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [refreshing, setRefreshing] = useState(false);
 
   // ── Product selection / qty popup ──
   const [showQtyPopup, setShowQtyPopup] = useState(false);
   const [pendingProduct, setPendingProduct] = useState(null);
-  const [clickOrigin, setClickOrigin] = useState({ x: 0, y: 0 });
 
-  // ── Session items (added this session, for live balance tracking) ──
-  const [sessionItems, setSessionItems] = useState([]);
+  // ── Cart state (triggers re-render) ──
+  const [cartVersion, setCartVersion] = useState(0);
 
-  // ── Cart FAB bump ──
-  const [cartBump, setCartBump] = useState(false);
-
-  // ── Flying animation ──
-  const [flyingItem, setFlyingItem] = useState(null);
+  // ── Purchased item count ──
+  const [purchasedItemCount, setPurchasedItemCount] = useState(0);
 
   // ── Toast notification ──
   const [toast, setToast] = useState(null);
   const toastTimer = useRef(null);
-
-  // Cart FAB position is calculated from the fixed bottom-right position
 
   // ───────────────────── Helpers ─────────────────────
 
@@ -50,19 +60,33 @@ export default function App() {
     toastTimer.current = setTimeout(() => setToast(null), 3000);
   }, []);
 
-  const loadMasterData = useCallback(async () => {
-    try {
-      setLoading(true);
-      const data = await fetchMasterData();
-      setMasterData(data);
-      setMasterDataLoaded(true);
-    } catch (err) {
-      console.error('Failed to load master data:', err);
-      showToast('Gagal memuat data. Coba lagi.', 'error');
-    } finally {
-      setLoading(false);
-    }
-  }, [showToast]);
+  const loadMasterData = useCallback(
+    async (forceRefresh = false) => {
+      try {
+        // Check cache first (unless force refresh)
+        if (!forceRefresh) {
+          const cached = getCachedMasterData();
+          if (cached) {
+            setMasterData(cached);
+            return cached;
+          }
+        }
+
+        setLoading(true);
+        const data = await fetchMasterData();
+        setMasterData(data);
+        setCachedMasterData(data);
+        return data;
+      } catch (err) {
+        console.error('Failed to load master data:', err);
+        showToast('Gagal memuat data. Coba lagi.', 'error');
+        return null;
+      } finally {
+        setLoading(false);
+      }
+    },
+    [showToast]
+  );
 
   // ───────────────────── Effects ─────────────────────
 
@@ -78,159 +102,192 @@ export default function App() {
 
   // ───────────────────── Handlers ─────────────────────
 
+  /** Refresh data (clear cache + re-fetch) */
+  const handleRefreshData = useCallback(async () => {
+    setRefreshing(true);
+    clearMasterDataCache();
+    await loadMasterData(true);
+    setRefreshing(false);
+    showToast('Data berhasil diperbarui');
+  }, [loadMasterData, showToast]);
+
   /** Step 1 → 2: customer selected */
   const handleSelectCustomer = useCallback(
     async (customer) => {
       setSelectedCustomer(customer);
       setStep(2);
+      setCartVersion((v) => v + 1); // trigger cart count recalc
+
+      // Fetch purchased item count in background
       try {
-        setLoading(true);
-        const [master, cart] = await Promise.all([
-          fetchMasterData(),
-          getCustomerCart(customer.id)
-        ]);
-        setMasterData(master);
-        setSessionItems(cart.transactions || []);
-        setMasterDataLoaded(true);
+        const cart = await getCustomerCart(customer.id);
+        setPurchasedItemCount((cart.transactions || []).length);
       } catch (err) {
-        console.error('Failed to load data:', err);
-        showToast('Gagal memuat data. Coba lagi.', 'error');
-      } finally {
-        setLoading(false);
+        console.error('Failed to fetch purchased items:', err);
+        setPurchasedItemCount(0);
       }
     },
-    [showToast],
+    []
   );
 
   /** Product card clicked – prepare qty popup */
-  const handleProductClick = useCallback((product, event) => {
-    const rect = event.currentTarget.getBoundingClientRect();
-    setClickOrigin({
-      x: rect.left + rect.width / 2,
-      y: rect.top + rect.height / 2,
-    });
+  const handleProductClick = useCallback((product) => {
     setPendingProduct(product);
     setShowQtyPopup(true);
   }, []);
 
-  /** Qty confirmed – add to session + call API */
+  /** Qty confirmed – add to offline cart */
   const handleQtyConfirm = useCallback(
-    async (qty) => {
+    (qty) => {
       if (!pendingProduct || !selectedCustomer) return;
 
-      const idTransaksi = crypto.randomUUID();
+      addToCart(selectedCustomer.id, pendingProduct.id, qty);
+      setCartVersion((v) => v + 1);
 
-      // Close popup immediately for better UX while loading
+      showToast(`${pendingProduct.namaProduk} ×${qty} ditambahkan ke keranjang`);
       setShowQtyPopup(false);
       setPendingProduct(null);
-
-      try {
-        setLoading(true);
-        
-        // 1. Wait for API save
-        await addTransaction({
-          idTransaksi,
-          idProduk: pendingProduct.id,
-          qty,
-          idCustomer: selectedCustomer.id,
-          transaksiPic: picName,
-        });
-
-        // 2. Refresh data from server
-        const [master, cart] = await Promise.all([
-          fetchMasterData(),
-          getCustomerCart(selectedCustomer.id)
-        ]);
-        setMasterData(master);
-        setSessionItems(cart.transactions || []);
-
-        // 3. Trigger flying animation
-        const cartEndX = window.innerWidth - 24 - 28; // right-6 + half of w-14
-        const cartEndY = window.innerHeight - 24 - 28; // bottom-6 + half of h-14
-        setFlyingItem({
-          startX: clickOrigin.x,
-          startY: clickOrigin.y,
-          endX: cartEndX,
-          endY: cartEndY,
-        });
-        setTimeout(() => setFlyingItem(null), 650);
-
-        // 4. Cart bump animation
-        setCartBump(true);
-        setTimeout(() => setCartBump(false), 550);
-
-        // 5. Toast
-        showToast(`${pendingProduct.namaProduk} ×${qty} ditambahkan`);
-      } catch (err) {
-        console.error('Failed to save transaction:', err);
-        showToast('Gagal menyimpan transaksi!', 'error');
-      } finally {
-        setLoading(false);
-      }
     },
-    [pendingProduct, selectedCustomer, clickOrigin, picName, showToast],
+    [pendingProduct, selectedCustomer, showToast]
   );
 
+  /** Save cart – batch add transactions to server */
+  const handleSaveCart = useCallback(async () => {
+    if (!selectedCustomer) return;
+
+    const cartItems = getCart(selectedCustomer.id);
+    if (cartItems.length === 0) return;
+
+    // Build transaction array
+    const transactions = cartItems.map((item) => ({
+      idTransaksi: crypto.randomUUID(),
+      idProduk: item.productId,
+      qty: item.qty,
+      idCustomer: selectedCustomer.id,
+      transaksiPic: picName,
+    }));
+
+    await batchAddTransactions(transactions);
+
+    // Update local master data (no API re-fetch)
+    setMasterData((prev) => {
+      const newProducts = prev.products.map((p) => {
+        const cartItem = cartItems.find((ci) => ci.productId === p.id);
+        if (cartItem) {
+          return { ...p, stokSekarang: Math.max(0, p.stokSekarang - cartItem.qty) };
+        }
+        return p;
+      });
+
+      const totalCost = cartItems.reduce((sum, ci) => {
+        const prod = prev.products.find((p) => p.id === ci.productId);
+        return sum + (prod ? ci.qty * prod.harga : 0);
+      }, 0);
+
+      const newCustomers = prev.customers.map((c) => {
+        if (c.id === selectedCustomer.id) {
+          return { ...c, saldoSekarang: c.saldoSekarang - totalCost };
+        }
+        return c;
+      });
+
+      const newData = { products: newProducts, customers: newCustomers };
+      setCachedMasterData(newData);
+      return newData;
+    });
+
+    // Also update cache directly for each item
+    cartItems.forEach((ci) => {
+      updateCachedProductStock(ci.productId, ci.qty);
+    });
+
+    // Clear offline cart
+    clearCart(selectedCustomer.id);
+    setCartVersion((v) => v + 1);
+
+    // Update purchased count
+    setPurchasedItemCount((prev) => prev + cartItems.length);
+
+    // Go back to product select
+    setStep(2);
+    showToast('Transaksi berhasil disimpan!');
+  }, [selectedCustomer, picName, showToast]);
+
   /** Open cart view */
-  const handleOpenCart = useCallback(() => setStep(4), []);
+  const handleOpenCart = useCallback(() => setStep(3), []);
+
+  /** Open purchased view */
+  const handleOpenPurchased = useCallback(() => setStep(4), []);
 
   /** Cart → back to products */
   const handleCartBack = useCallback(() => setStep(2), []);
 
-  /** Cart saved successfully */
-  const handleCartSaved = useCallback(async () => {
+  /** Purchased → back to products */
+  const handlePurchasedBack = useCallback(() => setStep(2), []);
+
+  /** Purchased saved successfully */
+  const handlePurchasedSaved = useCallback(async () => {
     setStep(2);
-    showToast('Keranjang berhasil disimpan!');
+    showToast('Perubahan berhasil disimpan!');
+
+    // Re-fetch purchased count
     try {
-      setLoading(true);
-      const [master, cart] = await Promise.all([
-        fetchMasterData(),
-        getCustomerCart(selectedCustomer.id)
-      ]);
-      setMasterData(master);
-      setSessionItems(cart.transactions || []);
+      const cart = await getCustomerCart(selectedCustomer.id);
+      setPurchasedItemCount((cart.transactions || []).length);
     } catch (err) {
-      console.error('Failed to refresh data after cart save:', err);
-      showToast('Gagal memuat data terbaru.', 'error');
-    } finally {
-      setLoading(false);
+      console.error('Failed to refresh purchased items:', err);
     }
-  }, [showToast, selectedCustomer]);
+
+    // Refresh master data since server state changed
+    await loadMasterData(true);
+  }, [showToast, selectedCustomer, loadMasterData]);
 
   /** Edit PIC name */
   const handleEditPic = useCallback(() => setShowPicModal(true), []);
 
+  /** Handle cart item qty update */
+  const handleCartUpdateQty = useCallback(
+    (productId, qty) => {
+      if (!selectedCustomer) return;
+      updateCartItem(selectedCustomer.id, productId, qty);
+      setCartVersion((v) => v + 1);
+    },
+    [selectedCustomer]
+  );
+
+  /** Handle cart item removal */
+  const handleCartRemoveItem = useCallback(
+    (productId) => {
+      if (!selectedCustomer) return;
+      removeFromCart(selectedCustomer.id, productId);
+      setCartVersion((v) => v + 1);
+    },
+    [selectedCustomer]
+  );
+
   // ───────────────────── Derived state ─────────────────────
 
-  const cartItemCount = sessionItems.reduce((sum, item) => sum + item.qty, 0);
+  const currentCustomer =
+    masterData.customers.find((c) => c.id === selectedCustomer?.id) || selectedCustomer;
 
-  const currentCustomer = masterData.customers.find(c => c.id === selectedCustomer?.id) || selectedCustomer;
-  const currentBalance = currentCustomer ? currentCustomer.saldoSekarang : 0;
+  const cartItems = selectedCustomer ? getCart(selectedCustomer.id) : [];
+  const cartItemCount = selectedCustomer ? getCartItemCount(selectedCustomer.id) : 0;
+  const cartTotal = selectedCustomer
+    ? getCartTotal(selectedCustomer.id, masterData.products)
+    : 0;
+
+  const currentBalance = currentCustomer ? currentCustomer.saldoSekarang - cartTotal : 0;
+
+  // Force re-read of cart on cartVersion changes
+  void cartVersion;
 
   // ───────────────────── Render ─────────────────────
 
   return (
     <div className="relative min-h-screen bg-slate-950">
-      {/* ── Flying Item Animation ── */}
-      {flyingItem && (
-        <div
-          className="fly-item"
-          style={{
-            left: flyingItem.startX,
-            top: flyingItem.startY,
-            '--fly-x': `${flyingItem.endX - flyingItem.startX}px`,
-            '--fly-y': `${flyingItem.endY - flyingItem.startY}px`,
-          }}
-        >
-          <div className="w-10 h-10 rounded-full bg-violet-500 flex items-center justify-center shadow-lg shadow-violet-500/50">
-            <ShoppingCart className="w-5 h-5 text-white" />
-          </div>
-        </div>
-      )}
-
       {/* ── Toast Notification ── */}
       {toast && (
-        <div className="fixed top-6 left-1/2 -translate-x-1/2 z-50 toast-enter">
+        <div className="fixed top-6 left-1/2 -translate-x-1/2 z-[60] toast-enter">
           <div
             className={`
               px-5 py-3 rounded-xl shadow-2xl backdrop-blur-lg border text-sm font-medium
@@ -263,34 +320,38 @@ export default function App() {
         <CustomerSelect
           customers={masterData.customers}
           loading={loading}
+          refreshing={refreshing}
           onSelectCustomer={handleSelectCustomer}
           onEditPic={handleEditPic}
+          onRefreshData={handleRefreshData}
           picName={picName}
         />
       )}
 
       {/* ── Step 2: Product Select ── */}
-      {step === 2 && (
+      {step === 2 && selectedCustomer && (
         <>
           <ProductSelect
             products={masterData.products}
-            customer={selectedCustomer}
-            sessionItems={sessionItems}
+            customer={currentCustomer}
             currentBalance={currentBalance}
-            loading={loading}
+            cartDelta={cartTotal > 0 ? -cartTotal : 0}
             onProductClick={handleProductClick}
             onOpenCart={handleOpenCart}
+            onOpenPurchased={handleOpenPurchased}
             cartItemCount={cartItemCount}
-            cartBump={cartBump}
-            onBack={() => setStep(1)}
+            purchasedItemCount={purchasedItemCount}
+            onBack={() => {
+              setStep(1);
+              setSelectedCustomer(null);
+              setPurchasedItemCount(0);
+            }}
           />
 
           {/* Qty Popup Overlay */}
           {showQtyPopup && pendingProduct && (
             <QtyPopup
               product={pendingProduct}
-              customer={selectedCustomer}
-              currentBalance={currentBalance}
               onConfirm={handleQtyConfirm}
               onCancel={() => {
                 setShowQtyPopup(false);
@@ -301,18 +362,32 @@ export default function App() {
         </>
       )}
 
-      {/* ── Step 4: Cart View ── */}
-      {step === 4 && (
+      {/* ── Step 3: Cart View (Offline Cart) ── */}
+      {step === 3 && selectedCustomer && (
         <CartView
-          customer={selectedCustomer}
+          cartItems={cartItems}
           products={masterData.products}
+          customer={currentCustomer}
+          currentBalance={currentBalance}
+          cartDelta={cartTotal > 0 ? -cartTotal : 0}
           picName={picName}
+          onUpdateQty={handleCartUpdateQty}
+          onRemoveItem={handleCartRemoveItem}
+          onSave={handleSaveCart}
           onBack={handleCartBack}
-          onSaved={handleCartSaved}
         />
       )}
 
-      {/* Cart FAB is rendered inside ProductSelect */}
+      {/* ── Step 4: Purchased View (Server Transactions) ── */}
+      {step === 4 && selectedCustomer && (
+        <PurchasedView
+          customer={currentCustomer}
+          products={masterData.products}
+          picName={picName}
+          onBack={handlePurchasedBack}
+          onSaved={handlePurchasedSaved}
+        />
+      )}
     </div>
   );
 }

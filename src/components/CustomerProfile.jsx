@@ -1,12 +1,13 @@
 import React from 'react';
-import { Wallet } from 'lucide-react';
+import { Wallet, ShoppingCart } from 'lucide-react';
 
 const formatCurrency = (amount) =>
   new Intl.NumberFormat('id-ID').format(amount);
 
-const CustomerProfile = ({ customer, adjustedBalance }) => {
+const CustomerProfile = ({ customer, adjustedBalance, cartDelta = 0 }) => {
   const displayBalance = adjustedBalance ?? customer.saldoSekarang;
   const isNegative = displayBalance < 0;
+  const hasCartDelta = cartDelta !== 0;
 
   return (
     <div className="glass-card p-4 flex items-center gap-4">
@@ -38,6 +39,12 @@ const CustomerProfile = ({ customer, adjustedBalance }) => {
         >
           {formatCurrency(displayBalance)}
         </span>
+        {hasCartDelta && (
+          <div className="flex items-center gap-1 text-xs mt-0.5 text-amber-400 animate-fade-in">
+            <ShoppingCart className="w-3 h-3" />
+            <span>{formatCurrency(cartDelta)}</span>
+          </div>
+        )}
       </div>
     </div>
   );
