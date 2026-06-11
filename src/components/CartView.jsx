@@ -60,6 +60,12 @@ const CartView = ({
   /* ── Save Handler ────────────────────────────────────────── */
   const handleSave = async () => {
     if (saving || enrichedItems.length === 0) return;
+
+    if (currentBalance < 0) {
+      alert('Saldo customer tidak mencukupi! Kurangi item di keranjang.');
+      return;
+    }
+
     setSaving(true);
     try {
       await onSave();
@@ -119,8 +125,8 @@ const CartView = ({
                     <h3 className="font-semibold text-sm text-slate-100 truncate">
                       {item.product.namaProduk}
                     </h3>
-                    <p className="text-xs text-slate-400 mt-0.5">
-                      {formatCurrency(item.product.harga)} / pcs
+                    <p className="text-violet-400 font-bold text-base mt-0.5">
+                      {formatCurrency(item.product.harga)}
                     </p>
                   </div>
 

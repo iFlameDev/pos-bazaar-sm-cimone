@@ -122,6 +122,11 @@ const PurchasedView = ({ customer, products, picName, onBack, onSaved }) => {
   const handleSave = async () => {
     if (!hasChanges || saving) return;
 
+    if (adjustedBalance < 0) {
+      alert('Saldo customer tidak mencukupi! Kurangi jumlah item.');
+      return;
+    }
+
     setSaving(true);
     try {
       await batchUpdateCart(changedItems);
@@ -200,8 +205,8 @@ const PurchasedView = ({ customer, products, picName, onBack, onSaved }) => {
                       >
                         {prod.namaProduk}
                       </h3>
-                      <p className="text-xs text-slate-400 mt-0.5">
-                        {formatCurrency(prod.harga)} / pcs
+                      <p className="text-violet-400 font-bold text-base mt-0.5">
+                        {formatCurrency(prod.harga)}
                       </p>
                     </div>
 
