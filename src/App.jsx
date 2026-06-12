@@ -5,7 +5,7 @@ import ProductSelect from './components/ProductSelect';
 import QtyPopup from './components/QtyPopup';
 import CartView from './components/CartView';
 import PurchasedView from './components/PurchasedView';
-import { fetchMasterData, batchAddTransactions, getCustomerCart } from './utils/api';
+import { fetchMasterData, batchAddTransactions } from './utils/api';
 import {
   getCachedMasterData,
   setCachedMasterData,
@@ -113,19 +113,11 @@ export default function App() {
 
   /** Step 1 → 2: customer selected */
   const handleSelectCustomer = useCallback(
-    async (customer) => {
+    (customer) => {
       setSelectedCustomer(customer);
+      setPurchasedItemCount(0); // reset, will be updated when PurchasedView loads
       setStep(2);
-      setCartVersion((v) => v + 1); // trigger cart count recalc
-
-      // Fetch purchased item count in background
-      try {
-        const cart = await getCustomerCart(customer.id);
-        setPurchasedItemCount((cart.transactions || []).length);
-      } catch (err) {
-        console.error('Failed to fetch purchased items:', err);
-        setPurchasedItemCount(0);
-      }
+      setCartVersion((v) => v + 1);
     },
     []
   );
@@ -225,22 +217,18 @@ export default function App() {
   /** Purchased → back to products */
   const handlePurchasedBack = useCallback(() => setStep(2), []);
 
+  /** Called by PurchasedView after it finishes fetching transactions */
+  const handlePurchasedLoaded = useCallback((count) => {
+    setPurchasedItemCount(count);
+  }, []);
+
   /** Purchased saved successfully */
   const handlePurchasedSaved = useCallback(async () => {
     setStep(2);
     showToast('Perubahan berhasil disimpan!');
-
-    // Re-fetch purchased count
-    try {
-      const cart = await getCustomerCart(selectedCustomer.id);
-      setPurchasedItemCount((cart.transactions || []).length);
-    } catch (err) {
-      console.error('Failed to refresh purchased items:', err);
-    }
-
-    // Refresh master data since server state changed
+    // Refresh master data since server state changed (stok/saldo)
     await loadMasterData(true);
-  }, [showToast, selectedCustomer, loadMasterData]);
+  }, [showToast, loadMasterData]);
 
   /** Edit PIC name */
   const handleEditPic = useCallback(() => setShowPicModal(true), []);
@@ -386,6 +374,7 @@ export default function App() {
           picName={picName}
           onBack={handlePurchasedBack}
           onSaved={handlePurchasedSaved}
+          onLoaded={handlePurchasedLoaded}
         />
       )}
     </div>

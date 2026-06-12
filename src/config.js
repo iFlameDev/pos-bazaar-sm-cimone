@@ -1,2 +1,2 @@
 // Replace with your deployed Google Apps Script Web App URL
-export const GAS_URL = 'https://script.google.com/macros/s/AKfycbw2KS_Vng66zq5oE_qzZ7mBoCQehGB-fo8F2vKrJ1S1uscGjixm0_l_86ZLC5YZyBJe/exec';
+export const GAS_URL = 'https://script.google.com/macros/s/AKfycbwnxaT9aXAf-8jD73M7Z4rJj0tMI59YBsD5ZNmmdYXfdEEvZ1BGWTEenRc3KLkjQUpu/exec';

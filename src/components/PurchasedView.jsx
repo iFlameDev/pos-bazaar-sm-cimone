@@ -15,7 +15,7 @@ import { getCustomerCart, batchUpdateCart } from '../utils/api';
 const formatCurrency = (amount) =>
   new Intl.NumberFormat('id-ID').format(amount);
 
-const PurchasedView = ({ customer, products, picName, onBack, onSaved }) => {
+const PurchasedView = ({ customer, products, picName, onBack, onSaved, onLoaded }) => {
   const [cartItems, setCartItems] = useState([]);
   const [originalItems, setOriginalItems] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -33,6 +33,7 @@ const PurchasedView = ({ customer, products, picName, onBack, onSaved }) => {
         if (!cancelled) {
           setCartItems(items);
           setOriginalItems(JSON.parse(JSON.stringify(items)));
+          if (onLoaded) onLoaded(items.length);
         }
       } catch (err) {
         console.error('Failed to fetch purchased items:', err);
