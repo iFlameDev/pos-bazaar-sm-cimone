@@ -6,6 +6,7 @@ import QtyPopup from './components/QtyPopup';
 import CartView from './components/CartView';
 import PurchasedView from './components/PurchasedView';
 import { fetchMasterData, batchAddTransactions } from './utils/api';
+import { APP_NAME } from './config';
 import {
   getCachedMasterData,
   setCachedMasterData,
@@ -87,6 +88,11 @@ export default function App() {
   );
 
   // ───────────────────── Effects ─────────────────────
+
+  // Set document title from config
+  useEffect(() => {
+    document.title = APP_NAME;
+  }, []);
 
   // Show PIC modal on first load if name is missing
   useEffect(() => {

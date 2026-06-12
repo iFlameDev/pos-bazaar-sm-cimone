@@ -1,5 +1,6 @@
-import React, { useState, useMemo, useCallback } from 'react';
+import React, { useState, useMemo, useCallback, useEffect } from 'react';
 import { Store, Pencil, Search, Users, Wallet, RefreshCw } from 'lucide-react';
+import { APP_NAME } from '../config';
 
 const formatCurrency = (amount) =>
   new Intl.NumberFormat('id-ID').format(amount);
@@ -77,7 +78,7 @@ const CustomerSelect = ({ customers, picName, onSelectCustomer, onEditPic, onRef
             <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-violet-600 to-violet-500 flex items-center justify-center shadow-md shadow-violet-500/25">
               <Store className="w-5 h-5 text-white" />
             </div>
-            <h1 className="text-lg font-bold text-slate-100">POS System</h1>
+            <h1 className="text-lg font-bold text-slate-100">{APP_NAME}</h1>
           </div>
           <div className="flex items-center gap-2">
             {/* Refresh Data Button */}
