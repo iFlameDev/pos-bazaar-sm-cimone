@@ -45,8 +45,6 @@ export default function App() {
   // ── Cart state (triggers re-render) ──
   const [cartVersion, setCartVersion] = useState(0);
 
-  // ── Purchased item count ──
-  const [purchasedItemCount, setPurchasedItemCount] = useState(0);
 
   // ── Toast notification ──
   const [toast, setToast] = useState(null);
@@ -115,7 +113,6 @@ export default function App() {
   const handleSelectCustomer = useCallback(
     (customer) => {
       setSelectedCustomer(customer);
-      setPurchasedItemCount(0); // reset, will be updated when PurchasedView loads
       setStep(2);
       setCartVersion((v) => v + 1);
     },
@@ -216,11 +213,6 @@ export default function App() {
 
   /** Purchased → back to products */
   const handlePurchasedBack = useCallback(() => setStep(2), []);
-
-  /** Called by PurchasedView after it finishes fetching transactions */
-  const handlePurchasedLoaded = useCallback((count) => {
-    setPurchasedItemCount(count);
-  }, []);
 
   /** Purchased saved successfully */
   const handlePurchasedSaved = useCallback(async () => {
@@ -328,11 +320,9 @@ export default function App() {
             onOpenCart={handleOpenCart}
             onOpenPurchased={handleOpenPurchased}
             cartItemCount={cartItemCount}
-            purchasedItemCount={purchasedItemCount}
             onBack={() => {
               setStep(1);
               setSelectedCustomer(null);
-              setPurchasedItemCount(0);
             }}
           />
 
@@ -374,7 +364,6 @@ export default function App() {
           picName={picName}
           onBack={handlePurchasedBack}
           onSaved={handlePurchasedSaved}
-          onLoaded={handlePurchasedLoaded}
         />
       )}
     </div>

@@ -54,7 +54,6 @@ const ProductSelect = ({
   onOpenCart,
   onOpenPurchased,
   cartItemCount,
-  purchasedItemCount,
   onBack,
   currentBalance,
   cartDelta,
@@ -164,14 +163,12 @@ const ProductSelect = ({
       {/* ── FABs ───────────────────────────────────── */}
       <div className="fixed bottom-6 right-6 z-40 flex flex-col gap-3 items-center">
         {/* Purchased FAB */}
-        {purchasedItemCount > 0 && (
-          <button
-            onClick={onOpenPurchased}
-            className="relative w-12 h-12 rounded-full bg-gradient-to-br from-emerald-600 to-emerald-500 flex items-center justify-center shadow-xl shadow-emerald-500/30 transition-transform duration-200 hover:scale-110 focus:outline-none focus:ring-4 focus:ring-emerald-500/30"
-          >
-            <ClipboardList className="w-5 h-5 text-white" />
-          </button>
-        )}
+        <button
+          onClick={onOpenPurchased}
+          className="relative w-12 h-12 rounded-full bg-gradient-to-br from-emerald-600 to-emerald-500 flex items-center justify-center shadow-xl shadow-emerald-500/30 transition-transform duration-200 hover:scale-110 focus:outline-none focus:ring-4 focus:ring-emerald-500/30"
+        >
+          <ClipboardList className="w-5 h-5 text-white" />
+        </button>
 
         {/* Cart FAB */}
         <button
