@@ -330,6 +330,7 @@ export default function App() {
           {showQtyPopup && pendingProduct && (
             <QtyPopup
               product={pendingProduct}
+              currentBalance={currentBalance}
               onConfirm={handleQtyConfirm}
               onCancel={() => {
                 setShowQtyPopup(false);

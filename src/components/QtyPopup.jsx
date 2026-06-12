@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { Plus, Minus, ShoppingCart } from 'lucide-react';
+import { Plus, Minus, ShoppingCart, Wallet } from 'lucide-react';
 
 const formatCurrency = (amount) =>
   new Intl.NumberFormat('id-ID').format(amount);
 
-const QtyPopup = ({ product, onConfirm, onCancel }) => {
+const QtyPopup = ({ product, currentBalance, onConfirm, onCancel }) => {
   const [qty, setQty] = useState(1);
 
   const maxByStock = product.stokSekarang;
@@ -27,6 +27,7 @@ const QtyPopup = ({ product, onConfirm, onCancel }) => {
   };
 
   const subtotal = qty * product.harga;
+  const remainingBalance = currentBalance - subtotal;
 
   return (
     <div
@@ -70,11 +71,20 @@ const QtyPopup = ({ product, onConfirm, onCancel }) => {
           </button>
         </div>
 
-        {/* Subtotal Preview */}
-        <div className="rounded-xl bg-slate-800/50 border border-slate-700/40 p-4 text-center">
-          <p className="text-xs text-slate-400 mb-1">Subtotal</p>
-          <p className="text-2xl font-bold tabular-nums text-violet-400">
-            {formatCurrency(subtotal)}
+        {/* Sisa Saldo Preview */}
+        <div className={`rounded-xl border p-4 text-center transition-colors duration-200 ${
+          remainingBalance < 0
+            ? 'bg-rose-500/10 border-rose-500/30'
+            : 'bg-slate-800/50 border-slate-700/40'
+        }`}>
+          <div className="flex items-center justify-center gap-1.5 mb-1">
+            <Wallet className="w-3.5 h-3.5 text-slate-400" />
+            <p className="text-xs text-slate-400">Sisa Saldo</p>
+          </div>
+          <p className={`text-2xl font-bold tabular-nums transition-colors duration-200 ${
+            remainingBalance < 0 ? 'text-rose-400' : 'text-emerald-400'
+          }`}>
+            {formatCurrency(remainingBalance)}
           </p>
         </div>
 
