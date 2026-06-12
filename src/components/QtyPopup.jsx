@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Plus, Minus, ShoppingCart, Wallet } from 'lucide-react';
 
 const formatCurrency = (amount) =>
@@ -28,6 +28,17 @@ const QtyPopup = ({ product, currentBalance, onConfirm, onCancel }) => {
 
   const subtotal = qty * product.harga;
   const remainingBalance = currentBalance - subtotal;
+  const balanceRef = useRef(null);
+  const [shaking, setShaking] = useState(false);
+
+  const handleAddToCart = () => {
+    if (remainingBalance < 0) {
+      setShaking(true);
+      setTimeout(() => setShaking(false), 500);
+      return;
+    }
+    onConfirm(qty);
+  };
 
   return (
     <div
@@ -81,9 +92,9 @@ const QtyPopup = ({ product, currentBalance, onConfirm, onCancel }) => {
             <Wallet className="w-3.5 h-3.5 text-slate-400" />
             <p className="text-xs text-slate-400">Sisa Saldo</p>
           </div>
-          <p className={`text-2xl font-bold tabular-nums transition-colors duration-200 ${
+          <p ref={balanceRef} className={`text-2xl font-bold tabular-nums transition-colors duration-200 ${
             remainingBalance < 0 ? 'text-rose-400' : 'text-emerald-400'
-          }`}>
+          } ${shaking ? 'animate-shake' : ''}`}>
             {formatCurrency(remainingBalance)}
           </p>
         </div>
@@ -94,7 +105,7 @@ const QtyPopup = ({ product, currentBalance, onConfirm, onCancel }) => {
             Batal
           </button>
           <button
-            onClick={() => onConfirm(qty)}
+            onClick={handleAddToCart}
             disabled={qty < 1}
             className="btn-primary flex-1 flex items-center justify-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed"
           >
