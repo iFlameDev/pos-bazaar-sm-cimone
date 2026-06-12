@@ -20,13 +20,14 @@ const PurchasedView = ({ customer, products, picName, onBack, onSaved }) => {
   const [originalItems, setOriginalItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
-
+  var flag = 0;
   /* ── Fetch purchased items on mount ──────────────────────── */
   useEffect(() => {
     let cancelled = false;
 
     const fetchCart = async () => {
       setLoading(true);
+      console.log(++flag + "" + customer.id);
       try {
         const response = await getCustomerCart(customer.id);
         const items = response.transactions || [];
@@ -192,16 +193,14 @@ const PurchasedView = ({ customer, products, picName, onBack, onSaved }) => {
               return (
                 <div
                   key={item.idTransaksi}
-                  className={`glass-card p-4 transition-all duration-200 ${
-                    isDeleted ? 'opacity-50' : ''
-                  }`}
+                  className={`glass-card p-4 transition-all duration-200 ${isDeleted ? 'opacity-50' : ''
+                    }`}
                 >
                   <div className="flex items-center gap-3">
                     <div className="flex-1 min-w-0">
                       <h3
-                        className={`font-semibold text-sm text-slate-100 truncate ${
-                          isDeleted ? 'line-through text-slate-500' : ''
-                        }`}
+                        className={`font-semibold text-sm text-slate-100 truncate ${isDeleted ? 'line-through text-slate-500' : ''
+                          }`}
                       >
                         {prod.namaProduk}
                       </h3>
@@ -226,13 +225,12 @@ const PurchasedView = ({ customer, products, picName, onBack, onSaved }) => {
                       </button>
 
                       <span
-                        className={`min-w-[2rem] text-center text-lg font-bold tabular-nums ${
-                          isDeleted
-                            ? 'text-rose-400 line-through'
-                            : hasChanged
+                        className={`min-w-[2rem] text-center text-lg font-bold tabular-nums ${isDeleted
+                          ? 'text-rose-400 line-through'
+                          : hasChanged
                             ? 'text-violet-400'
                             : 'text-slate-100'
-                        }`}
+                          }`}
                       >
                         {item.qty}
                       </span>
