@@ -23,28 +23,12 @@ const SkeletonCard = () => (
 const CustomerCard = ({ customer, onClick }) => (
   <button
     onClick={() => onClick(customer)}
-    className="glass-card text-left w-full p-4 transition-all duration-200 hover:scale-[1.03] hover:border-violet-500/40 hover:shadow-lg hover:shadow-violet-500/10 focus:outline-none focus:ring-2 focus:ring-violet-500/40"
+    className="glass-card text-left w-full p-3.5 transition-all duration-200 hover:scale-[1.03] hover:border-emerald-500/40 hover:shadow-lg hover:shadow-emerald-500/10 focus:outline-none focus:ring-2 focus:ring-emerald-500/40"
   >
-    <div className="flex items-center gap-3 mb-3">
-      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-violet-600 to-violet-400 flex items-center justify-center flex-shrink-0 shadow-md shadow-violet-500/20">
-        <span className="font-bold text-white text-base">
-          {customer.nama?.charAt(0)?.toUpperCase() || '?'}
-        </span>
-      </div>
-      <div className="min-w-0 flex-1">
-        <p className="font-semibold text-slate-100 truncate text-base">
-          {customer.nama}
-        </p>
-        <span className="inline-block px-1.5 py-0.5 text-[10px] font-medium rounded-full bg-violet-500/20 text-violet-300 border border-violet-500/15">
-          {customer.kelas}
-        </span>
-      </div>
-    </div>
-    <div className="flex items-center gap-1.5 text-sm text-slate-400">
-      <Wallet className="w-3.5 h-3.5" />
-      <span className="text-emerald-400 font-medium">
-        {formatCurrency(customer.saldoSekarang)}
-      </span>
+    <div className="min-w-0">
+      <p className="font-semibold text-slate-100 text-base">
+        {customer.nama}
+      </p>
     </div>
   </button>
 );
@@ -60,14 +44,34 @@ const CustomerSelect = ({ customers, picName, onSelectCustomer, onEditPic, onRef
     [onSelectCustomer]
   );
 
-  const filtered = useMemo(() => {
-    if (!search.trim()) return customers;
-    const q = search.toLowerCase().trim();
-    return customers.filter(
-      (c) =>
-        c.nama?.toLowerCase().includes(q) || c.id?.toLowerCase().includes(q)
-    );
+  const grouped = useMemo(() => {
+    let result = customers;
+    if (search.trim()) {
+      const q = search.toLowerCase().trim();
+      result = customers.filter(
+        (c) =>
+          c.nama?.toLowerCase().includes(q) || c.id?.toLowerCase().includes(q)
+      );
+    }
+    
+    // Sort alphabetically by nama
+    result = [...result].sort((a, b) => (a.nama || '').localeCompare(b.nama || ''));
+
+    // Group by kelas
+    const groups = {};
+    result.forEach(c => {
+      const kelas = c.kelas || 'Lainnya';
+      if (!groups[kelas]) groups[kelas] = [];
+      groups[kelas].push(c);
+    });
+
+    // Return array of entries sorted by kelas name
+    return Object.entries(groups).sort(([a], [b]) => a.localeCompare(b));
   }, [customers, search]);
+
+  const totalFiltered = useMemo(() => 
+    grouped.reduce((sum, [, items]) => sum + items.length, 0)
+  , [grouped]);
 
   return (
     <div className="min-h-screen bg-slate-950 flex flex-col">
@@ -121,7 +125,7 @@ const CustomerSelect = ({ customers, picName, onSelectCustomer, onEditPic, onRef
           <div className="flex items-center gap-2 mb-4">
             <Users className="w-4 h-4 text-slate-400" />
             <h2 className="text-sm font-semibold text-slate-400 uppercase tracking-wider">
-              {search ? `Hasil Pencarian (${filtered.length})` : 'Semua Customer'}
+              {search ? `Hasil Pencarian (${totalFiltered})` : 'Semua Customer'}
             </h2>
           </div>
 
@@ -131,11 +135,21 @@ const CustomerSelect = ({ customers, picName, onSelectCustomer, onEditPic, onRef
                 <SkeletonCard key={i} />
               ))}
             </div>
-          ) : filtered.length > 0 ? (
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
-              {filtered.map((c, idx) => (
-                <div key={c.id} className="animate-fade-in" style={{ animationDelay: `${idx * 30}ms` }}>
-                  <CustomerCard customer={c} onClick={handleSelect} />
+          ) : totalFiltered > 0 ? (
+            <div className="space-y-8">
+              {grouped.map(([kelas, items]) => (
+                <div key={kelas} className="animate-fade-in relative">
+                  <div className="sticky top-[60px] z-20 bg-slate-950/95 backdrop-blur-md py-2 mb-3 -mx-4 px-4 sm:mx-0 sm:px-0">
+                    <div className="flex items-center gap-3">
+                      <h3 className="text-sm font-bold text-emerald-400 uppercase tracking-wider">{kelas}</h3>
+                      <div className="flex-1 h-px bg-emerald-500/30"></div>
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+                    {items.map((c) => (
+                      <CustomerCard key={c.id} customer={c} onClick={handleSelect} />
+                    ))}
+                  </div>
                 </div>
               ))}
             </div>
