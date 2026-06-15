@@ -40,6 +40,9 @@ function doPost(e) {
       case "ADD_TRANSACTION":
         result = handleAddTransaction(payload);
         break;
+      case "GET_CUSTOMER":
+        result = handleGetCustomer(payload);
+        break;
       case "GET_CUSTOMER_CART":
         result = handleGetCustomerCart(payload);
         break;
@@ -118,6 +121,7 @@ function handleGetMasterData() {
   var productKeyMap = {
     "ID": "id",
     "Nama Produk": "namaProduk",
+    "Varian": "varian",
     "Harga": "harga",
     "Kategori": "kategori",
     "Stok Awal": "stokAwal",
@@ -140,6 +144,39 @@ function handleGetMasterData() {
     products: products,
     customers: customers
   };
+}
+
+/**
+ * GET_CUSTOMER
+ * Reads 'Customer' sheet, returns a single customer object by ID.
+ */
+function handleGetCustomer(payload) {
+  var idCustomer = payload.idCustomer;
+  if (!idCustomer) return { success: false, error: "Missing idCustomer" };
+
+  var customerKeyMap = {
+    "ID": "id",
+    "Nama": "nama",
+    "Kelas": "kelas",
+    "Saldo Awal": "saldoAwal",
+    "Saldo Sekarang": "saldoSekarang"
+  };
+
+  var customers = sheetToObjects("Customer", customerKeyMap);
+  var found = null;
+  
+  for (var i = 0; i < customers.length; i++) {
+    if (String(customers[i].id) === String(idCustomer)) {
+      found = customers[i];
+      break;
+    }
+  }
+
+  if (found) {
+    return { success: true, customer: found };
+  } else {
+    return { success: false, error: "Customer not found" };
+  }
 }
 
 /**
@@ -262,6 +299,12 @@ function handleBatchUpdateCart(payload) {
         if (newQty > 0) {
           // Regular update
           data[i][colUpdatePic] = upd.updatePic || "";
+          if (upd.idProduk) {
+            var colIdProduk = headers.indexOf("ID Produk");
+            if (colIdProduk !== -1) {
+              data[i][colIdProduk] = upd.idProduk;
+            }
+          }
         } else {
           // Soft delete (qty === 0)
           data[i][colDeletePic] = upd.deletePic || "";

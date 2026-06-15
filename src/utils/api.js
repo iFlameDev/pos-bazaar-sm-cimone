@@ -35,6 +35,15 @@ export async function fetchMasterData() {
 }
 
 /**
+ * Fetch a single customer by ID
+ * @param {string} idCustomer
+ * @returns {Promise<{ customer: Customer }>}
+ */
+export async function fetchCustomer(idCustomer) {
+  return gasPost({ action: 'GET_CUSTOMER', idCustomer });
+}
+
+/**
  * Add a single transaction row.
  * @param {{ idTransaksi: string, idProduk: string, qty: number, idCustomer: string, transaksiPic: string }} params
  * @returns {Promise<{ success: boolean }>}

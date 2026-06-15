@@ -6,7 +6,7 @@ import QtyPopup from './components/QtyPopup';
 import CartView from './components/CartView';
 import PurchasedView from './components/PurchasedView';
 import ScanView from './components/ScanView';
-import { fetchMasterData, batchAddTransactions } from './utils/api';
+import { fetchMasterData, fetchCustomer, batchAddTransactions } from './utils/api';
 import { APP_NAME } from './config';
 import {
   getCachedMasterData,
@@ -116,14 +116,32 @@ export default function App() {
     showToast('Data berhasil diperbarui');
   }, [loadMasterData, showToast]);
 
+  const syncCustomer = useCallback(async (id) => {
+    try {
+      const data = await fetchCustomer(id);
+      setMasterData((prev) => {
+        const newCustomers = prev.customers.map(c => 
+          c.id === data.id ? data : c
+        );
+        const newData = { ...prev, customers: newCustomers };
+        setCachedMasterData(newData);
+        return newData;
+      });
+    } catch(err) {
+      console.error('Failed to sync customer:', err);
+    }
+  }, []);
+
   /** Step 1 → 2: customer selected */
   const handleSelectCustomer = useCallback(
     (customer) => {
       setSelectedCustomer(customer);
       setStep(2);
       setCartVersion((v) => v + 1);
+      // Fetch customer balance strictly once during transition from Step 1 -> 2
+      syncCustomer(customer.id);
     },
-    []
+    [syncCustomer]
   );
 
   /** Product card clicked – prepare qty popup */
