@@ -202,7 +202,7 @@ const PurchasedView = ({ customer, products, picName, onBack, onSaved }) => {
                         className={`font-semibold text-sm text-slate-100 truncate ${isDeleted ? 'line-through text-slate-500' : ''
                           }`}
                       >
-                        {prod.namaProduk}
+                        {prod.namaProduk} {prod.varian ? `(${prod.varian})` : ''}
                       </h3>
                       <p className="text-violet-400 font-bold text-base mt-0.5">
                         {formatCurrency(prod.harga)}

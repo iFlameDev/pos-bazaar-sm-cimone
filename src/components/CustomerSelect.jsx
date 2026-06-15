@@ -40,11 +40,9 @@ const CustomerCard = ({ customer, onClick }) => (
         </span>
       </div>
     </div>
-    <div className="flex items-center gap-1.5 text-sm text-slate-400">
+    <div className="flex items-center gap-1.5 text-xs text-slate-500">
       <Wallet className="w-3.5 h-3.5" />
-      <span className="text-emerald-400 font-medium">
-        {formatCurrency(customer.saldoSekarang)}
-      </span>
+      <span>Sisa saldo dirahasiakan</span>
     </div>
   </button>
 );

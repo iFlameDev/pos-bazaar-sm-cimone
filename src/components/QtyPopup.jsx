@@ -4,12 +4,15 @@ import { Plus, Minus, ShoppingCart, Wallet } from 'lucide-react';
 const formatCurrency = (amount) =>
   new Intl.NumberFormat('id-ID').format(amount);
 
-const QtyPopup = ({ product, currentBalance, onConfirm, onCancel }) => {
+const QtyPopup = ({ productGroup, currentBalance, onConfirm, onCancel }) => {
   const [qty, setQty] = useState(1);
+  const [selectedVariant, setSelectedVariant] = useState(null);
 
-  const maxByStock = product.stokSekarang;
+  const baseProduct = productGroup[0];
+  const maxByStock = selectedVariant ? selectedVariant.stokSekarang : 0;
 
   const handleQtyChange = (newQty) => {
+    if (productGroup.length > 0 && !selectedVariant) return;
     const clamped = Math.max(1, Math.min(newQty, maxByStock));
     setQty(clamped);
   };
@@ -26,18 +29,19 @@ const QtyPopup = ({ product, currentBalance, onConfirm, onCancel }) => {
     }
   };
 
-  const subtotal = qty * product.harga;
+  const subtotal = qty * baseProduct.harga;
   const remainingBalance = currentBalance - subtotal;
   const balanceRef = useRef(null);
   const [shaking, setShaking] = useState(false);
 
   const handleAddToCart = () => {
+    if (productGroup.length > 0 && !selectedVariant) return;
     if (remainingBalance < 0) {
       setShaking(true);
       setTimeout(() => setShaking(false), 500);
       return;
     }
-    onConfirm(qty);
+    onConfirm(qty, selectedVariant);
   };
 
   return (
@@ -50,9 +54,41 @@ const QtyPopup = ({ product, currentBalance, onConfirm, onCancel }) => {
       <div className="animate-bounce-in glass-card w-full max-w-sm mx-4 p-6 space-y-5">
         {/* Product Info */}
         <div className="text-center">
-          <h2 className="text-xl font-bold text-slate-100 mb-1">{product.namaProduk}</h2>
-          <p className="text-violet-400 font-semibold text-lg">{formatCurrency(product.harga)}</p>
+          <h2 className="text-xl font-bold text-slate-100 mb-1">{baseProduct.namaProduk}</h2>
+          <p className="text-violet-400 font-semibold text-lg">{formatCurrency(baseProduct.harga)}</p>
         </div>
+
+        {/* Variants Selection */}
+        {productGroup.length > 0 && (
+          <div className="space-y-2">
+            <p className="text-sm text-slate-400 text-center">Pilih Varian:</p>
+            <div className="flex flex-wrap justify-center gap-2">
+              {productGroup.map((v, idx) => {
+                const isSelected = selectedVariant?.id === v.id;
+                const isOutOfStock = v.stokSekarang <= 0;
+                return (
+                  <button
+                    key={v.id}
+                    disabled={isOutOfStock}
+                    onClick={() => {
+                      setSelectedVariant(v);
+                      setQty(1); // Reset qty saat ubah varian
+                    }}
+                    className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-200 border ${
+                      isSelected
+                        ? 'bg-violet-600 text-white border-violet-500 shadow-md shadow-violet-500/30'
+                        : isOutOfStock
+                        ? 'bg-slate-800/50 text-slate-500 border-slate-700/50 cursor-not-allowed'
+                        : 'bg-slate-700/50 text-slate-300 border-slate-600/50 hover:bg-slate-600'
+                    }`}
+                  >
+                    {v.varian || 'Default'} {isOutOfStock ? '(Habis)' : `(${v.stokSekarang})`}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        )}
 
         {/* Qty Controls */}
         <div className="flex items-center justify-center gap-4">
@@ -106,7 +142,7 @@ const QtyPopup = ({ product, currentBalance, onConfirm, onCancel }) => {
           </button>
           <button
             onClick={handleAddToCart}
-            disabled={qty < 1}
+            disabled={qty < 1 || (productGroup.length > 0 && !selectedVariant) || maxByStock < 1}
             className="btn-primary flex-1 flex items-center justify-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed"
           >
             <ShoppingCart className="w-4 h-4" />

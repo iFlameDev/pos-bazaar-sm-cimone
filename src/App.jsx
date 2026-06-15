@@ -5,7 +5,7 @@ import ProductSelect from './components/ProductSelect';
 import QtyPopup from './components/QtyPopup';
 import CartView from './components/CartView';
 import PurchasedView from './components/PurchasedView';
-import { fetchMasterData, batchAddTransactions } from './utils/api';
+import { fetchMasterData, fetchCustomer, batchAddTransactions } from './utils/api';
 import { APP_NAME } from './config';
 import {
   getCachedMasterData,
@@ -115,6 +115,29 @@ export default function App() {
     showToast('Data berhasil diperbarui');
   }, [loadMasterData, showToast]);
 
+  const syncCustomer = useCallback(async (id) => {
+    try {
+      const data = await fetchCustomer(id);
+      setMasterData((prev) => {
+        const newCustomers = prev.customers.map(c => 
+          c.id === data.id ? data : c
+        );
+        const newData = { ...prev, customers: newCustomers };
+        setCachedMasterData(newData);
+        return newData;
+      });
+    } catch(err) {
+      console.error('Failed to sync customer:', err);
+    }
+  }, []);
+
+  // Sync customer every time we enter ProductSelect (Step 2)
+  useEffect(() => {
+    if (step === 2 && selectedCustomer) {
+      syncCustomer(selectedCustomer.id);
+    }
+  }, [step, selectedCustomer, syncCustomer]);
+
   /** Step 1 → 2: customer selected */
   const handleSelectCustomer = useCallback(
     (customer) => {
@@ -126,20 +149,21 @@ export default function App() {
   );
 
   /** Product card clicked – prepare qty popup */
-  const handleProductClick = useCallback((product) => {
-    setPendingProduct(product);
+  const handleProductClick = useCallback((productGroup) => {
+    setPendingProduct(productGroup);
     setShowQtyPopup(true);
   }, []);
 
   /** Qty confirmed – add to offline cart */
   const handleQtyConfirm = useCallback(
-    (qty) => {
-      if (!pendingProduct || !selectedCustomer) return;
+    (qty, selectedProduct) => {
+      if (!pendingProduct || !selectedCustomer || !selectedProduct) return;
 
-      addToCart(selectedCustomer.id, pendingProduct.id, qty);
+      addToCart(selectedCustomer.id, selectedProduct.id, qty);
       setCartVersion((v) => v + 1);
 
-      showToast(`${pendingProduct.namaProduk} ×${qty} ditambahkan ke keranjang`);
+      const varianText = selectedProduct.varian ? ` (${selectedProduct.varian})` : '';
+      showToast(`${selectedProduct.namaProduk}${varianText} ×${qty} ditambahkan ke keranjang`);
       setShowQtyPopup(false);
       setPendingProduct(null);
     },
@@ -335,7 +359,7 @@ export default function App() {
           {/* Qty Popup Overlay */}
           {showQtyPopup && pendingProduct && (
             <QtyPopup
-              product={pendingProduct}
+              productGroup={pendingProduct}
               currentBalance={currentBalance}
               onConfirm={handleQtyConfirm}
               onCancel={() => {

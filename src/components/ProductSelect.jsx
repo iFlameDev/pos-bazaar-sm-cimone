@@ -61,25 +61,45 @@ const ProductSelect = ({
   const [activeCategory, setActiveCategory] = useState('Semua');
   const [search, setSearch] = useState('');
 
-  const categories = useMemo(() => {
-    const cats = [...new Set(products.map((p) => p.kategori).filter(Boolean))];
-    return ['Semua', ...cats.sort()];
+  const groupedProducts = useMemo(() => {
+    const groups = {};
+    products.forEach((p) => {
+      const name = p.namaProduk;
+      if (!name) return;
+      if (!groups[name]) {
+        groups[name] = {
+          namaProduk: name,
+          kategori: p.kategori,
+          harga: p.harga, // assume same price
+          stokSekarang: 0,
+          variants: []
+        };
+      }
+      groups[name].stokSekarang += (Number(p.stokSekarang) || 0);
+      groups[name].variants.push(p);
+    });
+    return Object.values(groups);
   }, [products]);
+
+  const categories = useMemo(() => {
+    const cats = [...new Set(groupedProducts.map((g) => g.kategori).filter(Boolean))];
+    return ['Semua', ...cats.sort()];
+  }, [groupedProducts]);
 
   const isSearching = search.trim().length > 0;
 
   const filtered = useMemo(() => {
-    let result = products;
+    let result = groupedProducts;
 
     if (isSearching) {
       const q = search.toLowerCase().trim();
-      result = result.filter((p) => p.namaProduk?.toLowerCase().includes(q));
+      result = result.filter((g) => g.namaProduk?.toLowerCase().includes(q));
     } else if (activeCategory !== 'Semua') {
-      result = result.filter((p) => p.kategori === activeCategory);
+      result = result.filter((g) => g.kategori === activeCategory);
     }
 
     return result;
-  }, [products, activeCategory, search, isSearching]);
+  }, [groupedProducts, activeCategory, search, isSearching]);
 
   return (
     <div className="min-h-screen bg-slate-950 flex flex-col">
@@ -143,11 +163,11 @@ const ProductSelect = ({
       <main className="flex-1 max-w-5xl mx-auto w-full px-4 py-5 pb-24">
         {filtered.length > 0 ? (
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
-            {filtered.map((p, idx) => (
+            {filtered.map((g, idx) => (
               <ProductCard
-                key={p.id}
-                product={p}
-                onClick={onProductClick}
+                key={g.namaProduk}
+                product={g}
+                onClick={() => onProductClick(g.variants)}
                 index={idx}
               />
             ))}
