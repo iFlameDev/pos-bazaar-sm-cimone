@@ -25,6 +25,7 @@ const CartView = ({
   picName,
   onUpdateQty,
   onRemoveItem,
+  onChangeVariant,
   onSave,
   onBack,
 }) => {
