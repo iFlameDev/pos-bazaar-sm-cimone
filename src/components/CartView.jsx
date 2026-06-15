@@ -8,6 +8,7 @@ import {
   Loader2,
   Send,
   Trash2,
+  Edit2,
 } from 'lucide-react';
 import CustomerProfile from './CustomerProfile';
 import VariantPopup from './VariantPopup';
@@ -128,15 +129,19 @@ const CartView = ({
                       {item.product.namaProduk}
                     </h3>
                     {item.product.varian && (
-                      <button
-                        onClick={() => {
-                          const group = products.filter(p => p.namaProduk === item.product.namaProduk);
-                          setVariantPopupItem({ oldProductId: item.productId, productGroup: group });
-                        }}
-                        className="inline-block mt-0.5 text-[11px] font-medium px-2 py-0.5 rounded-md bg-violet-500/20 text-violet-300 border border-violet-500/30 hover:bg-violet-500/30 transition-colors focus:outline-none focus:ring-2 focus:ring-violet-500/40"
-                      >
-                        Varian: {item.product.varian}
-                      </button>
+                      <div className="flex items-center gap-1.5 mt-1">
+                        <span className="text-[11px] text-slate-400 font-medium">Varian:</span>
+                        <button
+                          onClick={() => {
+                            const group = products.filter(p => p.namaProduk === item.product.namaProduk);
+                            setVariantPopupItem({ oldProductId: item.productId, productGroup: group });
+                          }}
+                          className="inline-flex items-center gap-1.5 text-[11px] font-medium px-2 py-0.5 rounded-md bg-violet-500/20 text-violet-300 border border-violet-500/30 hover:bg-violet-500/30 transition-colors focus:outline-none focus:ring-2 focus:ring-violet-500/40"
+                        >
+                          <span>{item.product.varian}</span>
+                          <Edit2 className="w-2.5 h-2.5 opacity-70" />
+                        </button>
+                      </div>
                     )}
                     <p className="text-violet-400 font-bold text-base mt-0.5">
                       {formatCurrency(item.product.harga)}

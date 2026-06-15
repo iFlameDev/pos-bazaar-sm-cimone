@@ -8,6 +8,7 @@ import {
   Loader2,
   Save,
   Trash2,
+  Edit2,
 } from 'lucide-react';
 import CustomerProfile from './CustomerProfile';
 import { getCustomerCart, batchUpdateCart } from '../utils/api';
@@ -216,16 +217,20 @@ const PurchasedView = ({ customer, products, picName, onBack, onSaved }) => {
                         {prod.namaProduk}
                       </h3>
                       {prod.varian && (
-                        <button
-                          onClick={() => {
-                            const group = products.filter(p => p.namaProduk === prod.namaProduk);
-                            setVariantPopupItem({ idTransaksi: item.idTransaksi, currentProductId: item.idProduk, productGroup: group });
-                          }}
-                          disabled={isDeleted}
-                          className="inline-block mt-0.5 text-[11px] font-medium px-2 py-0.5 rounded-md bg-violet-500/20 text-violet-300 border border-violet-500/30 hover:bg-violet-500/30 transition-colors focus:outline-none focus:ring-2 focus:ring-violet-500/40 disabled:opacity-50 disabled:cursor-not-allowed"
-                        >
-                          Varian: {prod.varian}
-                        </button>
+                        <div className={`flex items-center gap-1.5 mt-1 ${isDeleted ? 'opacity-50' : ''}`}>
+                          <span className={`text-[11px] font-medium ${isDeleted ? 'line-through text-slate-500' : 'text-slate-400'}`}>Varian:</span>
+                          <button
+                            onClick={() => {
+                              const group = products.filter(p => p.namaProduk === prod.namaProduk);
+                              setVariantPopupItem({ idTransaksi: item.idTransaksi, currentProductId: item.idProduk, productGroup: group });
+                            }}
+                            disabled={isDeleted}
+                            className="inline-flex items-center gap-1.5 text-[11px] font-medium px-2 py-0.5 rounded-md bg-violet-500/20 text-violet-300 border border-violet-500/30 hover:bg-violet-500/30 transition-colors focus:outline-none focus:ring-2 focus:ring-violet-500/40 disabled:cursor-not-allowed"
+                          >
+                            <span className={isDeleted ? 'line-through' : ''}>{prod.varian}</span>
+                            <Edit2 className="w-2.5 h-2.5 opacity-70" />
+                          </button>
+                        </div>
                       )}
                       <p className="text-violet-400 font-bold text-base mt-0.5">
                         {formatCurrency(prod.harga)}
