@@ -70,20 +70,15 @@ const ScanView = ({
               
               if (foundProduct) {
                 const currentPending = stateRef.current.pendingProduct;
-                const currentQty = stateRef.current.qty;
 
-                if (currentPending && currentPending.id !== foundProduct.id) {
-                  // Auto add to cart if another product was pending
-                  handleAddToCart(currentPending, currentQty);
-                  // Set the new product
-                  setPendingProduct(foundProduct);
-                  setQty(1);
-                } else if (!currentPending) {
-                  // Just set the new product
-                  setPendingProduct(foundProduct);
-                  setQty(1);
+                // Ignore if there is already a product pending to be added
+                if (currentPending) {
+                  return;
                 }
-                // If it's the SAME product, we do nothing to prevent spamming
+
+                // Set the new product since nothing is pending
+                setPendingProduct(foundProduct);
+                setQty(1);
               }
             },
             (errorMessage) => {
