@@ -199,7 +199,7 @@ const PurchasedView = ({ customer, products, picName, onBack, onSaved }) => {
                   <div className="flex items-center gap-3">
                     <div className="flex-1 min-w-0">
                       <h3
-                        className={`font-semibold text-sm text-slate-100 truncate ${isDeleted ? 'line-through text-slate-500' : ''
+                        className={`font-semibold text-sm text-slate-100 ${isDeleted ? 'line-through text-slate-500' : ''
                           }`}
                       >
                         {prod.namaProduk} {prod.varian ? `(${prod.varian})` : ''}

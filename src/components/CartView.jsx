@@ -122,7 +122,7 @@ const CartView = ({
                 <div className="flex items-center gap-3">
                   {/* Product Info */}
                   <div className="flex-1 min-w-0">
-                    <h3 className="font-semibold text-sm text-slate-100 truncate">
+                    <h3 className="font-semibold text-sm text-slate-100">
                       {item.product.namaProduk} {item.product.varian ? `(${item.product.varian})` : ''}
                     </h3>
                     <p className="text-violet-400 font-bold text-base mt-0.5">

@@ -131,12 +131,7 @@ export default function App() {
     }
   }, []);
 
-  // Sync customer every time we enter ProductSelect (Step 2)
-  useEffect(() => {
-    if (step === 2 && selectedCustomer) {
-      syncCustomer(selectedCustomer.id);
-    }
-  }, [step, selectedCustomer, syncCustomer]);
+
 
   /** Step 1 → 2: customer selected */
   const handleSelectCustomer = useCallback(
@@ -144,8 +139,10 @@ export default function App() {
       setSelectedCustomer(customer);
       setStep(2);
       setCartVersion((v) => v + 1);
+      // Fetch customer balance strictly once during transition from Step 1 -> 2
+      syncCustomer(customer.id);
     },
-    []
+    [syncCustomer]
   );
 
   /** Product card clicked – prepare qty popup */
