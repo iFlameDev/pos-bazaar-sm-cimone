@@ -5,6 +5,7 @@ import ProductSelect from './components/ProductSelect';
 import QtyPopup from './components/QtyPopup';
 import CartView from './components/CartView';
 import PurchasedView from './components/PurchasedView';
+import ScanView from './components/ScanView';
 import { fetchMasterData, batchAddTransactions } from './utils/api';
 import { APP_NAME } from './config';
 import {
@@ -214,6 +215,9 @@ export default function App() {
   /** Open purchased view */
   const handleOpenPurchased = useCallback(() => setStep(4), []);
 
+  /** Open scan view */
+  const handleOpenScan = useCallback(() => setStep(5), []);
+
   /** Cart → back to products */
   const handleCartBack = useCallback(() => setStep(2), []);
 
@@ -325,6 +329,7 @@ export default function App() {
             onProductClick={handleProductClick}
             onOpenCart={handleOpenCart}
             onOpenPurchased={handleOpenPurchased}
+            onOpenScan={handleOpenScan}
             cartItemCount={cartItemCount}
             onBack={() => {
               setStep(1);
@@ -371,6 +376,24 @@ export default function App() {
           picName={picName}
           onBack={handlePurchasedBack}
           onSaved={handlePurchasedSaved}
+        />
+      )}
+      {/* ── Step 5: Scan View ── */}
+      {step === 5 && selectedCustomer && (
+        <ScanView
+          products={masterData.products}
+          customer={currentCustomer}
+          currentBalance={currentBalance}
+          cartDelta={cartTotal > 0 ? -cartTotal : 0}
+          cartItemCount={cartItemCount}
+          onBack={() => setStep(2)}
+          onOpenCart={handleOpenCart}
+          onOpenPurchased={handleOpenPurchased}
+          onAddToCart={(product, qty) => {
+            addToCart(selectedCustomer.id, product.id, qty);
+            setCartVersion((v) => v + 1);
+            showToast(`${product.namaProduk} ×${qty} ditambahkan ke keranjang`);
+          }}
         />
       )}
     </div>
