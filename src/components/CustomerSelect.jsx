@@ -23,15 +23,12 @@ const SkeletonCard = () => (
 const CustomerCard = ({ customer, onClick }) => (
   <button
     onClick={() => onClick(customer)}
-    className="glass-card text-left w-full p-3.5 transition-all duration-200 hover:scale-[1.03] hover:border-violet-500/40 hover:shadow-lg hover:shadow-violet-500/10 focus:outline-none focus:ring-2 focus:ring-violet-500/40"
+    className="glass-card text-left w-full p-3.5 transition-all duration-200 hover:scale-[1.03] hover:border-emerald-500/40 hover:shadow-lg hover:shadow-emerald-500/10 focus:outline-none focus:ring-2 focus:ring-emerald-500/40"
   >
     <div className="min-w-0">
-      <p className="font-semibold text-slate-100 text-base truncate">
+      <p className="font-semibold text-slate-100 text-base">
         {customer.nama}
       </p>
-      <span className="inline-block mt-1.5 px-2 py-0.5 text-[11px] font-medium rounded bg-slate-800 text-slate-400 border border-slate-700/50">
-        {customer.id}
-      </span>
     </div>
   </button>
 );
@@ -141,10 +138,12 @@ const CustomerSelect = ({ customers, picName, onSelectCustomer, onEditPic, onRef
           ) : totalFiltered > 0 ? (
             <div className="space-y-8">
               {grouped.map(([kelas, items]) => (
-                <div key={kelas} className="animate-fade-in">
-                  <div className="flex items-center gap-3 mb-4">
-                    <h3 className="text-sm font-bold text-slate-300 uppercase tracking-wider">{kelas}</h3>
-                    <div className="flex-1 h-px bg-slate-800"></div>
+                <div key={kelas} className="animate-fade-in relative">
+                  <div className="sticky top-[60px] z-20 bg-slate-950/95 backdrop-blur-md py-2 mb-3 -mx-4 px-4 sm:mx-0 sm:px-0">
+                    <div className="flex items-center gap-3">
+                      <h3 className="text-sm font-bold text-emerald-400 uppercase tracking-wider">{kelas}</h3>
+                      <div className="flex-1 h-px bg-emerald-500/30"></div>
+                    </div>
                   </div>
                   <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
                     {items.map((c) => (
