@@ -22,9 +22,14 @@ const ProductCard = ({ product, onClick, index }) => {
       }`}
       style={{ animationDelay: `${index * 40}ms` }}
     >
-      <h3 className="font-semibold text-slate-100 text-sm mb-1 line-clamp-2 leading-snug">
+      <h3 className="font-semibold text-slate-100 text-sm mb-1 leading-snug">
         {product.namaProduk}
       </h3>
+      {product.varian && (
+        <p className="text-[11px] text-slate-400 font-medium mb-1.5">
+          Varian: <span className="text-slate-300">{product.varian}</span>
+        </p>
+      )}
       <p className="text-violet-400 font-bold text-base mb-2.5">
         {formatCurrency(product.harga)}
       </p>

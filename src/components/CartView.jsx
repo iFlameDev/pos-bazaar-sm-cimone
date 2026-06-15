@@ -125,6 +125,11 @@ const CartView = ({
                     <h3 className="font-semibold text-sm text-slate-100 truncate">
                       {item.product.namaProduk}
                     </h3>
+                    {item.product.varian && (
+                      <p className="text-[11px] text-slate-400 font-medium mt-0.5">
+                        Varian: <span className="text-slate-300">{item.product.varian}</span>
+                      </p>
+                    )}
                     <p className="text-violet-400 font-bold text-base mt-0.5">
                       {formatCurrency(item.product.harga)}
                     </p>

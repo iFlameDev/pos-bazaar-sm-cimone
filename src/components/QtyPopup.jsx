@@ -51,6 +51,11 @@ const QtyPopup = ({ product, currentBalance, onConfirm, onCancel }) => {
         {/* Product Info */}
         <div className="text-center">
           <h2 className="text-xl font-bold text-slate-100 mb-1">{product.namaProduk}</h2>
+          {product.varian && (
+            <p className="text-sm text-slate-400 font-medium mb-1">
+              Varian: <span className="text-slate-300">{product.varian}</span>
+            </p>
+          )}
           <p className="text-violet-400 font-semibold text-lg">{formatCurrency(product.harga)}</p>
         </div>
 
