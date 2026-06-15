@@ -19,6 +19,7 @@ const ScanView = ({
   const [pendingProduct, setPendingProduct] = useState(null);
   const [qty, setQty] = useState(1);
   const [scannerReady, setScannerReady] = useState(false);
+  const [scannerError, setScannerError] = useState(null);
   const [cartShake, setCartShake] = useState(false);
   
   const scannerRef = useRef(null);
@@ -43,41 +44,68 @@ const ScanView = ({
 
     const startScanner = async () => {
       try {
-        html5QrCode.current = new Html5Qrcode("reader");
-        const config = { fps: 10, qrbox: { width: 250, height: 250 } };
-        
-        await html5QrCode.current.start(
-          { facingMode: "environment" },
-          config,
-          (decodedText) => {
-            // Callback when QR detected
-            const foundProduct = products.find(p => p.id === decodedText || p.kode === decodedText); // fallback if kode exists
-            
-            if (foundProduct) {
-              const currentPending = stateRef.current.pendingProduct;
-              const currentQty = stateRef.current.qty;
-
-              if (currentPending && currentPending.id !== foundProduct.id) {
-                // Auto add to cart if another product was pending
-                handleAddToCart(currentPending, currentQty);
-                // Set the new product
-                setPendingProduct(foundProduct);
-                setQty(1);
-              } else if (!currentPending) {
-                // Just set the new product
-                setPendingProduct(foundProduct);
-                setQty(1);
-              }
-              // If it's the SAME product, we do nothing to prevent spamming
+        const cameras = await Html5Qrcode.getCameras();
+        if (cameras && cameras.length > 0) {
+          // Default to first camera
+          let cameraId = cameras[0].id;
+          
+          // Try to find the back/environment camera
+          for (const camera of cameras) {
+            const label = camera.label.toLowerCase();
+            if (label.includes('back') || label.includes('environment') || label.includes('belakang')) {
+              cameraId = camera.id;
+              break;
             }
-          },
-          (errorMessage) => {
-            // Ignore normal scanning errors
           }
-        );
-        if (isComponentMounted) setScannerReady(true);
+
+          html5QrCode.current = new Html5Qrcode("reader");
+          const config = { fps: 10, qrbox: { width: 250, height: 250 } };
+          
+          await html5QrCode.current.start(
+            cameraId,
+            config,
+            (decodedText) => {
+              // Callback when QR detected
+              const foundProduct = products.find(p => p.id === decodedText || p.kode === decodedText); // fallback if kode exists
+              
+              if (foundProduct) {
+                const currentPending = stateRef.current.pendingProduct;
+                const currentQty = stateRef.current.qty;
+
+                if (currentPending && currentPending.id !== foundProduct.id) {
+                  // Auto add to cart if another product was pending
+                  handleAddToCart(currentPending, currentQty);
+                  // Set the new product
+                  setPendingProduct(foundProduct);
+                  setQty(1);
+                } else if (!currentPending) {
+                  // Just set the new product
+                  setPendingProduct(foundProduct);
+                  setQty(1);
+                }
+                // If it's the SAME product, we do nothing to prevent spamming
+              }
+            },
+            (errorMessage) => {
+              // Ignore normal scanning errors
+            }
+          );
+          if (isComponentMounted) setScannerReady(true);
+        } else {
+          if (isComponentMounted) setScannerError('Tidak ada kamera yang ditemukan di perangkat ini.');
+        }
       } catch (err) {
         console.error("Scanner error:", err);
+        if (isComponentMounted) {
+          let errorMsg = err?.message || String(err);
+          if (errorMsg.includes('NotAllowedError') || errorMsg.includes('Permission denied')) {
+            setScannerError('Izin kamera ditolak. Mohon izinkan akses kamera di pengaturan browser.');
+          } else if (window.location.protocol === 'http:' && window.location.hostname !== 'localhost') {
+            setScannerError('Browser memblokir akses kamera. Akses kamera di HP membutuhkan HTTPS atau localhost.');
+          } else {
+            setScannerError('Gagal mengakses kamera: ' + errorMsg);
+          }
+        }
       }
     };
 
@@ -125,9 +153,24 @@ const ScanView = ({
       <main className="flex-1 flex flex-col relative w-full max-w-5xl mx-auto">
         <div className="w-full flex-1 bg-black flex items-center justify-center overflow-hidden relative">
           <div id="reader" className="w-full h-full max-w-md mx-auto" ref={scannerRef}></div>
-          {!scannerReady && (
+          {!scannerReady && !scannerError && (
             <div className="absolute inset-0 flex items-center justify-center bg-slate-900/80 text-white z-10">
               <p className="animate-pulse">Memulai Kamera...</p>
+            </div>
+          )}
+          {scannerError && (
+            <div className="absolute inset-0 flex flex-col items-center justify-center bg-slate-900 text-center px-6 z-10">
+              <div className="w-16 h-16 rounded-full bg-rose-500/20 flex items-center justify-center mb-4">
+                <span className="text-2xl">📷</span>
+              </div>
+              <h3 className="text-lg font-bold text-slate-100 mb-2">Kamera Bermasalah</h3>
+              <p className="text-sm text-slate-400 mb-6">{scannerError}</p>
+              <button 
+                onClick={() => window.location.reload()}
+                className="px-6 py-2.5 bg-violet-600 hover:bg-violet-700 text-white font-medium rounded-xl transition-colors"
+              >
+                Muat Ulang Halaman
+              </button>
             </div>
           )}
         </div>
