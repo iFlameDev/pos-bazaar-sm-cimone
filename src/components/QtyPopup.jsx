@@ -6,13 +6,14 @@ const formatCurrency = (amount) =>
 
 const QtyPopup = ({ productGroup, currentBalance, onConfirm, onCancel }) => {
   const [qty, setQty] = useState(1);
-  const [selectedVariant, setSelectedVariant] = useState(null);
+  const [selectedVariant, setSelectedVariant] = useState(productGroup.length === 1 ? productGroup[0] : null);
 
   const baseProduct = productGroup[0];
+  const currentPrice = selectedVariant ? selectedVariant.harga : baseProduct.harga;
   const maxByStock = selectedVariant ? selectedVariant.stokSekarang : 0;
 
   const handleQtyChange = (newQty) => {
-    if (productGroup.length > 0 && !selectedVariant) return;
+    if (!selectedVariant) return;
     const clamped = Math.max(1, Math.min(newQty, maxByStock));
     setQty(clamped);
   };
@@ -29,13 +30,13 @@ const QtyPopup = ({ productGroup, currentBalance, onConfirm, onCancel }) => {
     }
   };
 
-  const subtotal = qty * baseProduct.harga;
+  const subtotal = qty * currentPrice;
   const remainingBalance = currentBalance - subtotal;
   const balanceRef = useRef(null);
   const [shaking, setShaking] = useState(false);
 
   const handleAddToCart = () => {
-    if (productGroup.length > 0 && !selectedVariant) return;
+    if (!selectedVariant) return;
     if (remainingBalance < 0) {
       setShaking(true);
       setTimeout(() => setShaking(false), 500);
@@ -54,12 +55,14 @@ const QtyPopup = ({ productGroup, currentBalance, onConfirm, onCancel }) => {
       <div className="animate-bounce-in glass-card w-full max-w-sm mx-4 p-6 space-y-5">
         {/* Product Info */}
         <div className="text-center">
-          <h2 className="text-xl font-bold text-slate-100 mb-1">{baseProduct.namaProduk}</h2>
-          <p className="text-violet-400 font-semibold text-lg">{formatCurrency(baseProduct.harga)}</p>
+          <h2 className="text-xl font-bold text-slate-100 mb-1">
+            {baseProduct.namaProduk} {selectedVariant && selectedVariant.varian ? `(${selectedVariant.varian})` : ''}
+          </h2>
+          <p className="text-violet-400 font-semibold text-lg">{formatCurrency(currentPrice)}</p>
         </div>
 
         {/* Variants Selection */}
-        {productGroup.length > 0 && (
+        {productGroup.length > 1 && (
           <div className="space-y-2">
             <p className="text-sm text-slate-400 text-center">Pilih Varian:</p>
             <div className="flex flex-wrap justify-center gap-2">
@@ -142,7 +145,7 @@ const QtyPopup = ({ productGroup, currentBalance, onConfirm, onCancel }) => {
           </button>
           <button
             onClick={handleAddToCart}
-            disabled={qty < 1 || (productGroup.length > 0 && !selectedVariant) || maxByStock < 1}
+            disabled={qty < 1 || !selectedVariant || maxByStock < 1}
             className="btn-primary flex-1 flex items-center justify-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed"
           >
             <ShoppingCart className="w-4 h-4" />
