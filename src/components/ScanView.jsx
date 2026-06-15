@@ -165,9 +165,11 @@ const ScanView = ({
               <div className="text-center">
                 <h2 className="text-xl font-bold text-slate-100 mb-1 line-clamp-1">{pendingProduct.namaProduk}</h2>
                 {pendingProduct.varian && (
-                  <p className="text-sm text-slate-400 font-medium mb-1">
-                    Varian: <span className="text-slate-300">{pendingProduct.varian}</span>
-                  </p>
+                  <div className="mt-2 mb-1">
+                    <span className="inline-block px-2.5 py-1 text-[11px] font-medium rounded-md bg-violet-500/20 text-violet-300 border border-violet-500/30">
+                      {pendingProduct.varian}
+                    </span>
+                  </div>
                 )}
                 <p className="text-violet-400 font-semibold text-lg">{formatCurrency(pendingProduct.harga)}</p>
               </div>

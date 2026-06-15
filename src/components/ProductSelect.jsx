@@ -26,9 +26,11 @@ const ProductCard = ({ product, onClick, index }) => {
         {product.namaProduk}
       </h3>
       {product.varian && (
-        <p className="text-[11px] text-slate-400 font-medium mb-1.5">
-          Varian: <span className="text-slate-300">{product.varian}</span>
-        </p>
+        <div className="mb-2.5">
+          <span className="inline-block px-2 py-0.5 text-[10px] font-medium rounded-md bg-violet-500/20 text-violet-300 border border-violet-500/30">
+            {product.varian}
+          </span>
+        </div>
       )}
       <p className="text-violet-400 font-bold text-base mb-2.5">
         {formatCurrency(product.harga)}
