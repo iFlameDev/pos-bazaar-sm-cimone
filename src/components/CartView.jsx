@@ -123,8 +123,13 @@ const CartView = ({
                   {/* Product Info */}
                   <div className="flex-1 min-w-0">
                     <h3 className="font-semibold text-sm text-slate-100">
-                      {item.product.namaProduk} {item.product.varian ? `(${item.product.varian})` : ''}
+                      {item.product.namaProduk}
                     </h3>
+                    {item.product.varian && (
+                      <p className="text-xs text-slate-400 mt-0.5">
+                        Varian: {item.product.varian}
+                      </p>
+                    )}
                     <p className="text-violet-400 font-bold text-base mt-0.5">
                       {formatCurrency(item.product.harga)}
                     </p>
