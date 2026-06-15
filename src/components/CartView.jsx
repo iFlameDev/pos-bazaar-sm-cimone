@@ -10,6 +10,7 @@ import {
   Trash2,
 } from 'lucide-react';
 import CustomerProfile from './CustomerProfile';
+import VariantPopup from './VariantPopup';
 
 const formatCurrency = (amount) =>
   new Intl.NumberFormat('id-ID').format(amount);
@@ -27,6 +28,7 @@ const CartView = ({
   onBack,
 }) => {
   const [saving, setSaving] = useState(false);
+  const [variantPopupItem, setVariantPopupItem] = useState(null); // { oldProductId, productGroup }
 
   /* ── Product lookup helper ───────────────────────────────── */
   const getProduct = useCallback(
@@ -126,9 +128,15 @@ const CartView = ({
                       {item.product.namaProduk}
                     </h3>
                     {item.product.varian && (
-                      <p className="text-xs text-slate-400 mt-0.5">
+                      <button
+                        onClick={() => {
+                          const group = products.filter(p => p.namaProduk === item.product.namaProduk);
+                          setVariantPopupItem({ oldProductId: item.productId, productGroup: group });
+                        }}
+                        className="inline-block mt-0.5 text-[11px] font-medium px-2 py-0.5 rounded-md bg-violet-500/20 text-violet-300 border border-violet-500/30 hover:bg-violet-500/30 transition-colors focus:outline-none focus:ring-2 focus:ring-violet-500/40"
+                      >
                         Varian: {item.product.varian}
-                      </p>
+                      </button>
                     )}
                     <p className="text-violet-400 font-bold text-base mt-0.5">
                       {formatCurrency(item.product.harga)}
@@ -217,6 +225,19 @@ const CartView = ({
             </div>
           </div>
         </div>
+      )}
+
+      {/* ── Variant Popup ── */}
+      {variantPopupItem && (
+        <VariantPopup
+          productGroup={variantPopupItem.productGroup}
+          currentVariantId={variantPopupItem.oldProductId}
+          onSelect={(newProductId) => {
+            onChangeVariant(variantPopupItem.oldProductId, newProductId);
+            setVariantPopupItem(null);
+          }}
+          onClose={() => setVariantPopupItem(null)}
+        />
       )}
     </div>
   );

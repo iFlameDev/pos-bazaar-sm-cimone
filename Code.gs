@@ -299,6 +299,12 @@ function handleBatchUpdateCart(payload) {
         if (newQty > 0) {
           // Regular update
           data[i][colUpdatePic] = upd.updatePic || "";
+          if (upd.idProduk) {
+            var colIdProduk = headers.indexOf("ID Produk");
+            if (colIdProduk !== -1) {
+              data[i][colIdProduk] = upd.idProduk;
+            }
+          }
         } else {
           // Soft delete (qty === 0)
           data[i][colDeletePic] = upd.deletePic || "";

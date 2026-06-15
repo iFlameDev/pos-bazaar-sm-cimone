@@ -11,6 +11,7 @@ import {
 } from 'lucide-react';
 import CustomerProfile from './CustomerProfile';
 import { getCustomerCart, batchUpdateCart } from '../utils/api';
+import VariantPopup from './VariantPopup';
 
 const formatCurrency = (amount) =>
   new Intl.NumberFormat('id-ID').format(amount);
@@ -20,6 +21,7 @@ const PurchasedView = ({ customer, products, picName, onBack, onSaved }) => {
   const [originalItems, setOriginalItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
+  const [variantPopupItem, setVariantPopupItem] = useState(null);
   var flag = 0;
   /* ── Fetch purchased items on mount ──────────────────────── */
   useEffect(() => {
@@ -90,6 +92,14 @@ const PurchasedView = ({ customer, products, picName, onBack, onSaved }) => {
     );
   }, []);
 
+  const handleChangeVariant = useCallback((idTransaksi, newProductId) => {
+    setCartItems((prev) =>
+      prev.map((item) =>
+        item.idTransaksi === idTransaksi ? { ...item, idProduk: newProductId } : item
+      )
+    );
+  }, []);
+
   /* ── Detect changes ──────────────────────────────────────── */
   const changedItems = useMemo(() => {
     return cartItems
@@ -98,7 +108,7 @@ const PurchasedView = ({ customer, products, picName, onBack, onSaved }) => {
           (o) => o.idTransaksi === item.idTransaksi
         );
         if (!original) return null;
-        if (item.qty === original.qty) return null;
+        if (item.qty === original.qty && item.idProduk === original.idProduk) return null;
 
         if (item.qty === 0) {
           return {
@@ -111,6 +121,7 @@ const PurchasedView = ({ customer, products, picName, onBack, onSaved }) => {
         return {
           idTransaksi: item.idTransaksi,
           qty: item.qty,
+          idProduk: item.idProduk,
           updatePic: picName,
         };
       })
@@ -187,7 +198,7 @@ const PurchasedView = ({ customer, products, picName, onBack, onSaved }) => {
               const original = originalItems.find(
                 (o) => o.idTransaksi === item.idTransaksi
               );
-              const hasChanged = original && item.qty !== original.qty;
+              const hasChanged = original && (item.qty !== original.qty || item.idProduk !== original.idProduk);
               const subtotal = item.qty * prod.harga;
 
               return (
@@ -205,9 +216,16 @@ const PurchasedView = ({ customer, products, picName, onBack, onSaved }) => {
                         {prod.namaProduk}
                       </h3>
                       {prod.varian && (
-                        <p className={`text-xs mt-0.5 ${isDeleted ? 'line-through text-slate-500' : 'text-slate-400'}`}>
+                        <button
+                          onClick={() => {
+                            const group = products.filter(p => p.namaProduk === prod.namaProduk);
+                            setVariantPopupItem({ idTransaksi: item.idTransaksi, currentProductId: item.idProduk, productGroup: group });
+                          }}
+                          disabled={isDeleted}
+                          className="inline-block mt-0.5 text-[11px] font-medium px-2 py-0.5 rounded-md bg-violet-500/20 text-violet-300 border border-violet-500/30 hover:bg-violet-500/30 transition-colors focus:outline-none focus:ring-2 focus:ring-violet-500/40 disabled:opacity-50 disabled:cursor-not-allowed"
+                        >
                           Varian: {prod.varian}
-                        </p>
+                        </button>
                       )}
                       <p className="text-violet-400 font-bold text-base mt-0.5">
                         {formatCurrency(prod.harga)}
@@ -299,6 +317,19 @@ const PurchasedView = ({ customer, products, picName, onBack, onSaved }) => {
           </div>
         </div>
       </div>
+
+      {/* ── Variant Popup ── */}
+      {variantPopupItem && (
+        <VariantPopup
+          productGroup={variantPopupItem.productGroup}
+          currentVariantId={variantPopupItem.currentProductId}
+          onSelect={(newProductId) => {
+            handleChangeVariant(variantPopupItem.idTransaksi, newProductId);
+            setVariantPopupItem(null);
+          }}
+          onClose={() => setVariantPopupItem(null)}
+        />
+      )}
     </div>
   );
 };

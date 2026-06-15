@@ -80,6 +80,30 @@ export function removeFromCart(customerId, productId) {
 }
 
 /**
+ * Change the variant (productId) of an existing cart item.
+ * @param {string} customerId
+ * @param {string} oldProductId
+ * @param {string} newProductId
+ */
+export function changeCartItemVariant(customerId, oldProductId, newProductId) {
+  let cart = getCart(customerId);
+  const oldItem = cart.find((item) => item.productId === oldProductId);
+  
+  if (oldItem) {
+    const qty = oldItem.qty;
+    cart = cart.filter((item) => item.productId !== oldProductId);
+    
+    const existingNew = cart.find((item) => item.productId === newProductId);
+    if (existingNew) {
+      existingNew.qty += qty;
+    } else {
+      cart.push({ productId: newProductId, qty, addedAt: new Date().toISOString() });
+    }
+    localStorage.setItem(getCartKey(customerId), JSON.stringify(cart));
+  }
+}
+
+/**
  * Clear the entire cart for a customer.
  * @param {string} customerId
  */

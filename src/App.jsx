@@ -19,6 +19,7 @@ import {
   addToCart,
   updateCartItem,
   removeFromCart,
+  changeCartItemVariant,
   clearCart,
   getCartItemCount,
   getCartTotal,
@@ -272,6 +273,16 @@ export default function App() {
     [selectedCustomer]
   );
 
+  /** Handle cart item variant change */
+  const handleCartChangeVariant = useCallback(
+    (oldProductId, newProductId) => {
+      if (!selectedCustomer) return;
+      changeCartItemVariant(selectedCustomer.id, oldProductId, newProductId);
+      setCartVersion((v) => v + 1);
+    },
+    [selectedCustomer]
+  );
+
   // ───────────────────── Derived state ─────────────────────
 
   const currentCustomer =
@@ -336,37 +347,39 @@ export default function App() {
       )}
 
       {/* ── Step 2: Product Select ── */}
-      {step === 2 && selectedCustomer && (
-        <>
-          <ProductSelect
-            products={masterData.products}
-            customer={currentCustomer}
-            currentBalance={currentBalance}
-            cartDelta={cartTotal > 0 ? -cartTotal : 0}
-            onProductClick={handleProductClick}
-            onOpenCart={handleOpenCart}
-            onOpenPurchased={handleOpenPurchased}
-            cartItemCount={cartItemCount}
-            onBack={() => {
-              setStep(1);
-              setSelectedCustomer(null);
-            }}
-          />
-
-          {/* Qty Popup Overlay */}
-          {showQtyPopup && pendingProduct && (
-            <QtyPopup
-              productGroup={pendingProduct}
+      <div className={step === 2 && selectedCustomer ? 'block' : 'hidden'}>
+        {selectedCustomer && (
+          <>
+            <ProductSelect
+              products={masterData.products}
+              customer={currentCustomer}
               currentBalance={currentBalance}
-              onConfirm={handleQtyConfirm}
-              onCancel={() => {
-                setShowQtyPopup(false);
-                setPendingProduct(null);
+              cartDelta={cartTotal > 0 ? -cartTotal : 0}
+              onProductClick={handleProductClick}
+              onOpenCart={handleOpenCart}
+              onOpenPurchased={handleOpenPurchased}
+              cartItemCount={cartItemCount}
+              onBack={() => {
+                setStep(1);
+                setSelectedCustomer(null);
               }}
             />
-          )}
-        </>
-      )}
+
+            {/* Qty Popup Overlay */}
+            {showQtyPopup && pendingProduct && (
+              <QtyPopup
+                productGroup={pendingProduct}
+                currentBalance={currentBalance}
+                onConfirm={handleQtyConfirm}
+                onCancel={() => {
+                  setShowQtyPopup(false);
+                  setPendingProduct(null);
+                }}
+              />
+            )}
+          </>
+        )}
+      </div>
 
       {/* ── Step 3: Cart View (Offline Cart) ── */}
       {step === 3 && selectedCustomer && (
@@ -379,6 +392,7 @@ export default function App() {
           picName={picName}
           onUpdateQty={handleCartUpdateQty}
           onRemoveItem={handleCartRemoveItem}
+          onChangeVariant={handleCartChangeVariant}
           onSave={handleSaveCart}
           onBack={handleCartBack}
         />
