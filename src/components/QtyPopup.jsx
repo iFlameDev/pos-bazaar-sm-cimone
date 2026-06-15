@@ -56,7 +56,7 @@ const QtyPopup = ({ productGroup, currentBalance, onConfirm, onCancel }) => {
         {/* Product Info */}
         <div className="text-center">
           <h2 className="text-xl font-bold text-slate-100 mb-1">
-            {baseProduct.namaProduk} {selectedVariant && selectedVariant.varian ? `(${selectedVariant.varian})` : ''}
+            {baseProduct.namaProduk}
           </h2>
           <p className="text-violet-400 font-semibold text-lg">{formatCurrency(currentPrice)}</p>
         </div>
