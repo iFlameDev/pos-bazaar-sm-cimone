@@ -223,9 +223,6 @@ export default function App() {
     clearCart(selectedCustomer.id);
     setCartVersion((v) => v + 1);
 
-    // Update purchased count
-    setPurchasedItemCount((prev) => prev + cartItems.length);
-
     // Go back to product select
     setStep(2);
     showToast('Transaksi berhasil disimpan!');
