@@ -29,8 +29,8 @@ const CustomerCard = ({ customer, onClick }) => (
       {customer.nama}
     </p>
     <div className="flex items-center gap-1.5 text-slate-400">
-      <Wallet className="w-3.5 h-3.5" />
-      <span className="text-xs font-medium">Rp {formatCurrency(customer.saldoSekarang)}</span>
+      <Wallet className="w-4 h-4 text-emerald-400" />
+      <span className="text-sm font-bold text-emerald-400">{formatCurrency(customer.saldoSekarang)}</span>
     </div>
   </button>
 );

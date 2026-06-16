@@ -59,9 +59,9 @@ const QtyPopup = ({ product, currentBalance, onConfirm, onCancel, mode }) => {
     >
       <div className="animate-bounce-in glass-card w-full max-w-sm mx-4 p-6 space-y-5">
         <div className="text-center">
-          {baseProduct.gambarUrl && (
+          {(selectedVariant?.gambarUrl || baseProduct.gambarUrl) && (
             <div className="w-24 h-24 mx-auto mb-4 rounded-xl bg-slate-800/80 flex items-center justify-center overflow-hidden border border-slate-700/50 shadow-inner">
-              <img src={baseProduct.gambarUrl} alt={baseProduct.namaProduk} className="w-full h-full object-cover" />
+              <img src={selectedVariant?.gambarUrl || baseProduct.gambarUrl} alt={selectedVariant?.namaProduk || baseProduct.namaProduk} className="w-full h-full object-cover transition-opacity duration-300" />
             </div>
           )}
           <h2 className="text-xl font-bold text-slate-100 mb-1">
