@@ -125,6 +125,15 @@ const CartView = ({
                 className="glass-card p-4 transition-all duration-200"
               >
                 <div className="flex items-center gap-3">
+                  {/* Product Image Thumbnail */}
+                  <div className="w-12 h-12 rounded-lg bg-slate-800 flex items-center justify-center overflow-hidden shrink-0 border border-slate-700/50">
+                    {item.product.gambarUrl ? (
+                      <img src={item.product.gambarUrl} alt={item.product.namaProduk} className="w-full h-full object-cover" />
+                    ) : (
+                      <ShoppingBag className="w-5 h-5 text-slate-500" />
+                    )}
+                  </div>
+
                   {/* Product Info */}
                   <div className="flex-1 min-w-0">
                     <h3 className="font-semibold text-sm text-slate-100 truncate">
@@ -187,13 +196,6 @@ const CartView = ({
                       <Plus className="w-3.5 h-3.5" />
                     </button>
                   </div>
-                </div>
-
-                {/* Subtotal */}
-                <div className="flex items-center justify-end mt-2 pt-2 border-t border-slate-700/30">
-                  <span className="text-sm font-medium text-slate-300 tabular-nums">
-                    {formatCurrency(item.subtotal)}
-                  </span>
                 </div>
               </div>
             ))}

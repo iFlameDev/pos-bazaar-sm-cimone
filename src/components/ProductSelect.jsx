@@ -21,6 +21,15 @@ const ProductCard = ({ product, onClick, index, mode }) => {
       }`}
       style={{ animationDelay: `${index * 40}ms` }}
     >
+      {/* Product Image Thumbnail */}
+      <div className={`w-full aspect-[4/3] rounded-lg bg-slate-800/80 mb-3 flex items-center justify-center overflow-hidden border border-slate-700/50 ${outOfStock ? 'opacity-40 grayscale' : ''}`}>
+        {product.gambarUrl ? (
+          <img src={product.gambarUrl} alt={product.namaProduk} className="w-full h-full object-cover" />
+        ) : (
+          <Package className="w-8 h-8 text-slate-600" />
+        )}
+      </div>
+
       <h3 className="font-semibold text-slate-100 text-sm mb-1 line-clamp-2 leading-snug">
         {product.namaProduk}
       </h3>
@@ -81,6 +90,7 @@ const ProductSelect = ({
           namaProduk: name,
           kategori: p.kategori,
           harga: p.harga, // assume same price
+          gambarUrl: p.gambarUrl,
           stokSekarang: 0,
           variants: []
         };

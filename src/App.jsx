@@ -64,6 +64,16 @@ export default function App() {
     toastTimer.current = setTimeout(() => setToast(null), 3000);
   }, []);
 
+  const preloadImages = useCallback((products) => {
+    if (!products) return;
+    products.forEach((p) => {
+      if (p.gambarUrl) {
+        const img = new Image();
+        img.src = p.gambarUrl;
+      }
+    });
+  }, []);
+
   const loadMasterData = useCallback(
     async (forceRefresh = false) => {
       try {
@@ -72,6 +82,7 @@ export default function App() {
           const cached = getCachedMasterData();
           if (cached) {
             setMasterData(cached);
+            preloadImages(cached.products);
             return cached;
           }
         }
@@ -80,6 +91,7 @@ export default function App() {
         const data = await fetchMasterData();
         setMasterData(data);
         setCachedMasterData(data);
+        preloadImages(data.products);
         return data;
       } catch (err) {
         console.error('Failed to load master data:', err);

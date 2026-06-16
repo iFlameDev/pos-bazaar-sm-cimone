@@ -27,6 +27,11 @@ const VariantPopup = ({
         </button>
 
         <div className="text-center pt-2">
+          {baseProduct.gambarUrl && (
+            <div className="w-20 h-20 mx-auto mb-3 rounded-xl bg-slate-800/80 flex items-center justify-center overflow-hidden border border-slate-700/50 shadow-inner">
+              <img src={baseProduct.gambarUrl} alt={baseProduct.namaProduk} className="w-full h-full object-cover" />
+            </div>
+          )}
           <h2 className="text-lg font-bold text-slate-100 mb-1">
             Ganti Varian
           </h2>

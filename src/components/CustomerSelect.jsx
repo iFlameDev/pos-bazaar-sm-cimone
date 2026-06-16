@@ -23,12 +23,14 @@ const SkeletonCard = () => (
 const CustomerCard = ({ customer, onClick }) => (
   <button
     onClick={() => onClick(customer)}
-    className="glass-card text-left w-full p-3.5 transition-all duration-200 hover:scale-[1.03] hover:border-emerald-500/40 hover:shadow-lg hover:shadow-emerald-500/10 focus:outline-none focus:ring-2 focus:ring-emerald-500/40"
+    className="glass-card text-left w-full p-3.5 transition-all duration-200 hover:scale-[1.03] hover:border-emerald-500/40 hover:shadow-lg hover:shadow-emerald-500/10 focus:outline-none focus:ring-2 focus:ring-emerald-500/40 flex flex-col gap-1.5"
   >
-    <div className="min-w-0">
-      <p className="font-semibold text-slate-100 text-base">
-        {customer.nama}
-      </p>
+    <p className="font-semibold text-slate-100 text-base min-w-0 truncate w-full">
+      {customer.nama}
+    </p>
+    <div className="flex items-center gap-1.5 text-slate-400">
+      <Wallet className="w-3.5 h-3.5" />
+      <span className="text-xs font-medium">Rp {formatCurrency(customer.saldoSekarang)}</span>
     </div>
   </button>
 );

@@ -19,7 +19,8 @@ function syncMasterDataToSupabase() {
     "Harga": "harga",
     "Kategori": "kategori",
     "Stok Awal": "stokAwal",
-    "Stok Sekarang": "stokSekarang"
+    "Stok Sekarang": "stokSekarang",
+    "Gambar URL": "gambarUrl"
   });
 
   var customers = sheetToObjects("Customer", {
