@@ -1,98 +1,147 @@
 /**
- * POS System - Google Apps Script Backend
- * 
- * Handles all CRUD operations for the POS application via a single doPost endpoint.
- * Connected to a Google Sheet with 3 tabs: Stok, Customer, Transaksi.
+ * Background Sync Script - Supabase <-> Google Sheets
+ * Run this function via Time-Driven Triggers (Every 1 Minute)
  */
 
-// ============================================================
-// ENTRY POINTS
-// ============================================================
+var SUPABASE_URL = "https://nxtwjlseuackxexspfoe.supabase.co";
+var SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im54dHdqbHNldWFja3hleHNwZm9lIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE2MjE2NTYsImV4cCI6MjA5NzE5NzY1Nn0.U0AIsIxXp6NlDIw6rnhBQ6TKHmNIl-P52ZDzAFo5tFk";
 
-/**
- * GET endpoint – simple health-check / status message.
- */
-function doGet(e) {
-  var result = {
-    success: true,
-    message: "POS Backend is running.",
-    timestamp: new Date().toISOString()
-  };
-  return ContentService.createTextOutput(JSON.stringify(result))
-    .setMimeType(ContentService.MimeType.JSON);
+function triggerSync() {
+  syncMasterDataToSupabase();
+  syncTransactionsToSheet();
 }
 
-/**
- * POST endpoint – single entry point for all actions.
- * Expects JSON body with an "action" field.
- */
-function doPost(e) {
-  try {
-    var payload = JSON.parse(e.postData.contents);
-    var action = payload.action;
+function syncMasterDataToSupabase() {
+  var products = sheetToObjects("Stok", {
+    "ID": "id",
+    "Nama Produk": "namaProduk",
+    "Varian": "varian",
+    "Harga": "harga",
+    "Kategori": "kategori",
+    "Stok Awal": "stokAwal",
+    "Stok Sekarang": "stokSekarang"
+  });
 
-    var result;
+  var customers = sheetToObjects("Customer", {
+    "ID": "id",
+    "Nama": "nama",
+    "Kelas": "kelas",
+    "Saldo Awal": "saldoAwal",
+    "Saldo Sekarang": "saldoSekarang"
+  });
 
-    switch (action) {
-      case "GET_MASTER_DATA":
-        result = handleGetMasterData();
-        break;
-      case "ADD_TRANSACTION":
-        result = handleAddTransaction(payload);
-        break;
-      case "GET_CUSTOMER":
-        result = handleGetCustomer(payload);
-        break;
-      case "GET_CUSTOMER_CART":
-        result = handleGetCustomerCart(payload);
-        break;
-      case "BATCH_UPDATE_CART":
-        result = handleBatchUpdateCart(payload);
-        break;
-      case "BATCH_ADD_TRANSACTIONS":
-        result = handleBatchAddTransactions(payload);
-        break;
-      default:
-        result = { success: false, error: "Unknown action: " + action };
-    }
+  // Supabase REST API requires numerics for numeric columns. We should ensure they are parsed.
+  products = products.map(function(p) {
+    p.harga = Number(p.harga) || 0;
+    p.stokAwal = Number(p.stokAwal) || 0;
+    p.stokSekarang = Number(p.stokSekarang) || 0;
+    p.id = String(p.id);
+    return p;
+  });
 
-    return ContentService.createTextOutput(JSON.stringify(result))
-      .setMimeType(ContentService.MimeType.JSON);
+  customers = customers.map(function(c) {
+    c.saldoAwal = Number(c.saldoAwal) || 0;
+    c.saldoSekarang = Number(c.saldoSekarang) || 0;
+    c.id = String(c.id);
+    return c;
+  });
 
-  } catch (err) {
-    var errorResult = { success: false, error: err.toString() };
-    return ContentService.createTextOutput(JSON.stringify(errorResult))
-      .setMimeType(ContentService.MimeType.JSON);
+  if (products.length > 0) {
+    supabaseUpsert("products", products);
+  }
+
+  if (customers.length > 0) {
+    supabaseUpsert("customers", customers);
   }
 }
 
-// ============================================================
-// HELPERS
-// ============================================================
+function syncTransactionsToSheet() {
+  var response = UrlFetchApp.fetch(SUPABASE_URL + "/rest/v1/transactions?is_synced=eq.false", {
+    method: "get",
+    headers: {
+      "apikey": SUPABASE_KEY,
+      "Authorization": "Bearer " + SUPABASE_KEY
+    }
+  });
+  
+  var transactions = JSON.parse(response.getContentText());
+  
+  if (!transactions || transactions.length === 0) return;
 
-/**
- * Reads a sheet and converts it to an array of objects.
- *
- * @param {string} sheetName - Name of the sheet tab.
- * @param {Object} keyMap    - Maps header strings to camelCase keys.
- *                             e.g. { "Nama Produk": "namaProduk" }
- * @returns {Object[]} Array of row objects.
- */
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Transaksi");
+  if (!sheet) return;
+
+  var rows = [];
+  var idsToUpdate = [];
+
+  for (var i = 0; i < transactions.length; i++) {
+    var t = transactions[i];
+    rows.push([
+      t.idTransaksi,
+      t.idProduk,
+      t.qty,
+      t.idCustomer,
+      t.transaksiPic,
+      "",
+      ""
+    ]);
+    idsToUpdate.push(t.idTransaksi);
+  }
+
+  var lastRow = Math.max(sheet.getLastRow(), 1);
+  sheet.getRange(lastRow + 1, 1, rows.length, 7).setValues(rows);
+
+  // Split IDs into chunks of 100 to avoid too long URLs
+  var chunkSize = 100;
+  for (var i = 0; i < idsToUpdate.length; i += chunkSize) {
+    var chunk = idsToUpdate.slice(i, i + chunkSize);
+    var url = SUPABASE_URL + "/rest/v1/transactions?idTransaksi=in.(" + chunk.join(",") + ")";
+    
+    UrlFetchApp.fetch(url, {
+      method: "patch",
+      headers: {
+        "apikey": SUPABASE_KEY,
+        "Authorization": "Bearer " + SUPABASE_KEY,
+        "Content-Type": "application/json",
+        "Prefer": "return=minimal"
+      },
+      payload: JSON.stringify({ is_synced: true }),
+      muteHttpExceptions: true
+    });
+  }
+}
+
+function supabaseUpsert(tableName, data) {
+  var url = SUPABASE_URL + "/rest/v1/" + tableName;
+  
+  var options = {
+    method: "post",
+    headers: {
+      "apikey": SUPABASE_KEY,
+      "Authorization": "Bearer " + SUPABASE_KEY,
+      "Content-Type": "application/json",
+      "Prefer": "resolution=merge-duplicates"
+    },
+    payload: JSON.stringify(data),
+    muteHttpExceptions: true
+  };
+  
+  var response = UrlFetchApp.fetch(url, options);
+  Logger.log("Upsert " + tableName + ": " + response.getContentText());
+}
+
 function sheetToObjects(sheetName, keyMap) {
   var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(sheetName);
-  if (!sheet) {
-    throw new Error("Sheet '" + sheetName + "' not found.");
-  }
+  if (!sheet) return [];
 
   var data = sheet.getDataRange().getValues();
-  if (data.length < 2) return []; // header only or empty
+  if (data.length < 2) return [];
 
   var headers = data[0];
   var rows = [];
 
   for (var i = 1; i < data.length; i++) {
     var row = data[i];
-    // Skip completely empty rows
     if (row.every(function(cell) { return cell === "" || cell === null || cell === undefined; })) {
       continue;
     }
@@ -107,265 +156,4 @@ function sheetToObjects(sheetName, keyMap) {
   }
 
   return rows;
-}
-
-// ============================================================
-// ACTION HANDLERS
-// ============================================================
-
-/**
- * GET_MASTER_DATA
- * Reads 'Stok' and 'Customer' sheets, returns products and customers.
- */
-function handleGetMasterData() {
-  var productKeyMap = {
-    "ID": "id",
-    "Nama Produk": "namaProduk",
-    "Varian": "varian",
-    "Harga": "harga",
-    "Kategori": "kategori",
-    "Stok Awal": "stokAwal",
-    "Stok Sekarang": "stokSekarang"
-  };
-
-  var customerKeyMap = {
-    "ID": "id",
-    "Nama": "nama",
-    "Kelas": "kelas",
-    "Saldo Awal": "saldoAwal",
-    "Saldo Sekarang": "saldoSekarang"
-  };
-
-  var products = sheetToObjects("Stok", productKeyMap);
-  var customers = sheetToObjects("Customer", customerKeyMap);
-
-  return {
-    success: true,
-    products: products,
-    customers: customers
-  };
-}
-
-/**
- * GET_CUSTOMER
- * Reads 'Customer' sheet, returns a single customer object by ID.
- */
-function handleGetCustomer(payload) {
-  var idCustomer = payload.idCustomer;
-  if (!idCustomer) return { success: false, error: "Missing idCustomer" };
-
-  var customerKeyMap = {
-    "ID": "id",
-    "Nama": "nama",
-    "Kelas": "kelas",
-    "Saldo Awal": "saldoAwal",
-    "Saldo Sekarang": "saldoSekarang"
-  };
-
-  var customers = sheetToObjects("Customer", customerKeyMap);
-  var found = null;
-  
-  for (var i = 0; i < customers.length; i++) {
-    if (String(customers[i].id) === String(idCustomer)) {
-      found = customers[i];
-      break;
-    }
-  }
-
-  if (found) {
-    return { success: true, customer: found };
-  } else {
-    return { success: false, error: "Customer not found" };
-  }
-}
-
-/**
- * ADD_TRANSACTION
- * Appends a new transaction row to the 'Transaksi' sheet.
- * Uses LockService to prevent race conditions.
- */
-function handleAddTransaction(payload) {
-  var lock = LockService.getScriptLock();
-  try {
-    lock.waitLock(10000); // wait up to 10 seconds
-
-    var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Transaksi");
-    if (!sheet) {
-      throw new Error("Sheet 'Transaksi' not found.");
-    }
-
-    var row = [
-      payload.idTransaksi,
-      payload.idProduk,
-      payload.qty,
-      payload.idCustomer,
-      payload.transaksiPic,
-      "",  // Update PIC (empty on creation)
-      ""   // Delete PIC (empty on creation)
-    ];
-
-    sheet.appendRow(row);
-
-    return { success: true };
-
-  } catch (err) {
-    throw err;
-  } finally {
-    lock.releaseLock();
-  }
-}
-
-/**
- * GET_CUSTOMER_CART
- * Returns all non-soft-deleted transactions (Qty > 0) for a given customer.
- */
-function handleGetCustomerCart(payload) {
-  var idCustomer = payload.idCustomer;
-
-  var transactionKeyMap = {
-    "ID Transaksi": "idTransaksi",
-    "ID Produk": "idProduk",
-    "Qty": "qty",
-    "ID Customer": "idCustomer",
-    "Transaksi PIC": "transaksiPic",
-    "Update PIC": "updatePic",
-    "Delete PIC": "deletePic"
-  };
-
-  var allTransactions = sheetToObjects("Transaksi", transactionKeyMap);
-
-  var filtered = allTransactions.filter(function(t) {
-    return String(t.idCustomer) === String(idCustomer) && Number(t.qty) > 0;
-  });
-
-  return {
-    success: true,
-    transactions: filtered
-  };
-}
-
-/**
- * BATCH_UPDATE_CART
- * Updates multiple transaction rows in-memory and writes back with setValues().
- * Uses LockService to prevent race conditions.
- *
- * For each transaction in payload.transactions:
- *   - qty > 0  → update Qty cell and Update PIC cell
- *   - qty === 0 → set Qty to 0 and fill Delete PIC (soft delete)
- */
-function handleBatchUpdateCart(payload) {
-  var lock = LockService.getScriptLock();
-  try {
-    lock.waitLock(10000);
-
-    var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Transaksi");
-    if (!sheet) {
-      throw new Error("Sheet 'Transaksi' not found.");
-    }
-
-    var data = sheet.getDataRange().getValues();
-    if (data.length < 2) {
-      return { success: true }; // nothing to update
-    }
-
-    var headers = data[0];
-
-    // Resolve column indices
-    var colIdTransaksi = headers.indexOf("ID Transaksi");
-    var colQty = headers.indexOf("Qty");
-    var colUpdatePic = headers.indexOf("Update PIC");
-    var colDeletePic = headers.indexOf("Delete PIC");
-
-    if (colIdTransaksi === -1 || colQty === -1 || colUpdatePic === -1 || colDeletePic === -1) {
-      throw new Error("Transaksi sheet is missing required headers.");
-    }
-
-    // Build a lookup of incoming updates keyed by idTransaksi
-    var updates = {};
-    for (var u = 0; u < payload.transactions.length; u++) {
-      var t = payload.transactions[u];
-      updates[String(t.idTransaksi)] = t;
-    }
-
-    // Walk through all data rows and apply updates
-    for (var i = 1; i < data.length; i++) {
-      var rowId = String(data[i][colIdTransaksi]);
-      if (updates.hasOwnProperty(rowId)) {
-        var upd = updates[rowId];
-        var newQty = Number(upd.qty);
-
-        data[i][colQty] = newQty;
-
-        if (newQty > 0) {
-          // Regular update
-          data[i][colUpdatePic] = upd.updatePic || "";
-          if (upd.idProduk) {
-            var colIdProduk = headers.indexOf("ID Produk");
-            if (colIdProduk !== -1) {
-              data[i][colIdProduk] = upd.idProduk;
-            }
-          }
-        } else {
-          // Soft delete (qty === 0)
-          data[i][colDeletePic] = upd.deletePic || "";
-        }
-      }
-    }
-
-    // Write the entire data block back to the sheet
-    sheet.getRange(1, 1, data.length, data[0].length).setValues(data);
-
-    return { success: true };
-
-  } catch (err) {
-    throw err;
-  } finally {
-    lock.releaseLock();
-  }
-}
-
-/**
- * BATCH_ADD_TRANSACTIONS
- * Appends multiple transaction rows at once using setValues() for efficiency.
- * Uses LockService to prevent race conditions.
- */
-function handleBatchAddTransactions(payload) {
-  var lock = LockService.getScriptLock();
-  try {
-    lock.waitLock(10000);
-
-    var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Transaksi");
-    if (!sheet) {
-      throw new Error("Sheet 'Transaksi' not found.");
-    }
-
-    var transactions = payload.transactions;
-    if (!transactions || transactions.length === 0) {
-      return { success: true };
-    }
-
-    var rows = [];
-    for (var i = 0; i < transactions.length; i++) {
-      var t = transactions[i];
-      rows.push([
-        t.idTransaksi,
-        t.idProduk,
-        t.qty,
-        t.idCustomer,
-        t.transaksiPic,
-        "",  // Update PIC
-        ""   // Delete PIC
-      ]);
-    }
-
-    var lastRow = sheet.getLastRow();
-    sheet.getRange(lastRow + 1, 1, rows.length, 7).setValues(rows);
-
-    return { success: true };
-
-  } catch (err) {
-    throw err;
-  } finally {
-    lock.releaseLock();
-  }
 }
