@@ -1,13 +1,12 @@
 import React, { useState, useMemo } from 'react';
-import { ArrowLeft, Search, ShoppingCart, ClipboardList, Package, ScanLine } from 'lucide-react';
+import { ShoppingCart, ArrowLeft, Search, Package, ClipboardList, ScanLine } from 'lucide-react';
 import CustomerProfile from './CustomerProfile';
 
 const formatCurrency = (amount) =>
   new Intl.NumberFormat('id-ID').format(amount);
 
-/* ── Product Card ──────────────────────────────────────────── */
-const ProductCard = ({ product, onClick, index }) => {
-  const outOfStock = product.stokSekarang <= 0;
+const ProductCard = ({ product, onClick, index, mode }) => {
+  const outOfStock = mode === 'variant' ? product.stokSekarang <= 0 : product.stokSekarang <= 0;
 
   return (
     <button
@@ -22,48 +21,85 @@ const ProductCard = ({ product, onClick, index }) => {
       }`}
       style={{ animationDelay: `${index * 40}ms` }}
     >
-      <h3 className="font-semibold text-slate-100 text-sm mb-1 leading-snug">
+      <h3 className="font-semibold text-slate-100 text-sm mb-1 line-clamp-2 leading-snug">
         {product.namaProduk}
       </h3>
-      {product.varian && (
-        <div className="mb-2.5">
-          <span className="inline-block px-2 py-0.5 text-[10px] font-medium rounded-md bg-violet-500/20 text-violet-300 border border-violet-500/30">
-            {product.varian}
+      {mode === 'scan' && product.varian && (
+        <span className="inline-block px-1.5 py-0.5 mb-2 rounded bg-violet-500/20 text-violet-300 border border-violet-500/30 text-[10px] font-medium tracking-wide">
+          {product.varian}
+        </span>
+      )}
+      <p className={`text-violet-400 font-bold text-base ${mode === 'variant' ? 'mb-2.5' : 'mb-0'}`}>
+        {formatCurrency(product.harga)}
+      </p>
+      
+      {mode === 'variant' && (
+        <div className="flex items-center justify-between">
+          <span
+            className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-medium ${
+              outOfStock
+                ? 'bg-rose-500/20 text-rose-400 border border-rose-500/20'
+                : product.stokSekarang <= 5
+                ? 'bg-amber-500/20 text-amber-400 border border-amber-500/20'
+                : 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/20'
+            }`}
+          >
+            <Package className="w-3 h-3" />
+            {outOfStock ? 'Habis' : `Stok: ${product.stokSekarang}`}
           </span>
         </div>
       )}
-      <p className="text-violet-400 font-bold text-base">
-        {formatCurrency(product.harga)}
-      </p>
     </button>
   );
 };
 
-/* ── Main Component ────────────────────────────────────────── */
 const ProductSelect = ({
   products,
   customer,
   onProductClick,
   onOpenCart,
   onOpenPurchased,
+  onOpenScan,
   cartItemCount,
   onBack,
   currentBalance,
   cartDelta,
-  onOpenScan,
+  mode
 }) => {
   const [activeCategory, setActiveCategory] = useState('Semua');
   const [search, setSearch] = useState('');
 
+  const groupedProducts = useMemo(() => {
+    if (mode !== 'variant') return [];
+    const groups = {};
+    products.forEach((p) => {
+      const name = p.namaProduk;
+      if (!name) return;
+      if (!groups[name]) {
+        groups[name] = {
+          namaProduk: name,
+          kategori: p.kategori,
+          harga: p.harga, // assume same price
+          stokSekarang: 0,
+          variants: []
+        };
+      }
+      groups[name].stokSekarang += (Number(p.stokSekarang) || 0);
+      groups[name].variants.push(p);
+    });
+    return Object.values(groups);
+  }, [products, mode]);
+
   const categories = useMemo(() => {
-    const cats = [...new Set(products.map((p) => p.kategori).filter(Boolean))];
+    const source = mode === 'variant' ? groupedProducts : products;
+    const cats = [...new Set(source.map((p) => p.kategori).filter(Boolean))];
     return ['Semua', ...cats.sort()];
-  }, [products]);
+  }, [groupedProducts, products, mode]);
 
   const isSearching = search.trim().length > 0;
 
   const filtered = useMemo(() => {
-    let result = products;
+    let result = mode === 'variant' ? groupedProducts : products;
 
     if (isSearching) {
       const q = search.toLowerCase().trim();
@@ -73,14 +109,12 @@ const ProductSelect = ({
     }
 
     return result;
-  }, [products, activeCategory, search, isSearching]);
+  }, [groupedProducts, products, activeCategory, search, isSearching, mode]);
 
   return (
     <div className="min-h-screen bg-slate-950 flex flex-col">
-      {/* ── Sticky Top Section ──────────────────────── */}
       <div className="sticky top-0 z-30 bg-slate-950/80 backdrop-blur-xl border-b border-slate-800/60">
         <div className="max-w-5xl mx-auto px-4 py-3 space-y-3">
-          {/* Back Button + Title */}
           <div className="flex items-center gap-3">
             <button
               onClick={onBack}
@@ -91,14 +125,22 @@ const ProductSelect = ({
             <h1 className="text-lg font-bold text-slate-100">Pilih Produk</h1>
           </div>
 
-          {/* Customer Profile */}
           <CustomerProfile
             customer={customer}
             adjustedBalance={currentBalance}
             cartDelta={cartDelta}
           />
 
-          {/* Category Tabs */}
+          {mode === 'scan' && (
+            <button
+              onClick={onOpenScan}
+              className="w-full flex items-center justify-center gap-2 bg-emerald-600/20 border border-emerald-500/30 text-emerald-400 py-3 rounded-xl hover:bg-emerald-600/30 transition-all font-medium"
+            >
+              <ScanLine className="w-5 h-5" />
+              Buka Scanner QR / Barcode
+            </button>
+          )}
+
           <div
             className={`flex gap-2 overflow-x-auto pb-1 scrollbar-thin scrollbar-thumb-slate-700 transition-opacity duration-200 ${
               isSearching ? 'opacity-40 pointer-events-none' : ''
@@ -119,38 +161,28 @@ const ProductSelect = ({
             ))}
           </div>
 
-          {/* Search Bar & Scan Button */}
-          <div className="flex gap-2">
-            <div className="relative flex-1">
-              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4.5 h-4.5 text-slate-400 pointer-events-none" />
-              <input
-                type="text"
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-                placeholder="Cari produk..."
-                className="input-field w-full pl-11"
-              />
-            </div>
-            <button
-              onClick={onOpenScan}
-              className="flex-shrink-0 w-11 h-11 rounded-xl bg-violet-600/20 border border-violet-500/30 flex items-center justify-center text-violet-400 hover:bg-violet-600/30 transition-colors focus:outline-none focus:ring-2 focus:ring-violet-500/50"
-              title="Mode Scan Barcode/QR"
-            >
-              <ScanLine className="w-5 h-5" />
-            </button>
+          <div className="relative">
+            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4.5 h-4.5 text-slate-400 pointer-events-none" />
+            <input
+              type="text"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder="Cari produk..."
+              className="input-field w-full pl-11"
+            />
           </div>
         </div>
       </div>
 
-      {/* ── Product Grid ───────────────────────────── */}
       <main className="flex-1 max-w-5xl mx-auto w-full px-4 py-5 pb-24">
         {filtered.length > 0 ? (
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
-            {filtered.map((p, idx) => (
+            {filtered.map((item, idx) => (
               <ProductCard
-                key={p.id}
-                product={p}
-                onClick={onProductClick}
+                key={mode === 'variant' ? item.namaProduk : item.id}
+                product={item}
+                mode={mode}
+                onClick={() => onProductClick(mode === 'variant' ? item.variants : item)}
                 index={idx}
               />
             ))}
@@ -163,9 +195,7 @@ const ProductSelect = ({
         )}
       </main>
 
-      {/* ── FABs ───────────────────────────────────── */}
       <div className="fixed bottom-6 right-6 z-40 flex flex-col gap-3 items-center">
-        {/* Purchased FAB */}
         <button
           onClick={onOpenPurchased}
           className="relative w-12 h-12 rounded-full bg-gradient-to-br from-emerald-600 to-emerald-500 flex items-center justify-center shadow-xl shadow-emerald-500/30 transition-transform duration-200 hover:scale-110 focus:outline-none focus:ring-4 focus:ring-emerald-500/30"
@@ -173,7 +203,6 @@ const ProductSelect = ({
           <ClipboardList className="w-5 h-5 text-white" />
         </button>
 
-        {/* Cart FAB */}
         <button
           onClick={onOpenCart}
           className="relative w-14 h-14 rounded-full bg-gradient-to-br from-violet-600 to-violet-500 flex items-center justify-center shadow-xl shadow-violet-500/30 transition-transform duration-200 hover:scale-110 focus:outline-none focus:ring-4 focus:ring-violet-500/30"
@@ -181,7 +210,6 @@ const ProductSelect = ({
           <span className="absolute inset-0 rounded-full bg-violet-500/40 animate-pulse-ring" />
           <ShoppingCart className="w-6 h-6 text-white relative z-10" />
 
-          {/* Badge */}
           {cartItemCount > 0 && (
             <span className="absolute -top-1 -right-1 z-20 min-w-[20px] h-5 px-1 rounded-full bg-rose-500 text-white text-[11px] font-bold flex items-center justify-center shadow-md ring-2 ring-slate-950">
               {cartItemCount > 99 ? '99+' : cartItemCount}

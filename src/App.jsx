@@ -27,8 +27,13 @@ import {
 import useLocalStorage from './hooks/useLocalStorage';
 
 export default function App() {
-  // ── Workflow step: 1=customer, 2=product, 3=cart, 4=purchased ──
+  // ── Workflow step: 1=customer, 2=product, 3=cart, 4=purchased, 5=scan ──
   const [step, setStep] = useState(1);
+
+  // ── Mode Selection ──
+  const [appMode, setAppMode] = useState(() => 
+    window.location.hash.includes('variant-model') ? 'variant' : 'scan'
+  );
 
   // ── PIC (Person In Charge) ──
   const [picName, setPicName] = useLocalStorage('pos_pic_name', '');
@@ -93,6 +98,15 @@ export default function App() {
   // Set document title from config
   useEffect(() => {
     document.title = APP_NAME;
+  }, []);
+
+  // Listen to hash changes for mode
+  useEffect(() => {
+    const onHashChange = () => {
+      setAppMode(window.location.hash.includes('variant-model') ? 'variant' : 'scan');
+    };
+    window.addEventListener('hashchange', onHashChange);
+    return () => window.removeEventListener('hashchange', onHashChange);
   }, []);
 
   // Show PIC modal on first load if name is missing
@@ -349,6 +363,7 @@ export default function App() {
             onOpenPurchased={handleOpenPurchased}
             onOpenScan={handleOpenScan}
             cartItemCount={cartItemCount}
+            mode={appMode}
             onBack={() => {
               setStep(1);
               setSelectedCustomer(null);
@@ -360,6 +375,7 @@ export default function App() {
             <QtyPopup
               product={pendingProduct}
               currentBalance={currentBalance}
+              mode={appMode}
               onConfirm={handleQtyConfirm}
               onCancel={() => {
                 setShowQtyPopup(false);
@@ -379,8 +395,10 @@ export default function App() {
           currentBalance={currentBalance}
           cartDelta={cartTotal > 0 ? -cartTotal : 0}
           picName={picName}
+          mode={appMode}
           onUpdateQty={handleCartUpdateQty}
           onRemoveItem={handleCartRemoveItem}
+          onChangeVariant={handleCartChangeVariant}
           onSave={handleSaveCart}
           onBack={handleCartBack}
         />
@@ -392,6 +410,7 @@ export default function App() {
           customer={currentCustomer}
           products={masterData.products}
           picName={picName}
+          mode={appMode}
           onBack={handlePurchasedBack}
           onSaved={handlePurchasedSaved}
         />

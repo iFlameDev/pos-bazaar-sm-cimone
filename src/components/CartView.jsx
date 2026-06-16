@@ -8,8 +8,10 @@ import {
   Loader2,
   Send,
   Trash2,
+  Edit2
 } from 'lucide-react';
 import CustomerProfile from './CustomerProfile';
+import VariantPopup from './VariantPopup';
 
 const formatCurrency = (amount) =>
   new Intl.NumberFormat('id-ID').format(amount);
@@ -25,8 +27,11 @@ const CartView = ({
   onRemoveItem,
   onSave,
   onBack,
+  mode,
+  onChangeVariant
 }) => {
   const [saving, setSaving] = useState(false);
+  const [variantPopupItem, setVariantPopupItem] = useState(null);
 
   /* ── Product lookup helper ───────────────────────────────── */
   const getProduct = useCallback(
@@ -128,9 +133,22 @@ const CartView = ({
                     {item.product.varian && (
                       <div className="flex items-center gap-1.5 mt-1">
                         <span className="text-[11px] text-slate-400 font-medium">Varian:</span>
-                        <span className="inline-block px-2 py-0.5 text-[10px] font-medium rounded-md bg-violet-500/20 text-violet-300 border border-violet-500/30">
-                          {item.product.varian}
-                        </span>
+                        {mode === 'variant' ? (
+                          <button
+                            onClick={() => {
+                              const group = products.filter(p => p.namaProduk === item.product.namaProduk);
+                              setVariantPopupItem({ oldProductId: item.productId, productGroup: group });
+                            }}
+                            className="inline-flex items-center gap-1.5 text-[11px] font-medium px-2 py-0.5 rounded-md bg-violet-500/20 text-violet-300 border border-violet-500/30 hover:bg-violet-500/30 transition-colors focus:outline-none focus:ring-2 focus:ring-violet-500/40"
+                          >
+                            <span>{item.product.varian}</span>
+                            <Edit2 className="w-2.5 h-2.5 opacity-70" />
+                          </button>
+                        ) : (
+                          <span className="inline-block px-2 py-0.5 text-[10px] font-medium rounded-md bg-violet-500/20 text-violet-300 border border-violet-500/30">
+                            {item.product.varian}
+                          </span>
+                        )}
                       </div>
                     )}
                     <p className="text-violet-400 font-bold text-base mt-0.5">
@@ -220,6 +238,19 @@ const CartView = ({
             </div>
           </div>
         </div>
+      )}
+
+      {/* ── Variant Popup ── */}
+      {variantPopupItem && (
+        <VariantPopup
+          productGroup={variantPopupItem.productGroup}
+          currentVariantId={variantPopupItem.oldProductId}
+          onSelect={(newProductId) => {
+            if (onChangeVariant) onChangeVariant(variantPopupItem.oldProductId, newProductId);
+            setVariantPopupItem(null);
+          }}
+          onClose={() => setVariantPopupItem(null)}
+        />
       )}
     </div>
   );

@@ -80,6 +80,35 @@ export function removeFromCart(customerId, productId) {
 }
 
 /**
+ * Change the variant (productId) of an existing cart item.
+ * @param {string} customerId
+ * @param {string} oldProductId
+ * @param {string} newProductId
+ */
+export function changeCartItemVariant(customerId, oldProductId, newProductId) {
+  if (oldProductId === newProductId) return;
+
+  const cart = getCart(customerId);
+  const oldItemIndex = cart.findIndex((item) => item.productId === oldProductId);
+  
+  if (oldItemIndex === -1) return;
+
+  const oldItem = cart[oldItemIndex];
+  const existingNewVariant = cart.find((item) => item.productId === newProductId);
+
+  if (existingNewVariant) {
+    // If the new variant is already in cart, merge qty and remove old
+    existingNewVariant.qty += oldItem.qty;
+    cart.splice(oldItemIndex, 1);
+  } else {
+    // Otherwise just swap the productId
+    cart[oldItemIndex].productId = newProductId;
+  }
+
+  localStorage.setItem(getCartKey(customerId), JSON.stringify(cart));
+}
+
+/**
  * Clear the entire cart for a customer.
  * @param {string} customerId
  */

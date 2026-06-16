@@ -4,12 +4,21 @@ import { Plus, Minus, ShoppingCart, Wallet } from 'lucide-react';
 const formatCurrency = (amount) =>
   new Intl.NumberFormat('id-ID').format(amount);
 
-const QtyPopup = ({ product, currentBalance, onConfirm, onCancel }) => {
-  const [qty, setQty] = useState(1);
+const QtyPopup = ({ product, currentBalance, onConfirm, onCancel, mode }) => {
+  // If mode === 'variant', product is an array of variants (productGroup)
+  // If mode === 'scan', product is a single product object
+  const isVariantMode = mode === 'variant';
+  const productGroup = isVariantMode ? product : [product];
+  const baseProduct = productGroup[0];
 
-  const maxByStock = product.stokSekarang;
+  const [qty, setQty] = useState(1);
+  const [selectedVariant, setSelectedVariant] = useState(productGroup.length === 1 ? productGroup[0] : null);
+
+  const currentPrice = selectedVariant ? selectedVariant.harga : baseProduct.harga;
+  const maxByStock = selectedVariant ? selectedVariant.stokSekarang : 0;
 
   const handleQtyChange = (newQty) => {
+    if (!selectedVariant) return;
     const clamped = Math.max(1, Math.min(newQty, maxByStock));
     setQty(clamped);
   };
@@ -26,18 +35,19 @@ const QtyPopup = ({ product, currentBalance, onConfirm, onCancel }) => {
     }
   };
 
-  const subtotal = qty * product.harga;
+  const subtotal = qty * currentPrice;
   const remainingBalance = currentBalance - subtotal;
   const balanceRef = useRef(null);
   const [shaking, setShaking] = useState(false);
 
   const handleAddToCart = () => {
+    if (!selectedVariant) return;
     if (remainingBalance < 0) {
       setShaking(true);
       setTimeout(() => setShaking(false), 500);
       return;
     }
-    onConfirm(qty);
+    onConfirm(qty, selectedVariant);
   };
 
   return (
@@ -48,24 +58,56 @@ const QtyPopup = ({ product, currentBalance, onConfirm, onCancel }) => {
       }}
     >
       <div className="animate-bounce-in glass-card w-full max-w-sm mx-4 p-6 space-y-5">
-        {/* Product Info */}
         <div className="text-center">
-          <h2 className="text-xl font-bold text-slate-100 mb-1">{product.namaProduk}</h2>
-          {product.varian && (
-            <div className="mt-2 mb-1">
-              <span className="inline-block px-2.5 py-1 text-[11px] font-medium rounded-md bg-violet-500/20 text-violet-300 border border-violet-500/30">
-                {product.varian}
-              </span>
-            </div>
+          <h2 className="text-xl font-bold text-slate-100 mb-1">
+            {baseProduct.namaProduk}
+          </h2>
+          {isVariantMode && productGroup.length > 1 && !selectedVariant && (
+            <p className="text-sm text-slate-400 mb-1">Pilih varian untuk melihat harga</p>
           )}
-          <p className="text-violet-400 font-semibold text-lg">{formatCurrency(product.harga)}</p>
+          {!isVariantMode && baseProduct.varian && (
+            <span className="inline-block px-1.5 py-0.5 mb-2 rounded bg-violet-500/20 text-violet-300 border border-violet-500/30 text-[10px] font-medium tracking-wide">
+              {baseProduct.varian}
+            </span>
+          )}
+          <p className="text-violet-400 font-semibold text-lg">{formatCurrency(currentPrice)}</p>
         </div>
 
-        {/* Qty Controls */}
+        {isVariantMode && productGroup.length > 1 && (
+          <div className="space-y-2">
+            <p className="text-sm text-slate-400 text-center">Pilih Varian:</p>
+            <div className="flex flex-wrap justify-center gap-2">
+              {productGroup.map((v) => {
+                const isSelected = selectedVariant?.id === v.id;
+                const isOutOfStock = v.stokSekarang <= 0;
+                return (
+                  <button
+                    key={v.id}
+                    disabled={isOutOfStock}
+                    onClick={() => {
+                      setSelectedVariant(v);
+                      setQty(1);
+                    }}
+                    className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-200 border ${
+                      isSelected
+                        ? 'bg-violet-600 text-white border-violet-500 shadow-md shadow-violet-500/30'
+                        : isOutOfStock
+                        ? 'bg-slate-800/50 text-slate-500 border-slate-700/50 cursor-not-allowed'
+                        : 'bg-slate-700/50 text-slate-300 border-slate-600/50 hover:bg-slate-600'
+                    }`}
+                  >
+                    {v.varian || 'Default'} {isOutOfStock ? '(Habis)' : `(${v.stokSekarang})`}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
         <div className="flex items-center justify-center gap-4">
           <button
             onClick={() => handleQtyChange(qty - 1)}
-            disabled={qty <= 1}
+            disabled={qty <= 1 || !selectedVariant}
             className="w-11 h-11 rounded-full bg-slate-700 border border-slate-600/50 flex items-center justify-center text-slate-200 transition-all duration-150 hover:bg-slate-600 disabled:opacity-30 disabled:cursor-not-allowed active:scale-90"
           >
             <Minus className="w-5 h-5" />
@@ -76,20 +118,20 @@ const QtyPopup = ({ product, currentBalance, onConfirm, onCancel }) => {
             value={qty}
             onChange={handleInputChange}
             min={1}
-            max={maxByStock}
-            className="w-20 h-14 text-center text-3xl font-bold text-slate-100 bg-slate-800/60 border border-slate-700/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-violet-500/40 focus:border-violet-500/40 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+            max={maxByStock || 1}
+            disabled={!selectedVariant}
+            className="w-20 h-14 text-center text-3xl font-bold text-slate-100 bg-slate-800/60 border border-slate-700/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-violet-500/40 focus:border-violet-500/40 disabled:opacity-30 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
           />
 
           <button
             onClick={() => handleQtyChange(qty + 1)}
-            disabled={qty >= maxByStock}
+            disabled={qty >= maxByStock || !selectedVariant}
             className="w-11 h-11 rounded-full bg-violet-600 border border-violet-500/50 flex items-center justify-center text-white transition-all duration-150 hover:bg-violet-500 disabled:opacity-30 disabled:cursor-not-allowed active:scale-90 shadow-md shadow-violet-500/20"
           >
             <Plus className="w-5 h-5" />
           </button>
         </div>
 
-        {/* Sisa Saldo Preview */}
         <div className={`rounded-xl border p-4 text-center transition-colors duration-200 ${
           remainingBalance < 0
             ? 'bg-rose-500/10 border-rose-500/30'
@@ -106,14 +148,13 @@ const QtyPopup = ({ product, currentBalance, onConfirm, onCancel }) => {
           </p>
         </div>
 
-        {/* Buttons */}
         <div className="flex gap-3">
           <button onClick={onCancel} className="btn-secondary flex-1">
             Batal
           </button>
           <button
             onClick={handleAddToCart}
-            disabled={qty < 1}
+            disabled={qty < 1 || !selectedVariant || maxByStock < 1}
             className="btn-primary flex-1 flex items-center justify-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed"
           >
             <ShoppingCart className="w-4 h-4" />
