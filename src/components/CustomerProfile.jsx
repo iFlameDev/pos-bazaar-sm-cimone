@@ -12,8 +12,8 @@ const CustomerProfile = ({ customer, adjustedBalance, cartDelta = 0 }) => {
   return (
     <div className="glass-card p-4 flex items-center gap-4">
       {/* Avatar */}
-      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-violet-600 to-violet-400 flex items-center justify-center flex-shrink-0 shadow-lg shadow-violet-500/20">
-        <span className="text-xl font-bold text-white">
+      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-carnival-pink to-carnival-peach flex items-center justify-center flex-shrink-0 shadow-lg shadow-carnival-pink/20">
+        <span className="text-xl font-bold text-slate-900">
           {customer.nama?.charAt(0)?.toUpperCase() || '?'}
         </span>
       </div>
@@ -21,7 +21,7 @@ const CustomerProfile = ({ customer, adjustedBalance, cartDelta = 0 }) => {
       {/* Name & Kelas */}
       <div className="flex-1 min-w-0">
         <h3 className="text-lg font-bold text-slate-100 truncate">{customer.nama}</h3>
-        <span className="inline-block px-2 py-0.5 text-xs font-medium rounded-full bg-violet-500/20 text-violet-300 border border-violet-500/20">
+        <span className="inline-block px-2 py-0.5 text-xs font-medium rounded-full bg-carnival-blue/20 text-carnival-blue border border-carnival-blue/20">
           {customer.kelas}
         </span>
       </div>
@@ -32,15 +32,13 @@ const CustomerProfile = ({ customer, adjustedBalance, cartDelta = 0 }) => {
           <Wallet className="w-3.5 h-3.5" />
           <span>Saldo</span>
         </div>
-        <span
-          className={`text-lg font-bold tabular-nums transition-colors duration-300 ${
-            isNegative ? 'text-rose-400' : 'text-emerald-400'
-          }`}
-        >
+        <p className={`font-bold text-lg leading-tight tabular-nums transition-colors ${
+            isNegative ? 'text-carnival-peach' : 'text-carnival-green'
+          }`}>
           {formatCurrency(displayBalance)}
-        </span>
+        </p>
         {hasCartDelta && (
-          <div className="flex items-center gap-1 text-xs mt-0.5 text-amber-400 animate-fade-in">
+          <div className="flex items-center gap-1 text-xs mt-0.5 text-carnival-yellow animate-fade-in">
             <ShoppingCart className="w-3 h-3" />
             <span>{formatCurrency(cartDelta)}</span>
           </div>

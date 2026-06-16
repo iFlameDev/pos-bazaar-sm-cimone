@@ -50,7 +50,7 @@ const VariantPopup = ({
                 onClick={() => onSelect(v.id)}
                 className={`w-full text-left p-3 rounded-xl transition-all duration-200 border flex items-center justify-between ${
                   isSelected
-                    ? 'bg-violet-600/20 text-violet-100 border-violet-500/50 cursor-default'
+                    ? 'bg-carnival-pink/20 text-carnival-pink border-carnival-pink/50 cursor-default'
                     : isOutOfStock
                     ? 'bg-slate-800/30 text-slate-500 border-slate-700/30 cursor-not-allowed'
                     : 'bg-slate-800/60 text-slate-300 border-slate-700/50 hover:bg-slate-700 hover:border-slate-600'

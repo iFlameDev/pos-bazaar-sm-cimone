@@ -23,14 +23,14 @@ const SkeletonCard = () => (
 const CustomerCard = ({ customer, onClick }) => (
   <button
     onClick={() => onClick(customer)}
-    className="glass-card text-left w-full p-3.5 transition-all duration-200 hover:scale-[1.03] hover:border-emerald-500/40 hover:shadow-lg hover:shadow-emerald-500/10 focus:outline-none focus:ring-2 focus:ring-emerald-500/40 flex flex-col gap-1.5"
+    className="glass-card text-left w-full p-3.5 transition-all duration-200 hover:scale-[1.03] hover:border-carnival-blue/40 hover:shadow-lg hover:shadow-carnival-blue/10 focus:outline-none focus:ring-2 focus:ring-carnival-blue/40 flex flex-col gap-1.5"
   >
     <p className="font-semibold text-slate-100 text-base min-w-0 truncate w-full">
       {customer.nama}
     </p>
     <div className="flex items-center gap-1.5 text-slate-400">
-      <Wallet className="w-4 h-4 text-emerald-400" />
-      <span className="text-sm font-bold text-emerald-400">{formatCurrency(customer.saldoSekarang)}</span>
+      <Wallet className="w-4 h-4 text-carnival-peach" />
+      <span className="text-sm font-bold text-carnival-green">{formatCurrency(customer.saldoSekarang)}</span>
     </div>
   </button>
 );
@@ -81,8 +81,8 @@ const CustomerSelect = ({ customers, picName, onSelectCustomer, onEditPic, onRef
       <header className="sticky top-0 z-30 bg-slate-950/80 backdrop-blur-xl border-b border-slate-800/60">
         <div className="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
           <div className="flex items-center gap-2.5">
-            <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-violet-600 to-violet-500 flex items-center justify-center shadow-md shadow-violet-500/25">
-              <Store className="w-5 h-5 text-white" />
+            <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-carnival-pink to-carnival-peach flex items-center justify-center shadow-md shadow-carnival-pink/25">
+              <Store className="w-5 h-5 text-slate-900" />
             </div>
             <h1 className="text-lg font-bold text-slate-100">{APP_NAME}</h1>
           </div>
@@ -102,7 +102,7 @@ const CustomerSelect = ({ customers, picName, onSelectCustomer, onEditPic, onRef
               className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-800/60 border border-slate-700/50 text-sm text-slate-300 hover:bg-slate-700/60 hover:text-slate-100 transition-colors"
             >
               <span className="max-w-[120px] truncate">{picName}</span>
-              <Pencil className="w-3.5 h-3.5 text-violet-400" />
+              <Pencil className="w-3.5 h-3.5 text-carnival-blue" />
             </button>
           </div>
         </div>
@@ -143,8 +143,8 @@ const CustomerSelect = ({ customers, picName, onSelectCustomer, onEditPic, onRef
                 <div key={kelas} className="animate-fade-in relative">
                   <div className="sticky top-[60px] z-20 bg-slate-950/95 backdrop-blur-md py-2 mb-3 -mx-4 px-4 sm:mx-0 sm:px-0">
                     <div className="flex items-center gap-3">
-                      <h3 className="text-sm font-bold text-emerald-400 uppercase tracking-wider">{kelas}</h3>
-                      <div className="flex-1 h-px bg-emerald-500/30"></div>
+                      <h3 className="text-sm font-bold text-carnival-pink uppercase tracking-wider">{kelas}</h3>
+                      <div className="flex-1 h-px bg-carnival-pink/30"></div>
                     </div>
                   </div>
                   <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">

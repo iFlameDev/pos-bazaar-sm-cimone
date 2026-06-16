@@ -6,6 +6,16 @@ export default {
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
       },
+      colors: {
+        carnival: {
+          blue: '#01A7EC',
+          yellow: '#FFFF46',
+          orange: '#FFC94B',
+          peach: '#FE8F5D',
+          pink: '#FE47B3',
+          green: '#80DA65',
+        }
+      },
       animation: {
         'fly-to-cart': 'flyToCart 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards',
         'slide-up': 'slideUp 0.3s ease-out',

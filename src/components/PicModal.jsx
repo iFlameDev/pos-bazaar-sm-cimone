@@ -35,8 +35,8 @@ const PicModal = ({ isOpen, defaultName = '', onSave }) => {
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
       <div className="animate-bounce-in glass-card w-full max-w-sm mx-4 p-8 flex flex-col items-center gap-6">
         {/* Icon */}
-        <div className="w-20 h-20 rounded-full bg-gradient-to-br from-violet-600 to-violet-500 flex items-center justify-center shadow-lg shadow-violet-500/25">
-          <UserCircle className="w-10 h-10 text-white" strokeWidth={1.5} />
+        <div className="w-20 h-20 rounded-full bg-gradient-to-br from-carnival-blue to-carnival-green flex items-center justify-center shadow-lg shadow-carnival-blue/25">
+          <UserCircle className="w-10 h-10 text-slate-900" strokeWidth={1.5} />
         </div>
 
         {/* Title & Subtitle */}

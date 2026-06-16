@@ -153,7 +153,7 @@ const PurchasedView = ({ customer, products, picName, onBack, onSaved }) => {
               <ArrowLeft className="w-4.5 h-4.5" />
             </button>
             <div className="flex items-center gap-2">
-              <ClipboardList className="w-5 h-5 text-emerald-400" />
+              <ClipboardList className="w-5 h-5 text-carnival-blue" />
               <h1 className="text-lg font-bold text-slate-100">Riwayat Pembelian</h1>
             </div>
           </div>
@@ -166,8 +166,8 @@ const PurchasedView = ({ customer, products, picName, onBack, onSaved }) => {
       <main className="flex-1 overflow-y-auto max-w-3xl mx-auto w-full px-4 py-4 pb-36">
         {loading ? (
           <div className="flex flex-col items-center justify-center py-20 gap-3">
-            <Loader2 className="w-8 h-8 text-violet-400 animate-spin" />
-            <p className="text-sm text-slate-400">Memuat riwayat...</p>
+            <Loader2 className="w-8 h-8 text-carnival-pink animate-spin" />
+            <p className="text-slate-400 font-medium">Memuat riwayat...</p>
           </div>
         ) : cartItems.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-20 text-slate-500">
@@ -188,7 +188,6 @@ const PurchasedView = ({ customer, products, picName, onBack, onSaved }) => {
                 (o) => o.idTransaksi === item.idTransaksi
               );
               const hasChanged = original && item.qty !== original.qty;
-              const subtotal = item.qty * prod.harga;
 
               return (
                 <div
@@ -215,13 +214,12 @@ const PurchasedView = ({ customer, products, picName, onBack, onSaved }) => {
                       </h3>
                       {prod.varian && (
                         <div className={`flex items-center gap-1.5 mt-1 ${isDeleted ? 'opacity-50' : ''}`}>
-                          <span className={`text-[11px] font-medium ${isDeleted ? 'line-through text-slate-500' : 'text-slate-400'}`}>Varian:</span>
-                          <span className={`inline-block px-2 py-0.5 text-[10px] font-medium rounded-md bg-violet-500/20 border border-violet-500/30 ${isDeleted ? 'text-slate-400 line-through' : 'text-violet-300'}`}>
+                          <span className={`inline-block px-2 py-0.5 text-[10px] font-medium rounded-md bg-carnival-blue/20 border border-carnival-blue/30 ${isDeleted ? 'text-slate-400 line-through' : 'text-carnival-blue'}`}>
                             {prod.varian}
                           </span>
                         </div>
                       )}
-                      <p className="text-violet-400 font-bold text-base mt-0.5">
+                      <p className="text-carnival-yellow font-bold text-base mt-0.5">
                         {formatCurrency(prod.harga)}
                       </p>
                     </div>
@@ -235,7 +233,7 @@ const PurchasedView = ({ customer, products, picName, onBack, onSaved }) => {
                         className="w-8 h-8 rounded-full bg-slate-700 border border-slate-600/50 flex items-center justify-center text-slate-300 transition-all hover:bg-slate-600 disabled:opacity-30 disabled:cursor-not-allowed active:scale-90"
                       >
                         {item.qty === 1 ? (
-                          <Trash2 className="w-3.5 h-3.5 text-rose-400" />
+                          <Trash2 className="w-3.5 h-3.5 text-carnival-peach" />
                         ) : (
                           <Minus className="w-3.5 h-3.5" />
                         )}
@@ -243,9 +241,9 @@ const PurchasedView = ({ customer, products, picName, onBack, onSaved }) => {
 
                       <span
                         className={`min-w-[2rem] text-center text-lg font-bold tabular-nums ${isDeleted
-                          ? 'text-rose-400 line-through'
+                          ? 'text-carnival-peach line-through'
                           : hasChanged
-                            ? 'text-violet-400'
+                            ? 'text-carnival-pink'
                             : 'text-slate-100'
                           }`}
                       >
@@ -256,7 +254,7 @@ const PurchasedView = ({ customer, products, picName, onBack, onSaved }) => {
                         onClick={() =>
                           handleQtyChange(item.idTransaksi, item.qty + 1)
                         }
-                        className="w-8 h-8 rounded-full bg-violet-600 border border-violet-500/50 flex items-center justify-center text-white transition-all hover:bg-violet-500 active:scale-90 shadow-md shadow-violet-500/20"
+                        className="w-8 h-8 rounded-full bg-carnival-pink border border-carnival-pink/50 flex items-center justify-center text-slate-900 transition-all hover:bg-carnival-pink/80 active:scale-90 shadow-md shadow-carnival-pink/20"
                       >
                         <Plus className="w-3.5 h-3.5" />
                       </button>

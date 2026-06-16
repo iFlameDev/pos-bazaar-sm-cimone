@@ -132,7 +132,7 @@ const ScanView = ({
               <ArrowLeft className="w-4.5 h-4.5" />
             </button>
             <div className="flex items-center gap-2">
-              <ScanLine className="w-5 h-5 text-violet-400" />
+              <ScanLine className="w-5 h-5 text-carnival-blue" />
               <h1 className="text-lg font-bold text-slate-100">Mode Scan</h1>
             </div>
           </div>
@@ -155,14 +155,14 @@ const ScanView = ({
           )}
           {scannerError && (
             <div className="absolute inset-0 flex flex-col items-center justify-center bg-slate-900 text-center px-6 z-10">
-              <div className="w-16 h-16 rounded-full bg-rose-500/20 flex items-center justify-center mb-4">
+              <div className="w-16 h-16 rounded-full bg-carnival-peach/20 flex items-center justify-center mb-4">
                 <span className="text-2xl">📷</span>
               </div>
               <h3 className="text-lg font-bold text-slate-100 mb-2">Kamera Bermasalah</h3>
               <p className="text-sm text-slate-400 mb-6">{scannerError}</p>
               <button 
                 onClick={() => window.location.reload()}
-                className="px-6 py-2.5 bg-violet-600 hover:bg-violet-700 text-white font-medium rounded-xl transition-colors"
+                className="px-6 py-2.5 bg-carnival-pink hover:bg-carnival-pink/80 text-slate-900 font-medium rounded-xl transition-colors"
               >
                 Muat Ulang Halaman
               </button>
@@ -175,19 +175,19 @@ const ScanView = ({
         <div className={`fixed right-6 z-40 flex flex-col gap-3 items-center transition-all duration-300 ${pendingProduct ? 'bottom-[280px]' : 'bottom-6'}`}>
           <button
             onClick={onOpenPurchased}
-            className="relative w-12 h-12 rounded-full bg-gradient-to-br from-emerald-600 to-emerald-500 flex items-center justify-center shadow-xl shadow-emerald-500/30 transition-transform duration-200 hover:scale-110 focus:outline-none"
+            className="relative w-12 h-12 rounded-full bg-gradient-to-br from-carnival-blue to-carnival-green flex items-center justify-center shadow-xl shadow-carnival-blue/30 transition-transform duration-200 hover:scale-110 focus:outline-none"
           >
-            <ClipboardList className="w-5 h-5 text-white" />
+            <ClipboardList className="w-5 h-5 text-slate-900" />
           </button>
 
           <button
             onClick={onOpenCart}
-            className={`relative w-14 h-14 rounded-full bg-gradient-to-br from-violet-600 to-violet-500 flex items-center justify-center shadow-xl shadow-violet-500/30 transition-transform duration-200 hover:scale-110 focus:outline-none ${cartShake ? 'animate-shake' : ''}`}
+            className={`relative w-14 h-14 rounded-full bg-gradient-to-br from-carnival-pink to-carnival-peach flex items-center justify-center shadow-xl shadow-carnival-pink/30 transition-transform duration-200 hover:scale-110 focus:outline-none ${cartShake ? 'animate-shake' : ''}`}
           >
-            <span className="absolute inset-0 rounded-full bg-violet-500/40 animate-pulse-ring" />
-            <ShoppingCart className="w-6 h-6 text-white relative z-10" />
+            <span className="absolute inset-0 rounded-full bg-carnival-pink/40 animate-pulse-ring" />
+            <ShoppingCart className="w-6 h-6 text-slate-900 relative z-10" />
             {cartItemCount > 0 && (
-              <span className="absolute -top-1 -right-1 z-20 min-w-[20px] h-5 px-1 rounded-full bg-rose-500 text-white text-[11px] font-bold flex items-center justify-center shadow-md ring-2 ring-slate-950">
+              <span className="absolute -top-1 -right-1 z-20 min-w-[20px] h-5 px-1 rounded-full bg-carnival-yellow text-slate-900 text-[11px] font-bold flex items-center justify-center shadow-md ring-2 ring-slate-950">
                 {cartItemCount > 99 ? '99+' : cartItemCount}
               </span>
             )}
@@ -204,12 +204,12 @@ const ScanView = ({
                 <h2 className="text-xl font-bold text-slate-100 mb-1 line-clamp-1">{pendingProduct.namaProduk}</h2>
                 {pendingProduct.varian && (
                   <div className="mt-2 mb-1">
-                    <span className="inline-block px-2.5 py-1 text-[11px] font-medium rounded-md bg-violet-500/20 text-violet-300 border border-violet-500/30">
+                    <span className="inline-block px-2.5 py-1 text-[11px] font-medium rounded-md bg-carnival-blue/20 text-carnival-blue border border-carnival-blue/30">
                       {pendingProduct.varian}
                     </span>
                   </div>
                 )}
-                <p className="text-violet-400 font-semibold text-lg">{formatCurrency(pendingProduct.harga)}</p>
+                <p className="text-carnival-yellow font-semibold text-lg">{formatCurrency(pendingProduct.harga)}</p>
               </div>
 
               <div className="flex items-center justify-center gap-4">
@@ -228,14 +228,14 @@ const ScanView = ({
                 <button
                   onClick={() => setQty(Math.min(maxByStock, qty + 1))}
                   disabled={qty >= maxByStock}
-                  className="w-11 h-11 rounded-full bg-violet-600 border border-violet-500/50 flex items-center justify-center text-white active:scale-90 disabled:opacity-30"
+                  className="w-11 h-11 rounded-full bg-carnival-pink border border-carnival-pink/50 flex items-center justify-center text-slate-900 active:scale-90 disabled:opacity-30"
                 >
                   <Plus className="w-5 h-5" />
                 </button>
               </div>
 
               <div className={`rounded-xl border p-3 text-center transition-colors duration-200 ${
-                remainingBalance < 0 ? 'bg-rose-500/10 border-rose-500/30 text-rose-400' : 'bg-slate-950/50 border-slate-800 text-emerald-400'
+                remainingBalance < 0 ? 'bg-carnival-peach/10 border-carnival-peach/30 text-carnival-peach' : 'bg-slate-950/50 border-slate-800 text-carnival-green'
               }`}>
                 <p className="text-xs text-slate-400 mb-0.5">Sisa Saldo</p>
                 <p className="text-xl font-bold tabular-nums">{formatCurrency(remainingBalance)}</p>
@@ -254,7 +254,7 @@ const ScanView = ({
                     setPendingProduct(null);
                   }}
                   disabled={qty < 1 || remainingBalance < 0}
-                  className="flex-[2] py-3.5 rounded-xl font-bold text-white bg-violet-600 shadow-lg shadow-violet-600/30 active:scale-95 transition-transform disabled:opacity-50 disabled:cursor-not-allowed flex justify-center items-center gap-2"
+                  className="flex-[2] py-3.5 rounded-xl font-bold text-slate-900 bg-carnival-pink shadow-lg shadow-carnival-pink/30 active:scale-95 transition-transform disabled:opacity-50 disabled:cursor-not-allowed flex justify-center items-center gap-2"
                 >
                   <ShoppingCart className="w-5 h-5" />
                   Ke Keranjang

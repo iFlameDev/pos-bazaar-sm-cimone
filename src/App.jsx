@@ -326,8 +326,8 @@ export default function App() {
               px-5 py-3 rounded-xl shadow-2xl backdrop-blur-lg border text-sm font-medium
               ${
                 toast.type === 'error'
-                  ? 'bg-rose-500/20 border-rose-500/30 text-rose-300'
-                  : 'bg-emerald-500/20 border-emerald-500/30 text-emerald-300'
+                  ? 'bg-carnival-peach/20 border-carnival-peach/30 text-carnival-peach'
+                  : 'bg-carnival-green/20 border-carnival-green/30 text-carnival-green'
               }
             `}
           >

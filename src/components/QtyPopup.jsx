@@ -71,11 +71,11 @@ const QtyPopup = ({ product, currentBalance, onConfirm, onCancel, mode }) => {
             <p className="text-sm text-slate-400 mb-1">Pilih varian untuk melihat harga</p>
           )}
           {!isVariantMode && baseProduct.varian && (
-            <span className="inline-block px-1.5 py-0.5 mb-2 rounded bg-violet-500/20 text-violet-300 border border-violet-500/30 text-[10px] font-medium tracking-wide">
+            <span className="inline-block px-1.5 py-0.5 mb-2 rounded bg-carnival-blue/20 text-carnival-blue border border-carnival-blue/30 text-[10px] font-medium tracking-wide">
               {baseProduct.varian}
             </span>
           )}
-          <p className="text-violet-400 font-semibold text-lg">{formatCurrency(currentPrice)}</p>
+          <p className="text-carnival-yellow font-semibold text-lg">{formatCurrency(currentPrice)}</p>
         </div>
 
         {isVariantMode && productGroup.length > 1 && (
@@ -95,7 +95,7 @@ const QtyPopup = ({ product, currentBalance, onConfirm, onCancel, mode }) => {
                     }}
                     className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-200 border ${
                       isSelected
-                        ? 'bg-violet-600 text-white border-violet-500 shadow-md shadow-violet-500/30'
+                        ? 'bg-carnival-pink text-slate-900 border-carnival-pink shadow-md shadow-carnival-pink/30'
                         : isOutOfStock
                         ? 'bg-slate-800/50 text-slate-500 border-slate-700/50 cursor-not-allowed'
                         : 'bg-slate-700/50 text-slate-300 border-slate-600/50 hover:bg-slate-600'
@@ -125,13 +125,13 @@ const QtyPopup = ({ product, currentBalance, onConfirm, onCancel, mode }) => {
             min={1}
             max={maxByStock || 1}
             disabled={!selectedVariant}
-            className="w-20 h-14 text-center text-3xl font-bold text-slate-100 bg-slate-800/60 border border-slate-700/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-violet-500/40 focus:border-violet-500/40 disabled:opacity-30 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+            className="w-20 h-14 text-center text-3xl font-bold text-slate-100 bg-slate-800/60 border border-slate-700/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-carnival-blue/40 focus:border-carnival-blue/40 disabled:opacity-30 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
           />
 
           <button
             onClick={() => handleQtyChange(qty + 1)}
             disabled={qty >= maxByStock || !selectedVariant}
-            className="w-11 h-11 rounded-full bg-violet-600 border border-violet-500/50 flex items-center justify-center text-white transition-all duration-150 hover:bg-violet-500 disabled:opacity-30 disabled:cursor-not-allowed active:scale-90 shadow-md shadow-violet-500/20"
+            className="w-11 h-11 rounded-full bg-carnival-pink border border-carnival-pink/50 flex items-center justify-center text-slate-900 transition-all duration-150 hover:bg-carnival-pink/80 disabled:opacity-30 disabled:cursor-not-allowed active:scale-90 shadow-md shadow-carnival-pink/20"
           >
             <Plus className="w-5 h-5" />
           </button>
@@ -139,7 +139,7 @@ const QtyPopup = ({ product, currentBalance, onConfirm, onCancel, mode }) => {
 
         <div className={`rounded-xl border p-4 text-center transition-colors duration-200 ${
           remainingBalance < 0
-            ? 'bg-rose-500/10 border-rose-500/30'
+            ? 'bg-carnival-peach/10 border-carnival-peach/30'
             : 'bg-slate-800/50 border-slate-700/40'
         }`}>
           <div className="flex items-center justify-center gap-1.5 mb-1">
@@ -147,7 +147,7 @@ const QtyPopup = ({ product, currentBalance, onConfirm, onCancel, mode }) => {
             <p className="text-xs text-slate-400">Sisa Saldo</p>
           </div>
           <p ref={balanceRef} className={`text-2xl font-bold tabular-nums transition-colors duration-200 ${
-            remainingBalance < 0 ? 'text-rose-400' : 'text-emerald-400'
+            remainingBalance < 0 ? 'text-carnival-peach' : 'text-carnival-green'
           } ${shaking ? 'animate-shake' : ''}`}>
             {formatCurrency(remainingBalance)}
           </p>

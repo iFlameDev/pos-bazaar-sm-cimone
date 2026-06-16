@@ -94,7 +94,7 @@ const CartView = ({
               <ArrowLeft className="w-4.5 h-4.5" />
             </button>
             <div className="flex items-center gap-2">
-              <ShoppingCart className="w-5 h-5 text-violet-400" />
+              <ShoppingCart className="w-5 h-5 text-carnival-pink" />
               <h1 className="text-lg font-bold text-slate-100">Keranjang</h1>
             </div>
           </div>
@@ -148,19 +148,19 @@ const CartView = ({
                               const group = products.filter(p => p.namaProduk === item.product.namaProduk);
                               setVariantPopupItem({ oldProductId: item.productId, productGroup: group });
                             }}
-                            className="inline-flex items-center gap-1.5 text-[11px] font-medium px-2 py-0.5 rounded-md bg-violet-500/20 text-violet-300 border border-violet-500/30 hover:bg-violet-500/30 transition-colors focus:outline-none focus:ring-2 focus:ring-violet-500/40"
+                            className="inline-flex items-center gap-1.5 text-[11px] font-medium px-2 py-0.5 rounded-md bg-carnival-blue/20 text-carnival-blue border border-carnival-blue/30 hover:bg-carnival-blue/30 transition-colors focus:outline-none focus:ring-2 focus:ring-carnival-blue/40"
                           >
                             <span>{item.product.varian}</span>
                             <Edit2 className="w-2.5 h-2.5 opacity-70" />
                           </button>
                         ) : (
-                          <span className="inline-block px-2 py-0.5 text-[10px] font-medium rounded-md bg-violet-500/20 text-violet-300 border border-violet-500/30">
+                          <span className="inline-block px-2 py-0.5 text-[10px] font-medium rounded-md bg-carnival-blue/20 text-carnival-blue border border-carnival-blue/30">
                             {item.product.varian}
                           </span>
                         )}
                       </div>
                     )}
-                    <p className="text-violet-400 font-bold text-base mt-0.5">
+                    <p className="text-carnival-yellow font-bold text-base mt-0.5">
                       {formatCurrency(item.product.harga)}
                     </p>
                   </div>
@@ -178,7 +178,7 @@ const CartView = ({
                       className="w-8 h-8 rounded-full bg-slate-700 border border-slate-600/50 flex items-center justify-center text-slate-300 transition-all hover:bg-slate-600 active:scale-90"
                     >
                       {item.qty === 1 ? (
-                        <Trash2 className="w-3.5 h-3.5 text-rose-400" />
+                        <Trash2 className="w-3.5 h-3.5 text-carnival-peach" />
                       ) : (
                         <Minus className="w-3.5 h-3.5" />
                       )}
@@ -191,7 +191,7 @@ const CartView = ({
                     <button
                       onClick={() => onUpdateQty(item.productId, item.qty + 1)}
                       disabled={item.qty >= item.product.stokSekarang}
-                      className="w-8 h-8 rounded-full bg-violet-600 border border-violet-500/50 flex items-center justify-center text-white transition-all hover:bg-violet-500 disabled:opacity-30 disabled:cursor-not-allowed active:scale-90 shadow-md shadow-violet-500/20"
+                      className="w-8 h-8 rounded-full bg-carnival-pink border border-carnival-pink/50 flex items-center justify-center text-slate-900 transition-all hover:bg-carnival-pink/80 disabled:opacity-30 disabled:cursor-not-allowed active:scale-90 shadow-md shadow-carnival-pink/20"
                     >
                       <Plus className="w-3.5 h-3.5" />
                     </button>

@@ -14,10 +14,10 @@ const ProductCard = ({ product, onClick, index, mode }) => {
         if (!outOfStock) onClick(product, e);
       }}
       disabled={outOfStock}
-      className={`glass-card text-left w-full p-4 transition-all duration-200 animate-fade-in focus:outline-none focus:ring-2 focus:ring-violet-500/40 ${
+      className={`glass-card text-left w-full p-4 transition-all duration-200 animate-fade-in focus:outline-none focus:ring-2 focus:ring-carnival-blue/40 ${
         outOfStock
           ? 'opacity-40 cursor-not-allowed grayscale'
-          : 'hover:scale-[1.03] hover:border-violet-500/40 hover:shadow-lg hover:shadow-violet-500/10 cursor-pointer'
+          : 'hover:scale-[1.03] hover:border-carnival-blue/40 hover:shadow-lg hover:shadow-carnival-blue/10 cursor-pointer'
       }`}
       style={{ animationDelay: `${index * 40}ms` }}
     >
@@ -34,11 +34,11 @@ const ProductCard = ({ product, onClick, index, mode }) => {
         {product.namaProduk}
       </h3>
       {mode === 'scan' && product.varian && (
-        <span className="inline-block px-1.5 py-0.5 mb-2 rounded bg-violet-500/20 text-violet-300 border border-violet-500/30 text-[10px] font-medium tracking-wide">
+        <span className="inline-block px-1.5 py-0.5 mb-2 rounded bg-carnival-blue/20 text-carnival-blue border border-carnival-blue/30 text-[10px] font-medium tracking-wide">
           {product.varian}
         </span>
       )}
-      <p className={`text-violet-400 font-bold text-base ${mode === 'variant' ? 'mb-2.5' : 'mb-0'}`}>
+      <p className={`text-carnival-yellow font-bold text-base ${mode === 'variant' ? 'mb-2.5' : 'mb-0'}`}>
         {formatCurrency(product.harga)}
       </p>
       
@@ -47,10 +47,10 @@ const ProductCard = ({ product, onClick, index, mode }) => {
           <span
             className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-medium ${
               outOfStock
-                ? 'bg-rose-500/20 text-rose-400 border border-rose-500/20'
+                ? 'bg-carnival-peach/20 text-carnival-peach border border-carnival-peach/20'
                 : product.stokSekarang <= 5
-                ? 'bg-amber-500/20 text-amber-400 border border-amber-500/20'
-                : 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/20'
+                ? 'bg-carnival-orange/20 text-carnival-orange border border-carnival-orange/20'
+                : 'bg-carnival-green/20 text-carnival-green border border-carnival-green/20'
             }`}
           >
             <Package className="w-3 h-3" />
@@ -138,7 +138,7 @@ const ProductSelect = ({
             </div>
             <button
               onClick={onToggleMode}
-              className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-violet-600/20 text-violet-300 border border-violet-500/30 hover:bg-violet-600/30 transition-colors"
+              className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-carnival-pink/20 text-carnival-pink border border-carnival-pink/30 hover:bg-carnival-pink/30 transition-colors"
             >
               {mode === 'scan' ? 'Mode Varian' : 'Mode Flat'}
             </button>
@@ -161,7 +161,7 @@ const ProductSelect = ({
                 onClick={() => setActiveCategory(cat)}
                 className={`flex-shrink-0 px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-200 border ${
                   activeCategory === cat
-                    ? 'bg-violet-600 text-white border-violet-500 shadow-md shadow-violet-500/25'
+                    ? 'bg-carnival-pink text-slate-900 border-carnival-pink shadow-md shadow-carnival-pink/25'
                     : 'bg-slate-800/50 text-slate-400 border-slate-700/50 hover:bg-slate-700/60 hover:text-slate-200'
                 }`}
               >
@@ -181,7 +181,7 @@ const ProductSelect = ({
             />
             <button
               onClick={onOpenScan}
-              className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 text-emerald-400 hover:bg-emerald-500/20 rounded-lg transition-colors focus:outline-none"
+              className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 text-carnival-green hover:bg-carnival-green/20 rounded-lg transition-colors focus:outline-none"
             >
               <ScanLine className="w-5 h-5" />
             </button>
@@ -213,20 +213,20 @@ const ProductSelect = ({
       <div className="fixed bottom-6 right-6 z-40 flex flex-col gap-3 items-center">
         <button
           onClick={onOpenPurchased}
-          className="relative w-12 h-12 rounded-full bg-gradient-to-br from-emerald-600 to-emerald-500 flex items-center justify-center shadow-xl shadow-emerald-500/30 transition-transform duration-200 hover:scale-110 focus:outline-none focus:ring-4 focus:ring-emerald-500/30"
+          className="relative w-12 h-12 rounded-full bg-gradient-to-br from-carnival-blue to-carnival-green flex items-center justify-center shadow-xl shadow-carnival-blue/30 transition-transform duration-200 hover:scale-110 focus:outline-none focus:ring-4 focus:ring-carnival-blue/30"
         >
-          <ClipboardList className="w-5 h-5 text-white" />
+          <ClipboardList className="w-5 h-5 text-slate-900" />
         </button>
 
         <button
           onClick={onOpenCart}
-          className="relative w-14 h-14 rounded-full bg-gradient-to-br from-violet-600 to-violet-500 flex items-center justify-center shadow-xl shadow-violet-500/30 transition-transform duration-200 hover:scale-110 focus:outline-none focus:ring-4 focus:ring-violet-500/30"
+          className="relative w-14 h-14 rounded-full bg-gradient-to-br from-carnival-pink to-carnival-peach flex items-center justify-center shadow-xl shadow-carnival-pink/30 transition-transform duration-200 hover:scale-110 focus:outline-none focus:ring-4 focus:ring-carnival-pink/30"
         >
-          <span className="absolute inset-0 rounded-full bg-violet-500/40 animate-pulse-ring" />
-          <ShoppingCart className="w-6 h-6 text-white relative z-10" />
+          <span className="absolute inset-0 rounded-full bg-carnival-pink/40 animate-pulse-ring" />
+          <ShoppingCart className="w-6 h-6 text-slate-900 relative z-10" />
 
           {cartItemCount > 0 && (
-            <span className="absolute -top-1 -right-1 z-20 min-w-[20px] h-5 px-1 rounded-full bg-rose-500 text-white text-[11px] font-bold flex items-center justify-center shadow-md ring-2 ring-slate-950">
+            <span className="absolute -top-1 -right-1 z-20 min-w-[20px] h-5 px-1 rounded-full bg-carnival-yellow text-slate-900 text-[11px] font-bold flex items-center justify-center shadow-md ring-2 ring-slate-950">
               {cartItemCount > 99 ? '99+' : cartItemCount}
             </span>
           )}
