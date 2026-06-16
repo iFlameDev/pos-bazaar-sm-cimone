@@ -219,7 +219,7 @@ const PurchasedView = ({ customer, products, picName, onBack, onSaved }) => {
                           </span>
                         </div>
                       )}
-                      <p className="text-carnival-yellow font-bold text-base mt-0.5">
+                      <p className="text-carnival-pink font-bold text-base mt-0.5">
                         {formatCurrency(prod.harga)}
                       </p>
                     </div>

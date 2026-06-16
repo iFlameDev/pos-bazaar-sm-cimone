@@ -38,7 +38,7 @@ const ProductCard = ({ product, onClick, index, mode }) => {
           {product.varian}
         </span>
       )}
-      <p className={`text-carnival-yellow font-bold text-base ${mode === 'variant' ? 'mb-2.5' : 'mb-0'}`}>
+      <p className={`text-carnival-pink font-bold text-base ${mode === 'variant' ? 'mb-2.5' : 'mb-0'}`}>
         {formatCurrency(product.harga)}
       </p>
       
@@ -161,7 +161,7 @@ const ProductSelect = ({
                 onClick={() => setActiveCategory(cat)}
                 className={`flex-shrink-0 px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-200 border ${
                   activeCategory === cat
-                    ? 'bg-carnival-pink text-slate-900 border-carnival-pink shadow-md shadow-carnival-pink/25'
+                    ? 'bg-carnival-pink text-white border-carnival-pink shadow-md shadow-carnival-pink/25'
                     : 'bg-white/50 text-slate-600 border-slate-200/50 hover:bg-slate-100/60 hover:text-slate-800'
                 }`}
               >

@@ -38,7 +38,7 @@ const CustomerProfile = ({ customer, adjustedBalance, cartDelta = 0 }) => {
           {formatCurrency(displayBalance)}
         </p>
         {hasCartDelta && (
-          <div className="flex items-center gap-1 text-xs mt-0.5 text-carnival-yellow animate-fade-in">
+          <div className="flex items-center gap-1 text-xs mt-0.5 text-carnival-pink animate-fade-in">
             <ShoppingCart className="w-3 h-3" />
             <span>{formatCurrency(cartDelta)}</span>
           </div>

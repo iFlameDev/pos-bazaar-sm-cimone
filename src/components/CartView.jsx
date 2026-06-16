@@ -160,7 +160,7 @@ const CartView = ({
                         )}
                       </div>
                     )}
-                    <p className="text-carnival-yellow font-bold text-base mt-0.5">
+                    <p className="text-carnival-pink font-bold text-base mt-0.5">
                       {formatCurrency(item.product.harga)}
                     </p>
                   </div>
@@ -191,7 +191,7 @@ const CartView = ({
                     <button
                       onClick={() => onUpdateQty(item.productId, item.qty + 1)}
                       disabled={item.qty >= item.product.stokSekarang}
-                      className="w-8 h-8 rounded-full bg-carnival-pink border border-carnival-pink/50 flex items-center justify-center text-slate-900 transition-all hover:bg-carnival-pink/80 disabled:opacity-30 disabled:cursor-not-allowed active:scale-90 shadow-md shadow-carnival-pink/20"
+                      className="w-8 h-8 rounded-full bg-carnival-pink border border-carnival-pink/50 flex items-center justify-center text-white transition-all hover:bg-carnival-pink/80 disabled:opacity-30 disabled:cursor-not-allowed active:scale-90 shadow-md shadow-carnival-pink/20"
                     >
                       <Plus className="w-3.5 h-3.5" />
                     </button>

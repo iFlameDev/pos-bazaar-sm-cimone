@@ -141,7 +141,7 @@ const CustomerSelect = ({ customers, picName, onSelectCustomer, onEditPic, onRef
             <div className="space-y-8">
               {grouped.map(([kelas, items]) => (
                 <div key={kelas} className="animate-fade-in relative">
-                  <div className="sticky top-[60px] z-20 bg-transparent/95 backdrop-blur-md py-2 mb-3 -mx-4 px-4 sm:mx-0 sm:px-0">
+                  <div className="sticky top-[60px] z-20 bg-white/90 backdrop-blur-md py-2 mb-3 -mx-4 px-4 sm:mx-0 sm:px-0">
                     <div className="flex items-center gap-3">
                       <h3 className="text-sm font-bold text-carnival-pink uppercase tracking-wider">{kelas}</h3>
                       <div className="flex-1 h-px bg-carnival-pink/30"></div>

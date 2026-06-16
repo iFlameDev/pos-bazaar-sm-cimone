@@ -209,7 +209,7 @@ const ScanView = ({
                     </span>
                   </div>
                 )}
-                <p className="text-carnival-yellow font-semibold text-lg">{formatCurrency(pendingProduct.harga)}</p>
+                <p className="text-carnival-pink font-semibold text-lg">{formatCurrency(pendingProduct.harga)}</p>
               </div>
 
               <div className="flex items-center justify-center gap-4">

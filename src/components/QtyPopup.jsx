@@ -75,7 +75,7 @@ const QtyPopup = ({ product, currentBalance, onConfirm, onCancel, mode }) => {
               {baseProduct.varian}
             </span>
           )}
-          <p className="text-carnival-yellow font-semibold text-lg">{formatCurrency(currentPrice)}</p>
+          <p className="text-carnival-pink font-semibold text-lg">{formatCurrency(currentPrice)}</p>
         </div>
 
         {isVariantMode && productGroup.length > 1 && (
@@ -95,7 +95,7 @@ const QtyPopup = ({ product, currentBalance, onConfirm, onCancel, mode }) => {
                     }}
                     className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-200 border ${
                       isSelected
-                        ? 'bg-carnival-pink text-slate-900 border-carnival-pink shadow-md shadow-carnival-pink/30'
+                        ? 'bg-carnival-pink text-white border-carnival-pink shadow-md shadow-carnival-pink/30'
                         : isOutOfStock
                         ? 'bg-white/50 text-slate-500 border-slate-200/50 cursor-not-allowed'
                         : 'bg-slate-100/50 text-slate-700 border-slate-300/50 hover:bg-slate-200'
