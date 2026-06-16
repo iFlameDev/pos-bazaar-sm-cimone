@@ -63,9 +63,9 @@ function doPost(e) {
 
 /**
  * 2. Event-Driven Sync (Debounce)
- * Dipanggil langsung oleh GSheets saat admin mengedit cell
+ * Harus di-set sebagai "Installable Trigger" (On edit) di menu Triggers Apps Script
  */
-function onEdit(e) {
+function handleSheetEdit(e) {
   if (!e || !e.source) return;
   var sheetName = e.source.getActiveSheet().getName();
   
