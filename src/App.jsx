@@ -23,6 +23,7 @@ import {
   clearCart,
   getCartItemCount,
   getCartTotal,
+  changeCartItemVariant,
 } from './utils/cartStorage';
 import useLocalStorage from './hooks/useLocalStorage';
 
@@ -271,6 +272,16 @@ export default function App() {
     (productId) => {
       if (!selectedCustomer) return;
       removeFromCart(selectedCustomer.id, productId);
+      setCartVersion((v) => v + 1);
+    },
+    [selectedCustomer]
+  );
+
+  /** Handle cart item variant change */
+  const handleCartChangeVariant = useCallback(
+    (oldProductId, newProductId) => {
+      if (!selectedCustomer) return;
+      changeCartItemVariant(selectedCustomer.id, oldProductId, newProductId);
       setCartVersion((v) => v + 1);
     },
     [selectedCustomer]
