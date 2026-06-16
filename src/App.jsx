@@ -31,9 +31,7 @@ export default function App() {
   const [step, setStep] = useState(1);
 
   // ── Mode Selection ──
-  const [appMode, setAppMode] = useState(() => 
-    window.location.hash.includes('variant-model') ? 'variant' : 'scan'
-  );
+  const [appMode, setAppMode] = useLocalStorage('pos_app_mode', 'scan');
 
   // ── PIC (Person In Charge) ──
   const [picName, setPicName] = useLocalStorage('pos_pic_name', '');
@@ -98,15 +96,6 @@ export default function App() {
   // Set document title from config
   useEffect(() => {
     document.title = APP_NAME;
-  }, []);
-
-  // Listen to hash changes for mode
-  useEffect(() => {
-    const onHashChange = () => {
-      setAppMode(window.location.hash.includes('variant-model') ? 'variant' : 'scan');
-    };
-    window.addEventListener('hashchange', onHashChange);
-    return () => window.removeEventListener('hashchange', onHashChange);
   }, []);
 
   // Show PIC modal on first load if name is missing
@@ -364,6 +353,7 @@ export default function App() {
             onOpenScan={handleOpenScan}
             cartItemCount={cartItemCount}
             mode={appMode}
+            onToggleMode={() => setAppMode(m => m === 'scan' ? 'variant' : 'scan')}
             onBack={() => {
               setStep(1);
               setSelectedCustomer(null);

@@ -64,7 +64,8 @@ const ProductSelect = ({
   onBack,
   currentBalance,
   cartDelta,
-  mode
+  mode,
+  onToggleMode
 }) => {
   const [activeCategory, setActiveCategory] = useState('Semua');
   const [search, setSearch] = useState('');
@@ -115,14 +116,22 @@ const ProductSelect = ({
     <div className="min-h-screen bg-slate-950 flex flex-col">
       <div className="sticky top-0 z-30 bg-slate-950/80 backdrop-blur-xl border-b border-slate-800/60">
         <div className="max-w-5xl mx-auto px-4 py-3 space-y-3">
-          <div className="flex items-center gap-3">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <button
+                onClick={onBack}
+                className="w-9 h-9 rounded-lg bg-slate-800/60 border border-slate-700/50 flex items-center justify-center text-slate-300 hover:bg-slate-700/60 hover:text-slate-100 transition-colors"
+              >
+                <ArrowLeft className="w-4.5 h-4.5" />
+              </button>
+              <h1 className="text-lg font-bold text-slate-100">Pilih Produk</h1>
+            </div>
             <button
-              onClick={onBack}
-              className="w-9 h-9 rounded-lg bg-slate-800/60 border border-slate-700/50 flex items-center justify-center text-slate-300 hover:bg-slate-700/60 hover:text-slate-100 transition-colors"
+              onClick={onToggleMode}
+              className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-violet-600/20 text-violet-300 border border-violet-500/30 hover:bg-violet-600/30 transition-colors"
             >
-              <ArrowLeft className="w-4.5 h-4.5" />
+              {mode === 'scan' ? 'Mode Varian' : 'Mode Flat'}
             </button>
-            <h1 className="text-lg font-bold text-slate-100">Pilih Produk</h1>
           </div>
 
           <CustomerProfile
@@ -130,16 +139,6 @@ const ProductSelect = ({
             adjustedBalance={currentBalance}
             cartDelta={cartDelta}
           />
-
-          {mode === 'scan' && (
-            <button
-              onClick={onOpenScan}
-              className="w-full flex items-center justify-center gap-2 bg-emerald-600/20 border border-emerald-500/30 text-emerald-400 py-3 rounded-xl hover:bg-emerald-600/30 transition-all font-medium"
-            >
-              <ScanLine className="w-5 h-5" />
-              Buka Scanner QR / Barcode
-            </button>
-          )}
 
           <div
             className={`flex gap-2 overflow-x-auto pb-1 scrollbar-thin scrollbar-thumb-slate-700 transition-opacity duration-200 ${
@@ -161,15 +160,21 @@ const ProductSelect = ({
             ))}
           </div>
 
-          <div className="relative">
+          <div className="relative flex items-center">
             <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4.5 h-4.5 text-slate-400 pointer-events-none" />
             <input
               type="text"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Cari produk..."
-              className="input-field w-full pl-11"
+              className="input-field w-full pl-11 pr-12"
             />
+            <button
+              onClick={onOpenScan}
+              className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 text-emerald-400 hover:bg-emerald-500/20 rounded-lg transition-colors focus:outline-none"
+            >
+              <ScanLine className="w-5 h-5" />
+            </button>
           </div>
         </div>
       </div>
