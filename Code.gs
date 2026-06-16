@@ -6,9 +6,55 @@
 var SUPABASE_URL = "https://nxtwjlseuackxexspfoe.supabase.co";
 var SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im54dHdqbHNldWFja3hleHNwZm9lIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE2MjE2NTYsImV4cCI6MjA5NzE5NzY1Nn0.U0AIsIxXp6NlDIw6rnhBQ6TKHmNIl-P52ZDzAFo5tFk";
 
-function triggerSync() {
+/**
+ * 1. Webhook Entry Point
+ * Dipanggil oleh Supabase saat ada transaksi baru
+ */
+function doPost(e) {
+  try {
+    syncTransactionsToSheet();
+    return ContentService.createTextOutput(JSON.stringify({ success: true })).setMimeType(ContentService.MimeType.JSON);
+  } catch (err) {
+    return ContentService.createTextOutput(JSON.stringify({ error: err.message })).setMimeType(ContentService.MimeType.JSON);
+  }
+}
+
+/**
+ * 2. Event-Driven Sync (Debounce)
+ * Dipanggil langsung oleh GSheets saat admin mengedit cell
+ */
+function onEdit(e) {
+  if (!e || !e.source) return;
+  var sheetName = e.source.getActiveSheet().getName();
+  
+  // Hanya pedulikan perubahan di tab Stok atau Customer
+  if (sheetName !== "Stok" && sheetName !== "Customer") {
+    return;
+  }
+
+  var triggerName = "delayedSyncMasterData";
+
+  // Hapus semua trigger "delayedSyncMasterData" yang sudah ada (reset alarm)
+  var triggers = ScriptApp.getProjectTriggers();
+  for (var i = 0; i < triggers.length; i++) {
+    if (triggers[i].getHandlerFunction() === triggerName) {
+      ScriptApp.deleteTrigger(triggers[i]);
+    }
+  }
+
+  // Buat alarm baru 1 menit (60000ms) ke depan
+  ScriptApp.newTrigger(triggerName)
+    .timeBased()
+    .after(60 * 1000)
+    .create();
+}
+
+/**
+ * 3. Eksekutor Master Data
+ * Dieksekusi 1 menit setelah Anda selesai mengedit (berhenti mengetik)
+ */
+function delayedSyncMasterData() {
   syncMasterDataToSupabase();
-  syncTransactionsToSheet();
 }
 
 function syncMasterDataToSupabase() {
