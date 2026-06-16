@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 
-const EMOJIS = ['⚽', '🏀', '🏈', '⚾', '🏐', '🎾'];
+const EMOJIS = ['⚽', '🏀', '🏈', '🏐'];
 
 const FloatingBalls = () => {
   const [balls, setBalls] = useState([]);
@@ -11,8 +11,8 @@ const FloatingBalls = () => {
     const handleScroll = () => {
       const now = Date.now();
       
-      // Throttle spawn rate to 1 ball per 150ms of active scrolling
-      if (now - lastSpawnTime.current > 150) {
+      // Throttle spawn rate to 1 ball per 300ms of active scrolling (reduced intensity by 50%)
+      if (now - lastSpawnTime.current > 300) {
         lastSpawnTime.current = now;
         
         const newBall = {
