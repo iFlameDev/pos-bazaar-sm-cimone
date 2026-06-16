@@ -156,13 +156,15 @@ export default function App() {
 
   /** Qty confirmed – add to offline cart */
   const handleQtyConfirm = useCallback(
-    (qty) => {
-      if (!pendingProduct || !selectedCustomer) return;
+    (qty, selectedVariant) => {
+      if (!selectedCustomer) return;
 
-      addToCart(selectedCustomer.id, pendingProduct.id, qty);
+      const productToAdd = selectedVariant || pendingProduct;
+
+      addToCart(selectedCustomer.id, productToAdd.id, qty);
       setCartVersion((v) => v + 1);
 
-      showToast(`${pendingProduct.namaProduk} ×${qty} ditambahkan ke keranjang`);
+      showToast(`${productToAdd.namaProduk} ×${qty} ditambahkan ke keranjang`);
       setShowQtyPopup(false);
       setPendingProduct(null);
     },
