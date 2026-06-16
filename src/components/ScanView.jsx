@@ -120,20 +120,20 @@ const ScanView = ({
   const remainingBalance = pendingProduct ? currentBalance - (qty * pendingProduct.harga) : currentBalance;
 
   return (
-    <div className="min-h-screen bg-slate-950 flex flex-col">
+    <div className="min-h-screen bg-transparent flex flex-col">
       {/* ── Sticky Top Section ──────────────────────── */}
-      <div className="sticky top-0 z-30 bg-slate-950/80 backdrop-blur-xl border-b border-slate-800/60">
+      <div className="sticky top-0 z-30 bg-white/80 backdrop-blur-xl border-b border-slate-200/60">
         <div className="max-w-5xl mx-auto px-4 py-3 space-y-3">
           <div className="flex items-center gap-3">
             <button
               onClick={onBack}
-              className="w-9 h-9 rounded-lg bg-slate-800/60 border border-slate-700/50 flex items-center justify-center text-slate-300 hover:bg-slate-700/60 hover:text-slate-100 transition-colors"
+              className="w-9 h-9 rounded-lg bg-white/60 border border-slate-200/50 flex items-center justify-center text-slate-700 hover:bg-slate-100/60 hover:text-slate-900 transition-colors"
             >
               <ArrowLeft className="w-4.5 h-4.5" />
             </button>
             <div className="flex items-center gap-2">
               <ScanLine className="w-5 h-5 text-carnival-blue" />
-              <h1 className="text-lg font-bold text-slate-100">Mode Scan</h1>
+              <h1 className="text-lg font-bold text-slate-900">Mode Scan</h1>
             </div>
           </div>
           <CustomerProfile
@@ -149,17 +149,17 @@ const ScanView = ({
         <div className="w-full flex-1 bg-black flex items-center justify-center overflow-hidden relative">
           <div id="reader" className="w-full h-full max-w-md mx-auto" ref={scannerRef}></div>
           {!scannerReady && !scannerError && (
-            <div className="absolute inset-0 flex items-center justify-center bg-slate-900/80 text-white z-10">
+            <div className="absolute inset-0 flex items-center justify-center bg-white/80 text-slate-900 z-10">
               <p className="animate-pulse">Memulai Kamera...</p>
             </div>
           )}
           {scannerError && (
-            <div className="absolute inset-0 flex flex-col items-center justify-center bg-slate-900 text-center px-6 z-10">
+            <div className="absolute inset-0 flex flex-col items-center justify-center bg-white text-center px-6 z-10">
               <div className="w-16 h-16 rounded-full bg-carnival-peach/20 flex items-center justify-center mb-4">
                 <span className="text-2xl">📷</span>
               </div>
-              <h3 className="text-lg font-bold text-slate-100 mb-2">Kamera Bermasalah</h3>
-              <p className="text-sm text-slate-400 mb-6">{scannerError}</p>
+              <h3 className="text-lg font-bold text-slate-900 mb-2">Kamera Bermasalah</h3>
+              <p className="text-sm text-slate-600 mb-6">{scannerError}</p>
               <button 
                 onClick={() => window.location.reload()}
                 className="px-6 py-2.5 bg-carnival-pink hover:bg-carnival-pink/80 text-slate-900 font-medium rounded-xl transition-colors"
@@ -196,12 +196,12 @@ const ScanView = ({
 
         {/* ── Scan Result Bottom Sheet ───────────────── */}
         {pendingProduct && (
-          <div className="fixed bottom-0 left-0 right-0 z-50 animate-slide-up bg-slate-900/95 backdrop-blur-xl border-t border-slate-800/60 rounded-t-3xl shadow-[0_-10px_40px_rgba(0,0,0,0.3)]">
+          <div className="fixed bottom-0 left-0 right-0 z-50 animate-slide-up bg-white/95 backdrop-blur-xl border-t border-slate-200/60 rounded-t-3xl shadow-[0_-10px_40px_rgba(0,0,0,0.3)]">
             <div className="max-w-5xl mx-auto p-5 space-y-4">
-              <div className="w-12 h-1.5 bg-slate-700/50 rounded-full mx-auto mb-2" />
+              <div className="w-12 h-1.5 bg-slate-100/50 rounded-full mx-auto mb-2" />
               
               <div className="text-center">
-                <h2 className="text-xl font-bold text-slate-100 mb-1 line-clamp-1">{pendingProduct.namaProduk}</h2>
+                <h2 className="text-xl font-bold text-slate-900 mb-1 line-clamp-1">{pendingProduct.namaProduk}</h2>
                 {pendingProduct.varian && (
                   <div className="mt-2 mb-1">
                     <span className="inline-block px-2.5 py-1 text-[11px] font-medium rounded-md bg-carnival-blue/20 text-carnival-blue border border-carnival-blue/30">
@@ -216,12 +216,12 @@ const ScanView = ({
                 <button
                   onClick={() => setQty(Math.max(1, qty - 1))}
                   disabled={qty <= 1}
-                  className="w-11 h-11 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-200 active:scale-90 disabled:opacity-30"
+                  className="w-11 h-11 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-800 active:scale-90 disabled:opacity-30"
                 >
                   <Minus className="w-5 h-5" />
                 </button>
 
-                <div className="w-20 h-14 bg-slate-950/60 border border-slate-800 rounded-xl flex items-center justify-center text-3xl font-bold text-slate-100">
+                <div className="w-20 h-14 bg-white/60 border border-slate-200 rounded-xl flex items-center justify-center text-3xl font-bold text-slate-900">
                   {qty}
                 </div>
 
@@ -235,16 +235,16 @@ const ScanView = ({
               </div>
 
               <div className={`rounded-xl border p-3 text-center transition-colors duration-200 ${
-                remainingBalance < 0 ? 'bg-carnival-peach/10 border-carnival-peach/30 text-carnival-peach' : 'bg-slate-950/50 border-slate-800 text-carnival-green'
+                remainingBalance < 0 ? 'bg-carnival-peach/10 border-carnival-peach/30 text-carnival-peach' : 'bg-white/50 border-slate-200 text-carnival-green'
               }`}>
-                <p className="text-xs text-slate-400 mb-0.5">Sisa Saldo</p>
+                <p className="text-xs text-slate-600 mb-0.5">Sisa Saldo</p>
                 <p className="text-xl font-bold tabular-nums">{formatCurrency(remainingBalance)}</p>
               </div>
 
               <div className="flex gap-3 pt-2">
                 <button 
                   onClick={() => setPendingProduct(null)} 
-                  className="flex-1 py-3.5 rounded-xl font-bold text-slate-300 bg-slate-800 border border-slate-700 active:scale-95 transition-transform"
+                  className="flex-1 py-3.5 rounded-xl font-bold text-slate-700 bg-white border border-slate-200 active:scale-95 transition-transform"
                 >
                   Batal
                 </button>

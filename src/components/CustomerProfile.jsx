@@ -20,7 +20,7 @@ const CustomerProfile = ({ customer, adjustedBalance, cartDelta = 0 }) => {
 
       {/* Name & Kelas */}
       <div className="flex-1 min-w-0">
-        <h3 className="text-lg font-bold text-slate-100 truncate">{customer.nama}</h3>
+        <h3 className="text-lg font-bold text-slate-900 truncate">{customer.nama}</h3>
         <span className="inline-block px-2 py-0.5 text-xs font-medium rounded-full bg-carnival-blue/20 text-carnival-blue border border-carnival-blue/20">
           {customer.kelas}
         </span>
@@ -28,7 +28,7 @@ const CustomerProfile = ({ customer, adjustedBalance, cartDelta = 0 }) => {
 
       {/* Balance */}
       <div className="flex flex-col items-end flex-shrink-0">
-        <div className="flex items-center gap-1.5 text-xs text-slate-400 mb-0.5">
+        <div className="flex items-center gap-1.5 text-xs text-slate-600 mb-0.5">
           <Wallet className="w-3.5 h-3.5" />
           <span>Saldo</span>
         </div>

@@ -21,21 +21,21 @@ const VariantPopup = ({
       <div className="animate-bounce-in glass-card w-full max-w-sm mx-4 p-5 space-y-4 relative">
         <button
           onClick={onClose}
-          className="absolute top-3 right-3 w-8 h-8 rounded-full bg-slate-800/60 flex items-center justify-center text-slate-400 hover:text-slate-100 hover:bg-slate-700/60 transition-colors"
+          className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/60 flex items-center justify-center text-slate-600 hover:text-slate-900 hover:bg-slate-100/60 transition-colors"
         >
           <X className="w-4 h-4" />
         </button>
 
         <div className="text-center pt-2">
           {baseProduct.gambarUrl && (
-            <div className="w-20 h-20 mx-auto mb-3 rounded-xl bg-slate-800/80 flex items-center justify-center overflow-hidden border border-slate-700/50 shadow-inner">
+            <div className="w-20 h-20 mx-auto mb-3 rounded-xl bg-white/80 flex items-center justify-center overflow-hidden border border-slate-200/50 shadow-inner">
               <img src={baseProduct.gambarUrl} alt={baseProduct.namaProduk} className="w-full h-full object-cover" />
             </div>
           )}
-          <h2 className="text-lg font-bold text-slate-100 mb-1">
+          <h2 className="text-lg font-bold text-slate-900 mb-1">
             Ganti Varian
           </h2>
-          <p className="text-sm text-slate-400">{baseProduct.namaProduk}</p>
+          <p className="text-sm text-slate-600">{baseProduct.namaProduk}</p>
         </div>
 
         <div className="space-y-2 max-h-[60vh] overflow-y-auto p-1">
@@ -52,8 +52,8 @@ const VariantPopup = ({
                   isSelected
                     ? 'bg-carnival-pink/20 text-carnival-pink border-carnival-pink/50 cursor-default'
                     : isOutOfStock
-                    ? 'bg-slate-800/30 text-slate-500 border-slate-700/30 cursor-not-allowed'
-                    : 'bg-slate-800/60 text-slate-300 border-slate-700/50 hover:bg-slate-700 hover:border-slate-600'
+                    ? 'bg-slate-50/50 text-slate-500 border-slate-200/30 cursor-not-allowed'
+                    : 'bg-white/60 text-slate-700 border-slate-200/50 hover:bg-slate-100 hover:border-slate-600'
                 }`}
               >
                 <div>

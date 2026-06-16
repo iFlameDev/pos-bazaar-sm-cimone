@@ -41,8 +41,8 @@ const PicModal = ({ isOpen, defaultName = '', onSave }) => {
 
         {/* Title & Subtitle */}
         <div className="text-center">
-          <h2 className="text-2xl font-bold text-slate-100 mb-1">Nama PIC</h2>
-          <p className="text-sm text-slate-400">Masukkan nama petugas yang bertugas</p>
+          <h2 className="text-2xl font-bold text-slate-900 mb-1">Nama PIC</h2>
+          <p className="text-sm text-slate-600">Masukkan nama petugas yang bertugas</p>
         </div>
 
         {/* Input */}

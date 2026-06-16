@@ -6,6 +6,7 @@ import QtyPopup from './components/QtyPopup';
 import CartView from './components/CartView';
 import PurchasedView from './components/PurchasedView';
 import ScanView from './components/ScanView';
+import Ornaments from './components/Ornaments';
 import { fetchMasterData, fetchCustomer, batchAddTransactions } from './utils/api';
 import { APP_NAME } from './config';
 import {
@@ -317,7 +318,8 @@ export default function App() {
   // ───────────────────── Render ─────────────────────
 
   return (
-    <div className="relative min-h-screen bg-slate-950">
+    <div className="relative min-h-screen bg-transparent">
+      <Ornaments />
       {/* ── Toast Notification ── */}
       {toast && (
         <div className="fixed top-6 left-1/2 -translate-x-1/2 z-[60] toast-enter">

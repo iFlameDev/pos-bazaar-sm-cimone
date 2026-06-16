@@ -61,7 +61,7 @@ const QrScanner = ({ onScan, onError }) => {
   }, []);
 
   return (
-    <div className="rounded-xl overflow-hidden border border-slate-700/50 bg-slate-900/80 shadow-xl">
+    <div className="rounded-xl overflow-hidden border border-slate-200/50 bg-white/80 shadow-xl">
       <div
         id={SCANNER_REGION_ID}
         className="qr-scanner-container"

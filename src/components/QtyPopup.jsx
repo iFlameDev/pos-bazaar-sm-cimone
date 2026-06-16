@@ -60,15 +60,15 @@ const QtyPopup = ({ product, currentBalance, onConfirm, onCancel, mode }) => {
       <div className="animate-bounce-in glass-card w-full max-w-sm mx-4 p-6 space-y-5">
         <div className="text-center">
           {(selectedVariant?.gambarUrl || baseProduct.gambarUrl) && (
-            <div className="w-24 h-24 mx-auto mb-4 rounded-xl bg-slate-800/80 flex items-center justify-center overflow-hidden border border-slate-700/50 shadow-inner">
+            <div className="w-24 h-24 mx-auto mb-4 rounded-xl bg-white/80 flex items-center justify-center overflow-hidden border border-slate-200/50 shadow-inner">
               <img src={selectedVariant?.gambarUrl || baseProduct.gambarUrl} alt={selectedVariant?.namaProduk || baseProduct.namaProduk} className="w-full h-full object-cover transition-opacity duration-300" />
             </div>
           )}
-          <h2 className="text-xl font-bold text-slate-100 mb-1">
+          <h2 className="text-xl font-bold text-slate-900 mb-1">
             {baseProduct.namaProduk}
           </h2>
           {isVariantMode && productGroup.length > 1 && !selectedVariant && (
-            <p className="text-sm text-slate-400 mb-1">Pilih varian untuk melihat harga</p>
+            <p className="text-sm text-slate-600 mb-1">Pilih varian untuk melihat harga</p>
           )}
           {!isVariantMode && baseProduct.varian && (
             <span className="inline-block px-1.5 py-0.5 mb-2 rounded bg-carnival-blue/20 text-carnival-blue border border-carnival-blue/30 text-[10px] font-medium tracking-wide">
@@ -80,7 +80,7 @@ const QtyPopup = ({ product, currentBalance, onConfirm, onCancel, mode }) => {
 
         {isVariantMode && productGroup.length > 1 && (
           <div className="space-y-2">
-            <p className="text-sm text-slate-400 text-center">Pilih Varian:</p>
+            <p className="text-sm text-slate-600 text-center">Pilih Varian:</p>
             <div className="flex flex-wrap justify-center gap-2">
               {productGroup.map((v) => {
                 const isSelected = selectedVariant?.id === v.id;
@@ -97,8 +97,8 @@ const QtyPopup = ({ product, currentBalance, onConfirm, onCancel, mode }) => {
                       isSelected
                         ? 'bg-carnival-pink text-slate-900 border-carnival-pink shadow-md shadow-carnival-pink/30'
                         : isOutOfStock
-                        ? 'bg-slate-800/50 text-slate-500 border-slate-700/50 cursor-not-allowed'
-                        : 'bg-slate-700/50 text-slate-300 border-slate-600/50 hover:bg-slate-600'
+                        ? 'bg-white/50 text-slate-500 border-slate-200/50 cursor-not-allowed'
+                        : 'bg-slate-100/50 text-slate-700 border-slate-300/50 hover:bg-slate-200'
                     }`}
                   >
                     {v.varian || 'Default'} {isOutOfStock ? '(Habis)' : `(${v.stokSekarang})`}
@@ -113,7 +113,7 @@ const QtyPopup = ({ product, currentBalance, onConfirm, onCancel, mode }) => {
           <button
             onClick={() => handleQtyChange(qty - 1)}
             disabled={qty <= 1 || !selectedVariant}
-            className="w-11 h-11 rounded-full bg-slate-700 border border-slate-600/50 flex items-center justify-center text-slate-200 transition-all duration-150 hover:bg-slate-600 disabled:opacity-30 disabled:cursor-not-allowed active:scale-90"
+            className="w-11 h-11 rounded-full bg-slate-100 border border-slate-300/50 flex items-center justify-center text-slate-800 transition-all duration-150 hover:bg-slate-200 disabled:opacity-30 disabled:cursor-not-allowed active:scale-90"
           >
             <Minus className="w-5 h-5" />
           </button>
@@ -125,7 +125,7 @@ const QtyPopup = ({ product, currentBalance, onConfirm, onCancel, mode }) => {
             min={1}
             max={maxByStock || 1}
             disabled={!selectedVariant}
-            className="w-20 h-14 text-center text-3xl font-bold text-slate-100 bg-slate-800/60 border border-slate-700/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-carnival-blue/40 focus:border-carnival-blue/40 disabled:opacity-30 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+            className="w-20 h-14 text-center text-3xl font-bold text-slate-900 bg-white/60 border border-slate-200/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-carnival-blue/40 focus:border-carnival-blue/40 disabled:opacity-30 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
           />
 
           <button
@@ -140,11 +140,11 @@ const QtyPopup = ({ product, currentBalance, onConfirm, onCancel, mode }) => {
         <div className={`rounded-xl border p-4 text-center transition-colors duration-200 ${
           remainingBalance < 0
             ? 'bg-carnival-peach/10 border-carnival-peach/30'
-            : 'bg-slate-800/50 border-slate-700/40'
+            : 'bg-white/50 border-slate-200/40'
         }`}>
           <div className="flex items-center justify-center gap-1.5 mb-1">
-            <Wallet className="w-3.5 h-3.5 text-slate-400" />
-            <p className="text-xs text-slate-400">Sisa Saldo</p>
+            <Wallet className="w-3.5 h-3.5 text-slate-600" />
+            <p className="text-xs text-slate-600">Sisa Saldo</p>
           </div>
           <p ref={balanceRef} className={`text-2xl font-bold tabular-nums transition-colors duration-200 ${
             remainingBalance < 0 ? 'text-carnival-peach' : 'text-carnival-green'

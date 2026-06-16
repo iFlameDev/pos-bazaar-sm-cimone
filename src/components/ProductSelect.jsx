@@ -22,7 +22,7 @@ const ProductCard = ({ product, onClick, index, mode }) => {
       style={{ animationDelay: `${index * 40}ms` }}
     >
       {/* Product Image Thumbnail */}
-      <div className={`w-full aspect-[4/3] rounded-lg bg-slate-800/80 mb-3 flex items-center justify-center overflow-hidden border border-slate-700/50 ${outOfStock ? 'opacity-40 grayscale' : ''}`}>
+      <div className={`w-full aspect-[4/3] rounded-lg bg-white/80 mb-3 flex items-center justify-center overflow-hidden border border-slate-200/50 ${outOfStock ? 'opacity-40 grayscale' : ''}`}>
         {product.gambarUrl ? (
           <img src={product.gambarUrl} alt={product.namaProduk} className="w-full h-full object-cover" />
         ) : (
@@ -30,7 +30,7 @@ const ProductCard = ({ product, onClick, index, mode }) => {
         )}
       </div>
 
-      <h3 className="font-semibold text-slate-100 text-sm mb-1 line-clamp-2 leading-snug">
+      <h3 className="font-semibold text-slate-900 text-sm mb-1 line-clamp-2 leading-snug">
         {product.namaProduk}
       </h3>
       {mode === 'scan' && product.varian && (
@@ -123,18 +123,18 @@ const ProductSelect = ({
   }, [groupedProducts, products, activeCategory, search, isSearching, mode]);
 
   return (
-    <div className="min-h-screen bg-slate-950 flex flex-col">
-      <div className="sticky top-0 z-30 bg-slate-950/80 backdrop-blur-xl border-b border-slate-800/60">
+    <div className="min-h-screen bg-transparent flex flex-col">
+      <div className="sticky top-0 z-30 bg-white/80 backdrop-blur-xl border-b border-slate-200/60">
         <div className="max-w-5xl mx-auto px-4 py-3 space-y-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <button
                 onClick={onBack}
-                className="w-9 h-9 rounded-lg bg-slate-800/60 border border-slate-700/50 flex items-center justify-center text-slate-300 hover:bg-slate-700/60 hover:text-slate-100 transition-colors"
+                className="w-9 h-9 rounded-lg bg-white/60 border border-slate-200/50 flex items-center justify-center text-slate-700 hover:bg-slate-100/60 hover:text-slate-900 transition-colors"
               >
                 <ArrowLeft className="w-4.5 h-4.5" />
               </button>
-              <h1 className="text-lg font-bold text-slate-100">Pilih Produk</h1>
+              <h1 className="text-lg font-bold text-slate-900">Pilih Produk</h1>
             </div>
             <button
               onClick={onToggleMode}
@@ -162,7 +162,7 @@ const ProductSelect = ({
                 className={`flex-shrink-0 px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-200 border ${
                   activeCategory === cat
                     ? 'bg-carnival-pink text-slate-900 border-carnival-pink shadow-md shadow-carnival-pink/25'
-                    : 'bg-slate-800/50 text-slate-400 border-slate-700/50 hover:bg-slate-700/60 hover:text-slate-200'
+                    : 'bg-white/50 text-slate-600 border-slate-200/50 hover:bg-slate-100/60 hover:text-slate-800'
                 }`}
               >
                 {cat}
@@ -171,7 +171,7 @@ const ProductSelect = ({
           </div>
 
           <div className="relative flex items-center">
-            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4.5 h-4.5 text-slate-400 pointer-events-none" />
+            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4.5 h-4.5 text-slate-600 pointer-events-none" />
             <input
               type="text"
               value={search}

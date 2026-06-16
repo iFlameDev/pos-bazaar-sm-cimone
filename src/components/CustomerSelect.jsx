@@ -9,13 +9,13 @@ const formatCurrency = (amount) =>
 const SkeletonCard = () => (
   <div className="glass-card p-4 animate-pulse">
     <div className="flex items-center gap-3 mb-3">
-      <div className="w-10 h-10 rounded-full bg-slate-700" />
+      <div className="w-10 h-10 rounded-full bg-slate-100" />
       <div className="flex-1">
-        <div className="h-4 bg-slate-700 rounded w-3/4 mb-2" />
-        <div className="h-3 bg-slate-700/60 rounded w-1/3" />
+        <div className="h-4 bg-slate-100 rounded w-3/4 mb-2" />
+        <div className="h-3 bg-slate-100/60 rounded w-1/3" />
       </div>
     </div>
-    <div className="h-3 bg-slate-700/40 rounded w-1/2" />
+    <div className="h-3 bg-slate-100/40 rounded w-1/2" />
   </div>
 );
 
@@ -25,10 +25,10 @@ const CustomerCard = ({ customer, onClick }) => (
     onClick={() => onClick(customer)}
     className="glass-card text-left w-full p-3.5 transition-all duration-200 hover:scale-[1.03] hover:border-carnival-blue/40 hover:shadow-lg hover:shadow-carnival-blue/10 focus:outline-none focus:ring-2 focus:ring-carnival-blue/40 flex flex-col gap-1.5"
   >
-    <p className="font-semibold text-slate-100 text-base min-w-0 truncate w-full">
+    <p className="font-semibold text-slate-900 text-base min-w-0 truncate w-full">
       {customer.nama}
     </p>
-    <div className="flex items-center gap-1.5 text-slate-400">
+    <div className="flex items-center gap-1.5 text-slate-600">
       <Wallet className="w-4 h-4 text-carnival-peach" />
       <span className="text-sm font-bold text-carnival-green">{formatCurrency(customer.saldoSekarang)}</span>
     </div>
@@ -76,22 +76,22 @@ const CustomerSelect = ({ customers, picName, onSelectCustomer, onEditPic, onRef
   , [grouped]);
 
   return (
-    <div className="min-h-screen bg-slate-950 flex flex-col">
+    <div className="min-h-screen bg-transparent flex flex-col">
       {/* ── Sticky Header ───────────────────────────── */}
-      <header className="sticky top-0 z-30 bg-slate-950/80 backdrop-blur-xl border-b border-slate-800/60">
+      <header className="sticky top-0 z-30 bg-white/80 backdrop-blur-xl border-b border-slate-200/60">
         <div className="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
           <div className="flex items-center gap-2.5">
             <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-carnival-pink to-carnival-peach flex items-center justify-center shadow-md shadow-carnival-pink/25">
               <Store className="w-5 h-5 text-slate-900" />
             </div>
-            <h1 className="text-lg font-bold text-slate-100">{APP_NAME}</h1>
+            <h1 className="text-lg font-bold text-slate-900">{APP_NAME}</h1>
           </div>
           <div className="flex items-center gap-2">
             {/* Refresh Data Button */}
             <button
               onClick={onRefreshData}
               disabled={refreshing}
-              className="w-9 h-9 rounded-lg bg-slate-800/60 border border-slate-700/50 flex items-center justify-center text-slate-300 hover:bg-slate-700/60 hover:text-slate-100 transition-all disabled:opacity-40"
+              className="w-9 h-9 rounded-lg bg-white/60 border border-slate-200/50 flex items-center justify-center text-slate-700 hover:bg-slate-100/60 hover:text-slate-900 transition-all disabled:opacity-40"
               title="Refresh Data"
             >
               <RefreshCw className={`w-4 h-4 ${refreshing ? 'animate-spin' : ''}`} />
@@ -99,7 +99,7 @@ const CustomerSelect = ({ customers, picName, onSelectCustomer, onEditPic, onRef
             {/* Edit PIC Button */}
             <button
               onClick={onEditPic}
-              className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-800/60 border border-slate-700/50 text-sm text-slate-300 hover:bg-slate-700/60 hover:text-slate-100 transition-colors"
+              className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/60 border border-slate-200/50 text-sm text-slate-700 hover:bg-slate-100/60 hover:text-slate-900 transition-colors"
             >
               <span className="max-w-[120px] truncate">{picName}</span>
               <Pencil className="w-3.5 h-3.5 text-carnival-blue" />
@@ -112,7 +112,7 @@ const CustomerSelect = ({ customers, picName, onSelectCustomer, onEditPic, onRef
       <main className="flex-1 max-w-5xl mx-auto w-full px-4 py-6 space-y-6">
         {/* Search Bar */}
         <div className="relative">
-          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4.5 h-4.5 text-slate-400 pointer-events-none" />
+          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4.5 h-4.5 text-slate-600 pointer-events-none" />
           <input
             type="text"
             value={search}
@@ -125,8 +125,8 @@ const CustomerSelect = ({ customers, picName, onSelectCustomer, onEditPic, onRef
         {/* All Customers */}
         <section>
           <div className="flex items-center gap-2 mb-4">
-            <Users className="w-4 h-4 text-slate-400" />
-            <h2 className="text-sm font-semibold text-slate-400 uppercase tracking-wider">
+            <Users className="w-4 h-4 text-slate-600" />
+            <h2 className="text-sm font-semibold text-slate-600 uppercase tracking-wider">
               {search ? `Hasil Pencarian (${totalFiltered})` : 'Semua Customer'}
             </h2>
           </div>
@@ -141,7 +141,7 @@ const CustomerSelect = ({ customers, picName, onSelectCustomer, onEditPic, onRef
             <div className="space-y-8">
               {grouped.map(([kelas, items]) => (
                 <div key={kelas} className="animate-fade-in relative">
-                  <div className="sticky top-[60px] z-20 bg-slate-950/95 backdrop-blur-md py-2 mb-3 -mx-4 px-4 sm:mx-0 sm:px-0">
+                  <div className="sticky top-[60px] z-20 bg-transparent/95 backdrop-blur-md py-2 mb-3 -mx-4 px-4 sm:mx-0 sm:px-0">
                     <div className="flex items-center gap-3">
                       <h3 className="text-sm font-bold text-carnival-pink uppercase tracking-wider">{kelas}</h3>
                       <div className="flex-1 h-px bg-carnival-pink/30"></div>

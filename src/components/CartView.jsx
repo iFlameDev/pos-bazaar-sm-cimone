@@ -82,20 +82,20 @@ const CartView = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 bg-slate-950 flex flex-col animate-slide-in-right">
+    <div className="fixed inset-0 z-50 bg-transparent flex flex-col animate-slide-in-right">
       {/* ── Sticky Header ───────────────────────────── */}
-      <div className="sticky top-0 z-30 bg-slate-950/80 backdrop-blur-xl border-b border-slate-800/60">
+      <div className="sticky top-0 z-30 bg-white/80 backdrop-blur-xl border-b border-slate-200/60">
         <div className="max-w-3xl mx-auto px-4 py-3 space-y-3">
           <div className="flex items-center gap-3">
             <button
               onClick={onBack}
-              className="w-9 h-9 rounded-lg bg-slate-800/60 border border-slate-700/50 flex items-center justify-center text-slate-300 hover:bg-slate-700/60 hover:text-slate-100 transition-colors"
+              className="w-9 h-9 rounded-lg bg-white/60 border border-slate-200/50 flex items-center justify-center text-slate-700 hover:bg-slate-100/60 hover:text-slate-900 transition-colors"
             >
               <ArrowLeft className="w-4.5 h-4.5" />
             </button>
             <div className="flex items-center gap-2">
               <ShoppingCart className="w-5 h-5 text-carnival-pink" />
-              <h1 className="text-lg font-bold text-slate-100">Keranjang</h1>
+              <h1 className="text-lg font-bold text-slate-900">Keranjang</h1>
             </div>
           </div>
 
@@ -126,7 +126,7 @@ const CartView = ({
               >
                 <div className="flex items-center gap-3">
                   {/* Product Image Thumbnail */}
-                  <div className="w-12 h-12 rounded-lg bg-slate-800 flex items-center justify-center overflow-hidden shrink-0 border border-slate-700/50">
+                  <div className="w-12 h-12 rounded-lg bg-white flex items-center justify-center overflow-hidden shrink-0 border border-slate-200/50">
                     {item.product.gambarUrl ? (
                       <img src={item.product.gambarUrl} alt={item.product.namaProduk} className="w-full h-full object-cover" />
                     ) : (
@@ -136,12 +136,12 @@ const CartView = ({
 
                   {/* Product Info */}
                   <div className="flex-1 min-w-0">
-                    <h3 className="font-semibold text-sm text-slate-100 truncate">
+                    <h3 className="font-semibold text-sm text-slate-900 truncate">
                       {item.product.namaProduk}
                     </h3>
                     {item.product.varian && (
                       <div className="flex items-center gap-1.5 mt-1">
-                        <span className="text-[11px] text-slate-400 font-medium">Varian:</span>
+                        <span className="text-[11px] text-slate-600 font-medium">Varian:</span>
                         {mode === 'variant' ? (
                           <button
                             onClick={() => {
@@ -175,7 +175,7 @@ const CartView = ({
                           onUpdateQty(item.productId, item.qty - 1);
                         }
                       }}
-                      className="w-8 h-8 rounded-full bg-slate-700 border border-slate-600/50 flex items-center justify-center text-slate-300 transition-all hover:bg-slate-600 active:scale-90"
+                      className="w-8 h-8 rounded-full bg-slate-100 border border-slate-300/50 flex items-center justify-center text-slate-700 transition-all hover:bg-slate-200 active:scale-90"
                     >
                       {item.qty === 1 ? (
                         <Trash2 className="w-3.5 h-3.5 text-carnival-peach" />
@@ -184,7 +184,7 @@ const CartView = ({
                       )}
                     </button>
 
-                    <span className="min-w-[2rem] text-center text-lg font-bold tabular-nums text-slate-100">
+                    <span className="min-w-[2rem] text-center text-lg font-bold tabular-nums text-slate-900">
                       {item.qty}
                     </span>
 
@@ -205,13 +205,13 @@ const CartView = ({
 
       {/* ── Sticky Bottom ───────────────────────────── */}
       {enrichedItems.length > 0 && (
-        <div className="sticky bottom-0 z-30 bg-slate-950/90 backdrop-blur-xl border-t border-slate-800/60">
+        <div className="sticky bottom-0 z-30 bg-white/90 backdrop-blur-xl border-t border-slate-200/60">
           <div className="max-w-3xl mx-auto px-4 py-4 space-y-3">
             <div className="flex items-center justify-between text-sm">
-              <span className="text-slate-400">
+              <span className="text-slate-600">
                 {totalItems} item{totalItems !== 1 ? 's' : ''}
               </span>
-              <span className="text-slate-100 font-bold text-base">
+              <span className="text-slate-900 font-bold text-base">
                 {formatCurrency(totalCost)}
               </span>
             </div>

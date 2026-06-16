@@ -141,20 +141,20 @@ const PurchasedView = ({ customer, products, picName, onBack, onSaved }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-50 bg-slate-950 flex flex-col animate-slide-in-right">
+    <div className="fixed inset-0 z-50 bg-transparent flex flex-col animate-slide-in-right">
       {/* ── Sticky Header ───────────────────────────── */}
-      <div className="sticky top-0 z-30 bg-slate-950/80 backdrop-blur-xl border-b border-slate-800/60">
+      <div className="sticky top-0 z-30 bg-white/80 backdrop-blur-xl border-b border-slate-200/60">
         <div className="max-w-3xl mx-auto px-4 py-3 space-y-3">
           <div className="flex items-center gap-3">
             <button
               onClick={onBack}
-              className="w-9 h-9 rounded-lg bg-slate-800/60 border border-slate-700/50 flex items-center justify-center text-slate-300 hover:bg-slate-700/60 hover:text-slate-100 transition-colors"
+              className="w-9 h-9 rounded-lg bg-white/60 border border-slate-200/50 flex items-center justify-center text-slate-700 hover:bg-slate-100/60 hover:text-slate-900 transition-colors"
             >
               <ArrowLeft className="w-4.5 h-4.5" />
             </button>
             <div className="flex items-center gap-2">
               <ClipboardList className="w-5 h-5 text-carnival-blue" />
-              <h1 className="text-lg font-bold text-slate-100">Riwayat Pembelian</h1>
+              <h1 className="text-lg font-bold text-slate-900">Riwayat Pembelian</h1>
             </div>
           </div>
 
@@ -167,7 +167,7 @@ const PurchasedView = ({ customer, products, picName, onBack, onSaved }) => {
         {loading ? (
           <div className="flex flex-col items-center justify-center py-20 gap-3">
             <Loader2 className="w-8 h-8 text-carnival-pink animate-spin" />
-            <p className="text-slate-400 font-medium">Memuat riwayat...</p>
+            <p className="text-slate-600 font-medium">Memuat riwayat...</p>
           </div>
         ) : cartItems.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-20 text-slate-500">
@@ -197,7 +197,7 @@ const PurchasedView = ({ customer, products, picName, onBack, onSaved }) => {
                 >
                   <div className="flex items-center gap-3">
                     {/* Product Image Thumbnail */}
-                    <div className={`w-12 h-12 rounded-lg bg-slate-800 flex items-center justify-center overflow-hidden shrink-0 border border-slate-700/50 ${isDeleted ? 'opacity-50 grayscale' : ''}`}>
+                    <div className={`w-12 h-12 rounded-lg bg-white flex items-center justify-center overflow-hidden shrink-0 border border-slate-200/50 ${isDeleted ? 'opacity-50 grayscale' : ''}`}>
                       {prod.gambarUrl ? (
                         <img src={prod.gambarUrl} alt={prod.namaProduk} className="w-full h-full object-cover" />
                       ) : (
@@ -207,14 +207,14 @@ const PurchasedView = ({ customer, products, picName, onBack, onSaved }) => {
 
                     <div className="flex-1 min-w-0">
                       <h3
-                        className={`font-semibold text-sm text-slate-100 truncate ${isDeleted ? 'line-through text-slate-500' : ''
+                        className={`font-semibold text-sm text-slate-900 truncate ${isDeleted ? 'line-through text-slate-500' : ''
                           }`}
                       >
                         {prod.namaProduk}
                       </h3>
                       {prod.varian && (
                         <div className={`flex items-center gap-1.5 mt-1 ${isDeleted ? 'opacity-50' : ''}`}>
-                          <span className={`inline-block px-2 py-0.5 text-[10px] font-medium rounded-md bg-carnival-blue/20 border border-carnival-blue/30 ${isDeleted ? 'text-slate-400 line-through' : 'text-carnival-blue'}`}>
+                          <span className={`inline-block px-2 py-0.5 text-[10px] font-medium rounded-md bg-carnival-blue/20 border border-carnival-blue/30 ${isDeleted ? 'text-slate-600 line-through' : 'text-carnival-blue'}`}>
                             {prod.varian}
                           </span>
                         </div>
@@ -230,7 +230,7 @@ const PurchasedView = ({ customer, products, picName, onBack, onSaved }) => {
                           handleQtyChange(item.idTransaksi, item.qty - 1)
                         }
                         disabled={item.qty <= 0}
-                        className="w-8 h-8 rounded-full bg-slate-700 border border-slate-600/50 flex items-center justify-center text-slate-300 transition-all hover:bg-slate-600 disabled:opacity-30 disabled:cursor-not-allowed active:scale-90"
+                        className="w-8 h-8 rounded-full bg-slate-100 border border-slate-300/50 flex items-center justify-center text-slate-700 transition-all hover:bg-slate-200 disabled:opacity-30 disabled:cursor-not-allowed active:scale-90"
                       >
                         {item.qty === 1 ? (
                           <Trash2 className="w-3.5 h-3.5 text-carnival-peach" />
@@ -244,7 +244,7 @@ const PurchasedView = ({ customer, products, picName, onBack, onSaved }) => {
                           ? 'text-carnival-peach line-through'
                           : hasChanged
                             ? 'text-carnival-pink'
-                            : 'text-slate-100'
+                            : 'text-slate-900'
                           }`}
                       >
                         {item.qty}
@@ -268,13 +268,13 @@ const PurchasedView = ({ customer, products, picName, onBack, onSaved }) => {
       </main>
 
       {/* ── Sticky Bottom ───────────────────────────── */}
-      <div className="sticky bottom-0 z-30 bg-slate-950/90 backdrop-blur-xl border-t border-slate-800/60">
+      <div className="sticky bottom-0 z-30 bg-white/90 backdrop-blur-xl border-t border-slate-200/60">
         <div className="max-w-3xl mx-auto px-4 py-4 space-y-3">
           <div className="flex items-center justify-between text-sm">
-            <span className="text-slate-400">
+            <span className="text-slate-600">
               {totalItems} item{totalItems !== 1 ? 's' : ''}
             </span>
-            <span className="text-slate-100 font-bold text-base">
+            <span className="text-slate-900 font-bold text-base">
               {formatCurrency(totalCost)}
             </span>
           </div>
