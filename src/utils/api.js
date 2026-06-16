@@ -89,12 +89,19 @@ export async function batchUpdateCart(changedItems) {
     return { success: true };
   }
 
-  const updates = changedItems.map(item => 
-    supabase
-      .from('transactions')
-      .update({ qty: item.qty })
-      .eq('idTransaksi', item.idTransaksi)
-  );
+  const updates = changedItems.map(item => {
+    if (item.qty === 0) {
+      return supabase
+        .from('transactions')
+        .delete()
+        .eq('idTransaksi', item.idTransaksi);
+    } else {
+      return supabase
+        .from('transactions')
+        .update({ qty: item.qty })
+        .eq('idTransaksi', item.idTransaksi);
+    }
+  });
 
   const results = await Promise.all(updates);
   const errors = results.filter(r => r.error);

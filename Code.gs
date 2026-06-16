@@ -8,14 +8,56 @@ var SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
 
 /**
  * 1. Webhook Entry Point
- * Dipanggil oleh Supabase saat ada transaksi baru
+ * Dipanggil oleh Supabase saat ada transaksi baru, diubah, atau dihapus
  */
 function doPost(e) {
+  var lock = LockService.getScriptLock();
   try {
-    syncTransactionsToSheet();
+    lock.waitLock(10000); // Tunggu antrean sampai 10 detik agar tidak tabrakan
+
+    var payload = JSON.parse(e.postData.contents);
+    var type = payload.type; // "INSERT", "UPDATE", "DELETE"
+    var record = payload.record;
+    var oldRecord = payload.old_record;
+    
+    var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Transaksi");
+    if (!sheet) throw new Error("Sheet Transaksi tidak ditemukan");
+
+    if (type === "INSERT" && record) {
+      sheet.appendRow([
+        record.idTransaksi,
+        record.idProduk,
+        record.qty,
+        record.idCustomer,
+        record.transaksiPic,
+        "", // Update PIC
+        ""  // Delete PIC
+      ]);
+    } 
+    else if (type === "UPDATE" && record) {
+      var data = sheet.getDataRange().getValues();
+      for (var i = 1; i < data.length; i++) {
+        if (data[i][0] === record.idTransaksi) {
+          sheet.getRange(i + 1, 3).setValue(record.qty); // Kolom ke-3 adalah qty
+          break;
+        }
+      }
+    }
+    else if (type === "DELETE" && oldRecord) {
+      var data = sheet.getDataRange().getValues();
+      for (var i = 1; i < data.length; i++) {
+        if (data[i][0] === oldRecord.idTransaksi) {
+          sheet.deleteRow(i + 1);
+          break;
+        }
+      }
+    }
+
     return ContentService.createTextOutput(JSON.stringify({ success: true })).setMimeType(ContentService.MimeType.JSON);
   } catch (err) {
     return ContentService.createTextOutput(JSON.stringify({ error: err.message })).setMimeType(ContentService.MimeType.JSON);
+  } finally {
+    lock.releaseLock();
   }
 }
 
@@ -102,61 +144,7 @@ function syncMasterDataToSupabase() {
   }
 }
 
-function syncTransactionsToSheet() {
-  var response = UrlFetchApp.fetch(SUPABASE_URL + "/rest/v1/transactions?is_synced=eq.false", {
-    method: "get",
-    headers: {
-      "apikey": SUPABASE_KEY,
-      "Authorization": "Bearer " + SUPABASE_KEY
-    }
-  });
-  
-  var transactions = JSON.parse(response.getContentText());
-  
-  if (!transactions || transactions.length === 0) return;
 
-  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Transaksi");
-  if (!sheet) return;
-
-  var rows = [];
-  var idsToUpdate = [];
-
-  for (var i = 0; i < transactions.length; i++) {
-    var t = transactions[i];
-    rows.push([
-      t.idTransaksi,
-      t.idProduk,
-      t.qty,
-      t.idCustomer,
-      t.transaksiPic,
-      "",
-      ""
-    ]);
-    idsToUpdate.push(t.idTransaksi);
-  }
-
-  var lastRow = Math.max(sheet.getLastRow(), 1);
-  sheet.getRange(lastRow + 1, 1, rows.length, 7).setValues(rows);
-
-  // Split IDs into chunks of 100 to avoid too long URLs
-  var chunkSize = 100;
-  for (var i = 0; i < idsToUpdate.length; i += chunkSize) {
-    var chunk = idsToUpdate.slice(i, i + chunkSize);
-    var url = SUPABASE_URL + "/rest/v1/transactions?idTransaksi=in.(" + chunk.join(",") + ")";
-    
-    UrlFetchApp.fetch(url, {
-      method: "patch",
-      headers: {
-        "apikey": SUPABASE_KEY,
-        "Authorization": "Bearer " + SUPABASE_KEY,
-        "Content-Type": "application/json",
-        "Prefer": "return=minimal"
-      },
-      payload: JSON.stringify({ is_synced: true }),
-      muteHttpExceptions: true
-    });
-  }
-}
 
 function supabaseUpsert(tableName, data) {
   var url = SUPABASE_URL + "/rest/v1/" + tableName;
