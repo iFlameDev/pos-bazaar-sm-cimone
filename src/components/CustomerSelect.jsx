@@ -124,13 +124,6 @@ const CustomerSelect = ({ customers, picName, onSelectCustomer, onEditPic, onRef
 
         {/* All Customers */}
         <section>
-          <div className="flex items-center gap-2 mb-4">
-            <Users className="w-4 h-4 text-slate-600" />
-            <h2 className="text-sm font-semibold text-slate-600 uppercase tracking-wider">
-              {search ? `Hasil Pencarian (${totalFiltered})` : 'Semua Customer'}
-            </h2>
-          </div>
-
           {loading ? (
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
               {Array.from({ length: 8 }).map((_, i) => (
@@ -141,7 +134,7 @@ const CustomerSelect = ({ customers, picName, onSelectCustomer, onEditPic, onRef
             <div className="space-y-8">
               {grouped.map(([kelas, items]) => (
                 <div key={kelas} className="animate-fade-in relative">
-                  <div className="sticky top-[60px] z-20 bg-white/90 backdrop-blur-md py-2 mb-3 -mx-4 px-4 sm:mx-0 sm:px-0">
+                  <div className="sticky top-[60px] z-20 py-2 mb-3 -mx-4 px-4 sm:mx-0 sm:px-0">
                     <div className="flex items-center gap-3">
                       <h3 className="text-sm font-bold text-carnival-pink uppercase tracking-wider">{kelas}</h3>
                       <div className="flex-1 h-px bg-carnival-pink/30"></div>

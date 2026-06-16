@@ -7,6 +7,7 @@ import CartView from './components/CartView';
 import PurchasedView from './components/PurchasedView';
 import ScanView from './components/ScanView';
 import Ornaments from './components/Ornaments';
+import FloatingBalls from './components/FloatingBalls';
 import { fetchMasterData, fetchCustomer, batchAddTransactions } from './utils/api';
 import { APP_NAME } from './config';
 import {
@@ -26,6 +27,7 @@ import {
   getCartTotal,
   changeCartItemVariant,
 } from './utils/cartStorage';
+import { triggerConfetti } from './utils/confetti';
 import useLocalStorage from './hooks/useLocalStorage';
 
 export default function App() {
@@ -178,6 +180,7 @@ export default function App() {
       setCartVersion((v) => v + 1);
 
       showToast(`${productToAdd.namaProduk} ×${qty} ditambahkan ke keranjang`);
+      triggerConfetti();
       setShowQtyPopup(false);
       setPendingProduct(null);
     },
@@ -241,6 +244,7 @@ export default function App() {
     // Go back to product select
     setStep(2);
     showToast('Transaksi berhasil disimpan!');
+    triggerConfetti();
   }, [selectedCustomer, picName, showToast]);
 
   /** Open cart view */
@@ -319,6 +323,7 @@ export default function App() {
 
   return (
     <div className="relative min-h-screen bg-transparent">
+      <FloatingBalls />
       <Ornaments />
       {/* ── Toast Notification ── */}
       {toast && (
@@ -444,6 +449,7 @@ export default function App() {
             addToCart(selectedCustomer.id, product.id, qty);
             setCartVersion((v) => v + 1);
             showToast(`${product.namaProduk} ×${qty} ditambahkan ke keranjang`);
+            triggerConfetti();
           }}
         />
       )}
