@@ -1,43 +1,58 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 
-const balls = Array.from({ length: 15 }).map((_, i) => ({
-  id: i,
-  size: Math.random() * 50 + 20,
-  left: Math.random() * 100,
-  top: Math.random() * 100, // percentage of viewport
-  color: ['#f72585', '#4cc9f0', '#f8961e', '#f9c74f', '#43aa8b'][i % 5],
-  speed: Math.random() * 0.4 + 0.1,
-  delay: Math.random() * 2,
-}));
+const EMOJIS = ['⚽', '🏀', '🏈', '⚾', '🏐', '🎾'];
 
 const FloatingBalls = () => {
-  const [scrollY, setScrollY] = useState(0);
+  const [balls, setBalls] = useState([]);
+  const lastSpawnTime = useRef(0);
+  const scrollTimeout = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrollY(window.scrollY);
+      const now = Date.now();
+      
+      // Throttle spawn rate to 1 ball per 150ms of active scrolling
+      if (now - lastSpawnTime.current > 150) {
+        lastSpawnTime.current = now;
+        
+        const newBall = {
+          id: crypto.randomUUID(),
+          emoji: EMOJIS[Math.floor(Math.random() * EMOJIS.length)],
+          left: Math.random() * 80 + 10, // 10% to 90% horizontal position
+          size: Math.random() * 20 + 30, // 30px to 50px
+          duration: Math.random() * 0.4 + 1.2, // 1.2s to 1.6s
+        };
+
+        setBalls((prev) => [...prev, newBall]);
+
+        // Remove the ball after its animation completes
+        setTimeout(() => {
+          setBalls((prev) => prev.filter((b) => b.id !== newBall.id));
+        }, newBall.duration * 1000);
+      }
     };
+
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (scrollTimeout.current) clearTimeout(scrollTimeout.current);
+    };
   }, []);
 
   return (
-    <div className="fixed inset-0 pointer-events-none overflow-hidden z-[1] opacity-30">
+    <div className="fixed inset-0 pointer-events-none overflow-hidden z-[50]">
       {balls.map((ball) => (
         <div
           key={ball.id}
-          className="absolute rounded-full animate-pulse shadow-sm"
+          className="absolute bottom-[-100px]"
           style={{
-            width: ball.size,
-            height: ball.size,
             left: `${ball.left}%`,
-            top: `${ball.top}%`,
-            backgroundColor: ball.color,
-            transform: `translateY(${scrollY * ball.speed * -1}px)`,
-            animationDuration: `${3 + ball.speed * 2}s`,
-            animationDelay: `${ball.delay}s`,
+            fontSize: `${ball.size}px`,
+            animation: `bounceUp ${ball.duration}s forwards`,
           }}
-        />
+        >
+          {ball.emoji}
+        </div>
       ))}
     </div>
   );
