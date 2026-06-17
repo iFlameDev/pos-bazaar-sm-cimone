@@ -1,13 +1,13 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import PicModal from './components/PicModal';
 import CustomerSelect from './components/CustomerSelect';
+import SelfServiceLogin from './components/SelfServiceLogin';
 import ProductSelect from './components/ProductSelect';
 import QtyPopup from './components/QtyPopup';
 import CartView from './components/CartView';
 import PurchasedView from './components/PurchasedView';
 import ScanView from './components/ScanView';
 import Ornaments from './components/Ornaments';
-import FloatingBalls from './components/FloatingBalls';
 import { fetchMasterData, fetchCustomer, batchAddTransactions } from './utils/api';
 import { APP_NAME } from './config';
 import {
@@ -33,6 +33,7 @@ import useLocalStorage from './hooks/useLocalStorage';
 export default function App() {
   // ── Workflow step: 1=customer, 2=product, 3=cart, 4=purchased, 5=scan ──
   const [step, setStep] = useState(1);
+  const [route, setRoute] = useState({ path: '/', searchParams: new URLSearchParams() });
 
   // ── Mode Selection ──
   const [appMode, setAppMode] = useLocalStorage('pos_app_mode', 'scan');
@@ -114,10 +115,23 @@ export default function App() {
     document.title = APP_NAME;
   }, []);
 
-  // Show PIC modal on first load if name is missing
+  // Show PIC modal on first load if name is missing and in cashier mode
   useEffect(() => {
-    if (!picName) setShowPicModal(true);
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+    if (route.path === '/cashier' && !picName) setShowPicModal(true);
+  }, [route.path, picName]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Hash routing listener
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace(/^#/, '') || '/';
+      const [path, search] = hash.split('?');
+      setRoute({ path, searchParams: new URLSearchParams(search || '') });
+    };
+    
+    handleHashChange();
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
 
   // Fetch master data on mount
   useEffect(() => {
@@ -200,7 +214,7 @@ export default function App() {
       idProduk: item.productId,
       qty: item.qty,
       idCustomer: selectedCustomer.id,
-      transaksiPic: picName,
+      transaksiPic: route.path === '/cashier' ? picName : 'Self-Service',
     }));
 
     await batchAddTransactions(transactions);
@@ -241,11 +255,16 @@ export default function App() {
     clearCart(selectedCustomer.id);
     setCartVersion((v) => v + 1);
 
-    // Go back to product select
-    setStep(2);
+    // Go back to product select or login
+    if (route.path === '/cashier') {
+      setStep(2);
+    } else {
+      setStep(1);
+      setSelectedCustomer(null);
+    }
     showToast('Transaksi berhasil disimpan!');
     triggerConfetti();
-  }, [selectedCustomer, picName, showToast]);
+  }, [selectedCustomer, picName, showToast, route.path]);
 
   /** Open cart view */
   const handleOpenCart = useCallback(() => setStep(3), []);
@@ -264,11 +283,16 @@ export default function App() {
 
   /** Purchased saved successfully */
   const handlePurchasedSaved = useCallback(async () => {
-    setStep(2);
+    if (route.path === '/cashier') {
+      setStep(2);
+    } else {
+      setStep(1);
+      setSelectedCustomer(null);
+    }
     showToast('Perubahan berhasil disimpan!');
     // Refresh master data since server state changed (stok/saldo)
     await loadMasterData(true);
-  }, [showToast, loadMasterData]);
+  }, [showToast, loadMasterData, route.path]);
 
   /** Edit PIC name */
   const handleEditPic = useCallback(() => setShowPicModal(true), []);
@@ -323,7 +347,6 @@ export default function App() {
 
   return (
     <div className="relative min-h-screen bg-transparent">
-      <FloatingBalls />
       <Ornaments />
       {/* ── Toast Notification ── */}
       {toast && (
@@ -355,8 +378,8 @@ export default function App() {
         />
       )}
 
-      {/* ── Step 1: Customer Select ── */}
-      {step === 1 && (
+      {/* ── Step 1: Customer Select / Login ── */}
+      {step === 1 && route.path === '/cashier' && (
         <CustomerSelect
           customers={masterData.customers}
           loading={loading}
@@ -365,6 +388,14 @@ export default function App() {
           onEditPic={handleEditPic}
           onRefreshData={handleRefreshData}
           picName={picName}
+          filterKelas={route.searchParams.get('kelas')}
+        />
+      )}
+      
+      {step === 1 && route.path !== '/cashier' && (
+        <SelfServiceLogin
+          customers={masterData.customers}
+          onLogin={handleSelectCustomer}
         />
       )}
 

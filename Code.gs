@@ -192,3 +192,65 @@ function sheetToObjects(sheetName, keyMap) {
 
   return rows;
 }
+
+function syncTransactionsFromSupabase() {
+  var url = SUPABASE_URL + "/rest/v1/transaksi?select=*&order=created_at.asc";
+  
+  var options = {
+    method: "get",
+    headers: {
+      "apikey": SUPABASE_KEY,
+      "Authorization": "Bearer " + SUPABASE_KEY,
+      "Content-Type": "application/json"
+    },
+    muteHttpExceptions: true
+  };
+  
+  var response = UrlFetchApp.fetch(url, options);
+  if (response.getResponseCode() !== 200) {
+    Logger.log("Error fetching transactions: " + response.getContentText());
+    return;
+  }
+  
+  var data = JSON.parse(response.getContentText());
+  if (data.length === 0) return;
+  
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Transaksi");
+  if (!sheet) return;
+  
+  var existingData = sheet.getDataRange().getValues();
+  var existingMap = {};
+  for (var i = 1; i < existingData.length; i++) {
+    existingMap[existingData[i][0]] = i;
+  }
+  
+  var newRows = [];
+  for (var j = 0; j < data.length; j++) {
+    var record = data[j];
+    var rowIndex = existingMap[record.idTransaksi];
+    
+    if (rowIndex !== undefined) {
+      if (existingData[rowIndex][2] !== record.qty) {
+        sheet.getRange(rowIndex + 1, 3).setValue(record.qty);
+      }
+    } else {
+      newRows.push([
+        record.idTransaksi,
+        record.idProduk,
+        record.qty,
+        record.idCustomer,
+        record.transaksiPic,
+        "",
+        ""
+      ]);
+      existingMap[record.idTransaksi] = existingData.length + newRows.length - 1;
+    }
+  }
+  
+  if (newRows.length > 0) {
+    var startRow = sheet.getLastRow() + 1;
+    sheet.getRange(startRow, 1, newRows.length, newRows[0].length).setValues(newRows);
+  }
+  
+  Logger.log("Sync complete. Added " + newRows.length + " rows.");
+}

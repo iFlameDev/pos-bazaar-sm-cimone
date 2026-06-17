@@ -36,7 +36,16 @@ const CustomerCard = ({ customer, onClick }) => (
 );
 
 /* ── Main Component ────────────────────────────────────────── */
-const CustomerSelect = ({ customers, picName, onSelectCustomer, onEditPic, onRefreshData, loading, refreshing }) => {
+const CustomerSelect = ({ 
+  customers, 
+  picName, 
+  onSelectCustomer, 
+  onEditPic, 
+  onRefreshData, 
+  loading, 
+  refreshing,
+  filterKelas 
+}) => {
   const [search, setSearch] = useState('');
 
   const handleSelect = useCallback(
@@ -48,9 +57,14 @@ const CustomerSelect = ({ customers, picName, onSelectCustomer, onEditPic, onRef
 
   const grouped = useMemo(() => {
     let result = customers;
+    
+    if (filterKelas) {
+      result = result.filter(c => c.kelas?.toLowerCase() === filterKelas.toLowerCase());
+    }
+
     if (search.trim()) {
       const q = search.toLowerCase().trim();
-      result = customers.filter(
+      result = result.filter(
         (c) =>
           c.nama?.toLowerCase().includes(q) || c.id?.toLowerCase().includes(q)
       );
