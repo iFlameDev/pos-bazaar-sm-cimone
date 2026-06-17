@@ -42,11 +42,6 @@ const QtyPopup = ({ product, currentBalance, onConfirm, onCancel, mode }) => {
 
   const handleAddToCart = () => {
     if (!selectedVariant) return;
-    if (remainingBalance < 0) {
-      setShaking(true);
-      setTimeout(() => setShaking(false), 500);
-      return;
-    }
     onConfirm(qty, selectedVariant);
   };
 

@@ -253,7 +253,7 @@ const ScanView = ({
                     handleAddToCart(pendingProduct, qty);
                     setPendingProduct(null);
                   }}
-                  disabled={qty < 1 || remainingBalance < 0}
+                  disabled={qty < 1}
                   className="flex-[2] py-3.5 rounded-xl font-bold text-slate-900 bg-carnival-pink shadow-lg shadow-carnival-pink/30 active:scale-95 transition-transform disabled:opacity-50 disabled:cursor-not-allowed flex justify-center items-center gap-2"
                 >
                   <ShoppingCart className="w-5 h-5" />

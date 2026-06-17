@@ -255,13 +255,8 @@ export default function App() {
     clearCart(selectedCustomer.id);
     setCartVersion((v) => v + 1);
 
-    // Go back to product select or login
-    if (route.path === '/cashier') {
-      setStep(2);
-    } else {
-      setStep(1);
-      setSelectedCustomer(null);
-    }
+    // Go back to product select
+    setStep(2);
     showToast('Transaksi berhasil disimpan!');
     triggerConfetti();
   }, [selectedCustomer, picName, showToast, route.path]);
@@ -283,12 +278,7 @@ export default function App() {
 
   /** Purchased saved successfully */
   const handlePurchasedSaved = useCallback(async () => {
-    if (route.path === '/cashier') {
-      setStep(2);
-    } else {
-      setStep(1);
-      setSelectedCustomer(null);
-    }
+    setStep(2);
     showToast('Perubahan berhasil disimpan!');
     // Refresh master data since server state changed (stok/saldo)
     await loadMasterData(true);
