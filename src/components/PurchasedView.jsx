@@ -15,11 +15,12 @@ import { getCustomerCart, batchUpdateCart } from '../utils/api';
 const formatCurrency = (amount) =>
   new Intl.NumberFormat('id-ID').format(amount);
 
-const PurchasedView = ({ customer, products, picName, onBack, onSaved }) => {
+const PurchasedView = ({ customer, products, picName, onBack, onSaved, onShowToast }) => {
   const [cartItems, setCartItems] = useState([]);
   const [originalItems, setOriginalItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
+  const [isShaking, setIsShaking] = useState(false);
   var flag = 0;
   /* ── Fetch purchased items on mount ──────────────────────── */
   useEffect(() => {
@@ -124,7 +125,9 @@ const PurchasedView = ({ customer, products, picName, onBack, onSaved }) => {
     if (!hasChanges || saving) return;
 
     if (adjustedBalance < 0) {
-      alert('Saldo customer tidak mencukupi! Kurangi jumlah item.');
+      if (onShowToast) onShowToast('Saldo customer tidak mencukupi! Kurangi jumlah item.', 'error');
+      setIsShaking(true);
+      setTimeout(() => setIsShaking(false), 500);
       return;
     }
 
@@ -134,7 +137,7 @@ const PurchasedView = ({ customer, products, picName, onBack, onSaved }) => {
       onSaved();
     } catch (err) {
       console.error('Failed to save changes:', err);
-      alert('Gagal menyimpan perubahan. Silakan coba lagi.');
+      if (onShowToast) onShowToast('Gagal menyimpan perubahan. Silakan coba lagi.', 'error');
     } finally {
       setSaving(false);
     }
@@ -158,7 +161,7 @@ const PurchasedView = ({ customer, products, picName, onBack, onSaved }) => {
             </div>
           </div>
 
-          <CustomerProfile customer={customer} adjustedBalance={adjustedBalance} />
+          <CustomerProfile customer={customer} adjustedBalance={adjustedBalance} isShaking={isShaking} />
         </div>
       </div>
 

@@ -28,10 +28,12 @@ const CartView = ({
   onSave,
   onBack,
   mode,
-  onChangeVariant
+  onChangeVariant,
+  onShowToast
 }) => {
   const [saving, setSaving] = useState(false);
   const [variantPopupItem, setVariantPopupItem] = useState(null);
+  const [isShaking, setIsShaking] = useState(false);
 
   /* ── Product lookup helper ───────────────────────────────── */
   const getProduct = useCallback(
@@ -67,7 +69,9 @@ const CartView = ({
     if (saving || enrichedItems.length === 0) return;
 
     if (currentBalance < 0) {
-      alert('Saldo customer tidak mencukupi! Kurangi item di keranjang.');
+      if (onShowToast) onShowToast('Saldo customer tidak mencukupi! Kurangi item di keranjang.', 'error');
+      setIsShaking(true);
+      setTimeout(() => setIsShaking(false), 500);
       return;
     }
 
@@ -103,6 +107,7 @@ const CartView = ({
             customer={customer}
             adjustedBalance={currentBalance}
             cartDelta={cartDelta}
+            isShaking={isShaking}
           />
         </div>
       </div>

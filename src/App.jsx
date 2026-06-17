@@ -340,13 +340,13 @@ export default function App() {
       <Ornaments />
       {/* ── Toast Notification ── */}
       {toast && (
-        <div className="fixed top-6 left-1/2 -translate-x-1/2 z-[60] toast-enter">
+        <div className="fixed top-6 right-6 z-[60] toast-enter">
           <div
             className={`
               px-5 py-3 rounded-xl shadow-2xl backdrop-blur-lg border text-sm font-medium
               ${
                 toast.type === 'error'
-                  ? 'bg-carnival-peach/20 border-carnival-peach/30 text-carnival-peach'
+                  ? 'bg-carnival-peach text-white border-carnival-peach/30'
                   : 'bg-carnival-green/20 border-carnival-green/30 text-carnival-green'
               }
             `}
@@ -441,6 +441,7 @@ export default function App() {
           onChangeVariant={handleCartChangeVariant}
           onSave={handleSaveCart}
           onBack={handleCartBack}
+          onShowToast={showToast}
         />
       )}
 
@@ -453,6 +454,7 @@ export default function App() {
           mode={appMode}
           onBack={handlePurchasedBack}
           onSaved={handlePurchasedSaved}
+          onShowToast={showToast}
         />
       )}
       {/* ── Step 5: Scan View ── */}

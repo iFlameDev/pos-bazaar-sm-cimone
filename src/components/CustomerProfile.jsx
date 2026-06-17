@@ -4,7 +4,7 @@ import { Wallet, ShoppingCart } from 'lucide-react';
 const formatCurrency = (amount) =>
   new Intl.NumberFormat('id-ID').format(amount);
 
-const CustomerProfile = ({ customer, adjustedBalance, cartDelta = 0 }) => {
+const CustomerProfile = ({ customer, adjustedBalance, cartDelta = 0, isShaking = false }) => {
   const displayBalance = adjustedBalance ?? customer.saldoSekarang;
   const isNegative = displayBalance < 0;
   const hasCartDelta = cartDelta !== 0;
@@ -34,7 +34,7 @@ const CustomerProfile = ({ customer, adjustedBalance, cartDelta = 0 }) => {
         </div>
         <p className={`font-bold text-lg leading-tight tabular-nums transition-colors ${
             isNegative ? 'text-carnival-peach' : 'text-carnival-green'
-          }`}>
+          } ${isShaking ? 'animate-shake' : ''}`}>
           {formatCurrency(displayBalance)}
         </p>
         {hasCartDelta && (
