@@ -213,7 +213,6 @@ function syncTransactionsFromSupabase() {
   }
   
   var data = JSON.parse(response.getContentText());
-  if (data.length === 0) return;
   
   var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Transaksi");
   if (!sheet) return;
@@ -224,9 +223,11 @@ function syncTransactionsFromSupabase() {
     existingMap[existingData[i][0]] = i;
   }
   
+  var supabaseIds = {};
   var newRows = [];
   for (var j = 0; j < data.length; j++) {
     var record = data[j];
+    supabaseIds[record.idTransaksi] = true;
     var rowIndex = existingMap[record.idTransaksi];
     
     if (rowIndex !== undefined) {
@@ -252,5 +253,20 @@ function syncTransactionsFromSupabase() {
     sheet.getRange(startRow, 1, newRows.length, newRows[0].length).setValues(newRows);
   }
   
-  Logger.log("Sync complete. Added " + newRows.length + " rows.");
+  // Handle deletions (IDs in Sheets but no longer in Supabase)
+  var rowsToDelete = [];
+  for (var k = 1; k < existingData.length; k++) {
+    var exId = existingData[k][0];
+    if (exId && !supabaseIds[exId]) {
+      rowsToDelete.push(k + 1); // 1-based row index
+    }
+  }
+  
+  // Delete from bottom up to avoid index shifting issues
+  rowsToDelete.sort(function(a, b) { return b - a; });
+  for (var m = 0; m < rowsToDelete.length; m++) {
+    sheet.deleteRow(rowsToDelete[m]);
+  }
+  
+  Logger.log("Sync complete. Added " + newRows.length + " rows. Deleted " + rowsToDelete.length + " rows.");
 }
