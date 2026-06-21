@@ -133,6 +133,16 @@ export default function App() {
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
+  // Enforce default mode based on route
+  useEffect(() => {
+    if (route.path === '/') {
+      setAppMode('variant');
+    } else if (route.path === '/cashier') {
+      // Set default to flat mode for cashier (unless they change it later)
+      setAppMode('scan');
+    }
+  }, [route.path, setAppMode]);
+
   // Fetch master data on mount
   useEffect(() => {
     loadMasterData();
@@ -277,12 +287,24 @@ export default function App() {
   const handlePurchasedBack = useCallback(() => setStep(2), []);
 
   /** Purchased saved successfully */
-  const handlePurchasedSaved = useCallback(async () => {
+  const handlePurchasedSaved = useCallback(async (delta) => {
     setStep(2);
     showToast('Perubahan berhasil disimpan!');
-    // Refresh master data since server state changed (stok/saldo)
-    await loadMasterData(true);
-  }, [showToast, loadMasterData, route.path]);
+    
+    // Update local master data (no API re-fetch, fixes bug where balance reverts)
+    setMasterData((prev) => {
+      const newCustomers = prev.customers.map((c) => {
+        if (c.id === selectedCustomer?.id) {
+          return { ...c, saldoSekarang: c.saldoSekarang - delta };
+        }
+        return c;
+      });
+
+      const newData = { ...prev, customers: newCustomers };
+      setCachedMasterData(newData);
+      return newData;
+    });
+  }, [showToast, selectedCustomer]);
 
   /** Edit PIC name */
   const handleEditPic = useCallback(() => setShowPicModal(true), []);
@@ -403,6 +425,7 @@ export default function App() {
             onOpenScan={handleOpenScan}
             cartItemCount={cartItemCount}
             mode={appMode}
+            isCustomerMode={route.path !== '/cashier'}
             onToggleMode={() => setAppMode(m => m === 'scan' ? 'variant' : 'scan')}
             onBack={() => {
               setStep(1);

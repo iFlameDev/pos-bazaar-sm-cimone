@@ -134,7 +134,7 @@ const PurchasedView = ({ customer, products, picName, onBack, onSaved, onShowToa
     setSaving(true);
     try {
       await batchUpdateCart(changedItems);
-      onSaved();
+      onSaved(delta);
     } catch (err) {
       console.error('Failed to save changes:', err);
       if (onShowToast) onShowToast('Gagal menyimpan perubahan. Silakan coba lagi.', 'error');
@@ -223,7 +223,7 @@ const PurchasedView = ({ customer, products, picName, onBack, onSaved, onShowToa
                         </div>
                       )}
                       <p className="text-carnival-pink font-bold text-base mt-0.5">
-                        {formatCurrency(prod.harga)}
+                        {formatCurrency(prod.harga)} <span className="text-[10px] font-semibold opacity-70 uppercase tracking-wide">pts</span>
                       </p>
                     </div>
 

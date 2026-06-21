@@ -35,7 +35,7 @@ const CustomerProfile = ({ customer, adjustedBalance, cartDelta = 0, isShaking =
         <p className={`font-bold text-lg leading-tight tabular-nums transition-colors ${
             isNegative ? 'text-carnival-peach' : 'text-carnival-green'
           } ${isShaking ? 'animate-shake' : ''}`}>
-          {formatCurrency(displayBalance)}
+          {formatCurrency(displayBalance)} <span className="text-[11px] font-semibold opacity-80 uppercase tracking-wide">pts</span>
         </p>
         {hasCartDelta && (
           <div className="flex items-center gap-1 text-xs mt-0.5 text-carnival-pink animate-fade-in">

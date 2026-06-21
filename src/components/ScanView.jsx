@@ -209,7 +209,7 @@ const ScanView = ({
                     </span>
                   </div>
                 )}
-                <p className="text-carnival-pink font-semibold text-lg">{formatCurrency(pendingProduct.harga)}</p>
+                <p className="text-carnival-pink font-semibold text-lg">{formatCurrency(pendingProduct.harga)} <span className="text-xs font-semibold opacity-70 uppercase tracking-wide">pts</span></p>
               </div>
 
               <div className="flex items-center justify-center gap-4">
@@ -238,7 +238,7 @@ const ScanView = ({
                 remainingBalance < 0 ? 'bg-carnival-peach/10 border-carnival-peach/30 text-carnival-peach' : 'bg-white/50 border-slate-200 text-carnival-green'
               }`}>
                 <p className="text-xs text-slate-600 mb-0.5">Sisa Saldo</p>
-                <p className="text-xl font-bold tabular-nums">{formatCurrency(remainingBalance)}</p>
+                <p className="text-xl font-bold tabular-nums">{formatCurrency(remainingBalance)} <span className="text-sm font-semibold opacity-80 uppercase tracking-wide">pts</span></p>
               </div>
 
               <div className="flex gap-3 pt-2">

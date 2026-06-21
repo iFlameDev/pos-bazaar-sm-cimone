@@ -166,7 +166,7 @@ const CartView = ({
                       </div>
                     )}
                     <p className="text-carnival-pink font-bold text-base mt-0.5">
-                      {formatCurrency(item.product.harga)}
+                      {formatCurrency(item.product.harga)} <span className="text-[10px] font-semibold opacity-70 uppercase tracking-wide">pts</span>
                     </p>
                   </div>
 
@@ -217,7 +217,7 @@ const CartView = ({
                 {totalItems} item{totalItems !== 1 ? 's' : ''}
               </span>
               <span className="text-slate-900 font-bold text-base">
-                {formatCurrency(totalCost)}
+                {formatCurrency(totalCost)} <span className="text-[11px] font-semibold opacity-80 uppercase tracking-wide">pts</span>
               </span>
             </div>
 

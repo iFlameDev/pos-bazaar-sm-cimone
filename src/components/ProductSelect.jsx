@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { ShoppingCart, ArrowLeft, Search, Package, ClipboardList, ScanLine } from 'lucide-react';
+import { ShoppingCart, ArrowLeft, Search, Package, ClipboardList, ScanLine, ArrowRightLeft } from 'lucide-react';
 import CustomerProfile from './CustomerProfile';
 
 const formatCurrency = (amount) =>
@@ -39,7 +39,7 @@ const ProductCard = ({ product, onClick, index, mode }) => {
         </span>
       )}
       <p className={`text-carnival-pink font-bold text-base ${mode === 'variant' ? 'mb-2.5' : 'mb-0'}`}>
-        {formatCurrency(product.harga)}
+        {formatCurrency(product.harga)} <span className="text-[10px] font-semibold opacity-70 uppercase tracking-wide">pts</span>
       </p>
       
       {mode === 'variant' && (
@@ -74,6 +74,7 @@ const ProductSelect = ({
   currentBalance,
   cartDelta,
   mode,
+  isCustomerMode,
   onToggleMode
 }) => {
   const [activeCategory, setActiveCategory] = useState('Semua');
@@ -136,12 +137,15 @@ const ProductSelect = ({
               </button>
               <h1 className="text-lg font-bold text-slate-900">Pilih Produk</h1>
             </div>
-            <button
-              onClick={onToggleMode}
-              className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-carnival-pink/20 text-carnival-pink border border-carnival-pink/30 hover:bg-carnival-pink/30 transition-colors"
-            >
-              {mode === 'scan' ? 'Mode Varian' : 'Mode Flat'}
-            </button>
+            {!isCustomerMode && (
+              <button
+                onClick={onToggleMode}
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-carnival-pink/10 text-carnival-pink border border-carnival-pink/20 hover:bg-carnival-pink/20 transition-colors"
+              >
+                <ArrowRightLeft className="w-3.5 h-3.5" />
+                {mode === 'scan' ? 'Mode Flat' : 'Mode Varian'}
+              </button>
+            )}
           </div>
 
           <CustomerProfile
