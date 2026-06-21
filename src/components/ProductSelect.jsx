@@ -42,19 +42,13 @@ const ProductCard = ({ product, onClick, index, mode }) => {
         {formatCurrency(product.harga)} <span className="text-[10px] font-semibold opacity-70 uppercase tracking-wide">pts</span>
       </p>
       
-      {mode === 'variant' && (
-        <div className="flex items-center justify-between">
+      {mode === 'variant' && outOfStock && (
+        <div className="flex items-center justify-between mt-2">
           <span
-            className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-medium ${
-              outOfStock
-                ? 'bg-carnival-peach/20 text-carnival-peach border border-carnival-peach/20'
-                : product.stokSekarang <= 5
-                ? 'bg-carnival-orange/20 text-carnival-orange border border-carnival-orange/20'
-                : 'bg-carnival-green/20 text-carnival-green border border-carnival-green/20'
-            }`}
+            className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-medium bg-carnival-peach/20 text-carnival-peach border border-carnival-peach/20"
           >
             <Package className="w-3 h-3" />
-            {outOfStock ? 'Habis' : `Stok: ${product.stokSekarang}`}
+            Habis
           </span>
         </div>
       )}

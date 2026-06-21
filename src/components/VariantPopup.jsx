@@ -58,12 +58,14 @@ const VariantPopup = ({
               >
                 <div>
                   <div className="font-semibold">{v.varian || 'Default'}</div>
-                  <div className="text-xs mt-0.5 opacity-80">
-                    Sisa: {v.stokSekarang}
-                  </div>
+                  {isOutOfStock && (
+                    <div className="text-[11px] mt-0.5 text-carnival-peach font-medium">
+                      Habis
+                    </div>
+                  )}
                 </div>
                 <div className="font-bold">
-                  {formatCurrency(v.harga)}
+                  {formatCurrency(v.harga)} <span className="text-[10px] font-semibold opacity-70 uppercase tracking-wide">pts</span>
                 </div>
               </button>
             );

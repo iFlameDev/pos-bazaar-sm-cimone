@@ -70,7 +70,7 @@ const QtyPopup = ({ product, currentBalance, onConfirm, onCancel, mode }) => {
               {baseProduct.varian}
             </span>
           )}
-          <p className="text-carnival-pink font-semibold text-lg">{formatCurrency(currentPrice)}</p>
+          <p className="text-carnival-pink font-semibold text-lg">{formatCurrency(currentPrice)} <span className="text-xs font-semibold opacity-70 uppercase tracking-wide">pts</span></p>
         </div>
 
         {isVariantMode && productGroup.length > 1 && (
@@ -96,7 +96,7 @@ const QtyPopup = ({ product, currentBalance, onConfirm, onCancel, mode }) => {
                         : 'bg-slate-100/50 text-slate-700 border-slate-300/50 hover:bg-slate-200'
                     }`}
                   >
-                    {v.varian || 'Default'} {isOutOfStock ? '(Habis)' : `(${v.stokSekarang})`}
+                    {v.varian || 'Default'} {isOutOfStock && '(Habis)'}
                   </button>
                 );
               })}
@@ -144,7 +144,7 @@ const QtyPopup = ({ product, currentBalance, onConfirm, onCancel, mode }) => {
           <p ref={balanceRef} className={`text-2xl font-bold tabular-nums transition-colors duration-200 ${
             remainingBalance < 0 ? 'text-carnival-peach' : 'text-carnival-green'
           } ${shaking ? 'animate-shake' : ''}`}>
-            {formatCurrency(remainingBalance)}
+            {formatCurrency(remainingBalance)} <span className="text-sm font-semibold opacity-80 uppercase tracking-wide">pts</span>
           </p>
         </div>
 

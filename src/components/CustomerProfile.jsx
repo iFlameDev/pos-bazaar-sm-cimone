@@ -28,15 +28,14 @@ const CustomerProfile = ({ customer, adjustedBalance, cartDelta = 0, isShaking =
 
       {/* Balance */}
       <div className="flex flex-col items-end flex-shrink-0">
-        <div className="flex items-center gap-1.5 text-xs text-slate-600 mb-0.5">
-          <Wallet className="w-3.5 h-3.5" />
-          <span>Saldo</span>
-        </div>
-        <p className={`font-bold text-lg leading-tight tabular-nums transition-colors ${
+        <div className={`flex items-center gap-2 font-bold text-2xl leading-tight tabular-nums transition-colors ${
             isNegative ? 'text-carnival-peach' : 'text-carnival-green'
           } ${isShaking ? 'animate-shake' : ''}`}>
-          {formatCurrency(displayBalance)} <span className="text-[11px] font-semibold opacity-80 uppercase tracking-wide">pts</span>
-        </p>
+          <Wallet className="w-6 h-6" />
+          <p>
+            {formatCurrency(displayBalance)} <span className="text-[11px] font-semibold opacity-80 uppercase tracking-wide">pts</span>
+          </p>
+        </div>
         {hasCartDelta && (
           <div className="flex items-center gap-1 text-xs mt-0.5 text-carnival-pink animate-fade-in">
             <ShoppingCart className="w-3 h-3" />

@@ -43,7 +43,7 @@ export default function App() {
   const [showPicModal, setShowPicModal] = useState(false);
 
   // ── Customer & master data ──
-  const [selectedCustomer, setSelectedCustomer] = useState(null);
+  const [selectedCustomer, setSelectedCustomer] = useLocalStorage('pos_selected_customer', null);
   const [masterData, setMasterData] = useState({ products: [], customers: [] });
   const [loading, setLoading] = useState(false);
   const [refreshing, setRefreshing] = useState(false);
@@ -147,6 +147,13 @@ export default function App() {
   useEffect(() => {
     loadMasterData();
   }, [loadMasterData]);
+
+  // Auto-login session check
+  useEffect(() => {
+    if (selectedCustomer && step === 1) {
+      setStep(2);
+    }
+  }, [selectedCustomer, step]);
 
   // ───────────────────── Handlers ─────────────────────
 
