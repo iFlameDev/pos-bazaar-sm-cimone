@@ -104,14 +104,18 @@ const PurchasedView = ({ customer, products, picName, onBack, onSaved, onShowToa
         if (item.qty === 0) {
           return {
             idTransaksi: item.idTransaksi,
+            idProduk: item.idProduk,
             qty: 0,
+            stockDelta: original.qty,
             deletePic: picName,
           };
         }
 
         return {
           idTransaksi: item.idTransaksi,
+          idProduk: item.idProduk,
           qty: item.qty,
+          stockDelta: original.qty - item.qty,
           updatePic: picName,
         };
       })
@@ -133,8 +137,21 @@ const PurchasedView = ({ customer, products, picName, onBack, onSaved, onShowToa
 
     setSaving(true);
     try {
-      await batchUpdateCart(changedItems);
-      onSaved(delta);
+      const productUpdates = changedItems.map(ci => {
+        const prod = getProduct(ci.idProduk);
+        return {
+          idProduk: ci.idProduk,
+          newStock: prod ? prod.stokSekarang + ci.stockDelta : 0
+        };
+      });
+
+      await batchUpdateCart({
+        changedItems,
+        customerId: customer.id,
+        newBalance: adjustedBalance,
+        productUpdates
+      });
+      onSaved(delta, changedItems);
     } catch (err) {
       console.error('Failed to save changes:', err);
       if (onShowToast) onShowToast('Gagal menyimpan perubahan. Silakan coba lagi.', 'error');

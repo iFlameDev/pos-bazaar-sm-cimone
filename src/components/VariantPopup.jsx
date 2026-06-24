@@ -9,7 +9,17 @@ const VariantPopup = ({
   onSelect,
   onClose,
 }) => {
-  const baseProduct = productGroup[0];
+  const parentProduct = productGroup.find(p => 
+    (p.id && String(p.id).toUpperCase().startsWith('PRN-')) || 
+    (p.varian && p.varian.toUpperCase() === 'PARENT-000')
+  ) || productGroup[0];
+  const baseProduct = parentProduct;
+  const selectableVariants = productGroup.filter(p => !(
+    (p.id && String(p.id).toUpperCase().startsWith('PRN-')) || 
+    (p.varian && p.varian.toUpperCase() === 'PARENT-000')
+  )).sort((a, b) => {
+    return String(a.varian || '').localeCompare(String(b.varian || ''), undefined, { numeric: true, sensitivity: 'base' });
+  });
 
   return (
     <div
@@ -39,7 +49,7 @@ const VariantPopup = ({
         </div>
 
         <div className="space-y-2 max-h-[60vh] overflow-y-auto p-1">
-          {productGroup.map((v) => {
+          {selectableVariants.map((v) => {
             const isSelected = v.id === currentVariantId;
             const isOutOfStock = v.stokSekarang <= 0;
 

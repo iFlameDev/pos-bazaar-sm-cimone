@@ -8,15 +8,7 @@ import CartView from './components/CartView';
 import PurchasedView from './components/PurchasedView';
 import ScanView from './components/ScanView';
 import Ornaments from './components/Ornaments';
-import { fetchMasterData, fetchCustomer, batchAddTransactions } from './utils/api';
 import { APP_NAME } from './config';
-import {
-  getCachedMasterData,
-  setCachedMasterData,
-  clearMasterDataCache,
-  updateCachedProductStock,
-  updateCachedCustomerBalance,
-} from './utils/cacheStorage';
 import {
   getCart,
   addToCart,
@@ -28,7 +20,17 @@ import {
   changeCartItemVariant,
 } from './utils/cartStorage';
 import { triggerConfetti } from './utils/confetti';
+import { fetchCustomer, batchAddTransactions, fetchProductsData, fetchCustomersData } from './utils/api';
 import useLocalStorage from './hooks/useLocalStorage';
+import {
+  getCachedProducts,
+  getCachedCustomers,
+  setCachedProducts,
+  setCachedCustomers,
+  clearMasterDataCache,
+  updateCachedProductStock,
+  updateCachedCustomerBalance,
+} from './utils/cacheStorage';
 
 export default function App() {
   // ── Workflow step: 1=customer, 2=product, 3=cart, 4=purchased, 5=scan ──
@@ -78,35 +80,40 @@ export default function App() {
     });
   }, []);
 
-  const loadMasterData = useCallback(
-    async (forceRefresh = false) => {
-      try {
-        // Check cache first (unless force refresh)
-        if (!forceRefresh) {
-          const cached = getCachedMasterData();
-          if (cached) {
-            setMasterData(cached);
-            preloadImages(cached.products);
-            return cached;
-          }
-        }
+  const loadDataForRoute = useCallback(async (forceRefresh = false) => {
+    setLoading(true);
+    try {
+      let prods = null;
+      let custs = null;
 
-        setLoading(true);
-        const data = await fetchMasterData();
-        setMasterData(data);
-        setCachedMasterData(data);
-        preloadImages(data.products);
-        return data;
-      } catch (err) {
-        console.error('Failed to load master data:', err);
-        showToast('Gagal memuat data. Coba lagi.', 'error');
-        return null;
-      } finally {
-        setLoading(false);
+      if (!forceRefresh) {
+        prods = getCachedProducts();
+        if (route.path === '/cashier') {
+          custs = getCachedCustomers();
+        }
       }
-    },
-    [showToast]
-  );
+
+      const promises = [];
+      const fetchProds = !prods;
+      const fetchCusts = route.path === '/cashier' && !custs;
+
+      if (fetchProds) promises.push(fetchProductsData().then(p => { prods = p; setCachedProducts(p); }));
+      if (fetchCusts) promises.push(fetchCustomersData().then(c => { custs = c; setCachedCustomers(c); }));
+
+      if (promises.length > 0) {
+        await Promise.all(promises);
+      }
+
+      setMasterData({ products: prods || [], customers: custs || [] });
+      if (prods) preloadImages(prods);
+
+    } catch (err) {
+      console.error('Failed to load data:', err);
+      showToast('Gagal memuat data. Coba lagi.', 'error');
+    } finally {
+      setLoading(false);
+    }
+  }, [route.path, preloadImages, showToast]);
 
   // ───────────────────── Effects ─────────────────────
 
@@ -143,10 +150,12 @@ export default function App() {
     }
   }, [route.path, setAppMode]);
 
-  // Fetch master data on mount
+  // Fetch master data when entering step 1
   useEffect(() => {
-    loadMasterData();
-  }, [loadMasterData]);
+    if (step === 1) {
+      loadDataForRoute();
+    }
+  }, [step, loadDataForRoute]);
 
   // Auto-login session check
   useEffect(() => {
@@ -157,30 +166,33 @@ export default function App() {
 
   // ───────────────────── Handlers ─────────────────────
 
-  /** Refresh data (clear cache + re-fetch) */
+  /** Refresh data */
   const handleRefreshData = useCallback(async () => {
     setRefreshing(true);
     clearMasterDataCache();
-    await loadMasterData(true);
+    await loadDataForRoute(true);
     setRefreshing(false);
     showToast('Data berhasil diperbarui');
-  }, [loadMasterData, showToast]);
+  }, [loadDataForRoute, showToast]);
 
   const syncCustomer = useCallback(async (id) => {
     try {
       const data = await fetchCustomer(id);
+      setSelectedCustomer((prev) => (prev?.id === data.id ? data : prev));
       setMasterData((prev) => {
-        const newCustomers = prev.customers.map(c => 
-          c.id === data.id ? data : c
-        );
-        const newData = { ...prev, customers: newCustomers };
-        setCachedMasterData(newData);
-        return newData;
+        const exists = prev.customers.some(c => c.id === data.id);
+        const newCustomers = exists 
+          ? prev.customers.map(c => c.id === data.id ? data : c)
+          : [...prev.customers, data];
+        if (route.path === '/cashier') {
+          setCachedCustomers(newCustomers);
+        }
+        return { ...prev, customers: newCustomers };
       });
     } catch(err) {
       console.error('Failed to sync customer:', err);
     }
-  }, []);
+  }, [setSelectedCustomer, route.path]);
 
   /** Step 1 → 2: customer selected */
   const handleSelectCustomer = useCallback(
@@ -188,10 +200,22 @@ export default function App() {
       setSelectedCustomer(customer);
       setStep(2);
       setCartVersion((v) => v + 1);
-      // Fetch customer balance strictly once during transition from Step 1 -> 2
-      syncCustomer(customer.id);
+      
+      if (route.path === '/cashier') {
+        // Fetch customer balance strictly once during transition from Step 1 -> 2
+        syncCustomer(customer.id);
+      } else {
+        // Self service already fetched fresh customer data during 'Check', just inject it
+        setMasterData((prev) => {
+          const exists = prev.customers.some(c => c.id === customer.id);
+          const newCustomers = exists 
+            ? prev.customers.map(c => c.id === customer.id ? customer : c)
+            : [...prev.customers, customer];
+          return { ...prev, customers: newCustomers };
+        });
+      }
     },
-    [syncCustomer]
+    [syncCustomer, route.path]
   );
 
   /** Product card clicked – prepare qty popup */
@@ -236,6 +260,8 @@ export default function App() {
 
     await batchAddTransactions(transactions);
 
+    let computedTotalCost = 0;
+
     // Update local master data (no API re-fetch)
     setMasterData((prev) => {
       const newProducts = prev.products.map((p) => {
@@ -250,6 +276,8 @@ export default function App() {
         const prod = prev.products.find((p) => p.id === ci.productId);
         return sum + (prod ? ci.qty * prod.harga : 0);
       }, 0);
+      
+      computedTotalCost = totalCost;
 
       const newCustomers = prev.customers.map((c) => {
         if (c.id === selectedCustomer.id) {
@@ -259,14 +287,19 @@ export default function App() {
       });
 
       const newData = { products: newProducts, customers: newCustomers };
-      setCachedMasterData(newData);
       return newData;
     });
+
+    setSelectedCustomer((prev) => ({
+      ...prev,
+      saldoSekarang: prev.saldoSekarang - computedTotalCost,
+    }));
 
     // Also update cache directly for each item
     cartItems.forEach((ci) => {
       updateCachedProductStock(ci.productId, ci.qty);
     });
+    updateCachedCustomerBalance(selectedCustomer.id, computedTotalCost);
 
     // Clear offline cart
     clearCart(selectedCustomer.id);
@@ -294,7 +327,7 @@ export default function App() {
   const handlePurchasedBack = useCallback(() => setStep(2), []);
 
   /** Purchased saved successfully */
-  const handlePurchasedSaved = useCallback(async (delta) => {
+  const handlePurchasedSaved = useCallback(async (delta, changedItems) => {
     setStep(2);
     showToast('Perubahan berhasil disimpan!');
     
@@ -307,10 +340,26 @@ export default function App() {
         return c;
       });
 
-      const newData = { ...prev, customers: newCustomers };
-      setCachedMasterData(newData);
+      const newProducts = prev.products.map((p) => {
+        if (changedItems) {
+          const change = changedItems.find(ci => ci.idProduk === p.id);
+          if (change) {
+            return { ...p, stokSekarang: p.stokSekarang + change.stockDelta };
+          }
+        }
+        return p;
+      });
+
+      const newData = { products: newProducts, customers: newCustomers };
+      setCachedProducts(newProducts);
+      setCachedCustomers(newCustomers);
       return newData;
     });
+
+    setSelectedCustomer((prev) => ({
+      ...prev,
+      saldoSekarang: prev.saldoSekarang - delta,
+    }));
   }, [showToast, selectedCustomer]);
 
   /** Edit PIC name */
@@ -369,18 +418,20 @@ export default function App() {
       <Ornaments />
       {/* ── Toast Notification ── */}
       {toast && (
-        <div className="fixed top-6 right-6 z-[60] toast-enter">
-          <div
-            className={`
-              px-5 py-3 rounded-xl shadow-2xl backdrop-blur-lg border text-sm font-medium
-              ${
-                toast.type === 'error'
-                  ? 'bg-carnival-peach text-white border-carnival-peach/30'
-                  : 'bg-carnival-green/20 border-carnival-green/30 text-carnival-green'
-              }
-            `}
-          >
-            {toast.message}
+        <div className="fixed bottom-10 left-1/2 -translate-x-1/2 z-[100] pointer-events-none w-max max-w-[90vw]">
+          <div className="toast-enter">
+            <div
+              className={`
+                px-6 py-3 rounded-full shadow-2xl backdrop-blur-lg border text-sm font-medium text-center
+                ${
+                  toast.type === 'error'
+                    ? 'bg-carnival-peach/95 text-white border-carnival-peach/30'
+                    : 'bg-slate-800/95 text-white border-slate-700/50'
+                }
+              `}
+            >
+              {toast.message}
+            </div>
           </div>
         </div>
       )}

@@ -19,6 +19,18 @@ export async function fetchMasterData() {
   };
 }
 
+export async function fetchProductsData() {
+  const { data, error } = await supabase.from('products').select('*').order('namaProduk', { ascending: true });
+  if (error) throw new Error(error.message);
+  return data || [];
+}
+
+export async function fetchCustomersData() {
+  const { data, error } = await supabase.from('customers').select('*').order('nama', { ascending: true });
+  if (error) throw new Error(error.message);
+  return data || [];
+}
+
 /**
  * Fetch a single customer by ID from Supabase
  * @param {string} idCustomer
@@ -28,7 +40,7 @@ export async function fetchCustomer(idCustomer) {
   const { data, error } = await supabase
     .from('customers')
     .select('*')
-    .eq('id', idCustomer)
+    .ilike('id', idCustomer)
     .single();
 
   if (error) throw new Error(error.message);
@@ -84,7 +96,7 @@ export async function getCustomerCart(idCustomer) {
  * @param {Array<{ idTransaksi: string, qty: number }>} changedItems
  * @returns {Promise<{ success: boolean }>}
  */
-export async function batchUpdateCart(changedItems) {
+export async function batchUpdateCart({ changedItems, customerId, newBalance, productUpdates }) {
   if (!changedItems || changedItems.length === 0) {
     return { success: true };
   }
@@ -102,6 +114,26 @@ export async function batchUpdateCart(changedItems) {
         .eq('idTransaksi', item.idTransaksi);
     }
   });
+
+  if (customerId && newBalance !== undefined) {
+    updates.push(
+      supabase
+        .from('customers')
+        .update({ saldoSekarang: newBalance })
+        .eq('id', customerId)
+    );
+  }
+
+  if (productUpdates && productUpdates.length > 0) {
+    productUpdates.forEach(pu => {
+      updates.push(
+        supabase
+          .from('products')
+          .update({ stokSekarang: pu.newStock })
+          .eq('id', pu.idProduk)
+      );
+    });
+  }
 
   const results = await Promise.all(updates);
   const errors = results.filter(r => r.error);

@@ -2,25 +2,36 @@ import React, { useState } from 'react';
 import { QrCode, ScanLine, X, ArrowRight, User } from 'lucide-react';
 import QrScanner from './QrScanner';
 import { APP_NAME } from '../config';
+import { fetchCustomer } from '../utils/api';
 
-const SelfServiceLogin = ({ customers, onLogin }) => {
+const SelfServiceLogin = ({ onLogin }) => {
   const [customerId, setCustomerId] = useState('');
   const [isScanning, setIsScanning] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
   const [foundCustomer, setFoundCustomer] = useState(null);
+  const [loading, setLoading] = useState(false);
 
-  const handleCheck = (idToCheck = customerId) => {
+  const handleCheck = async (idToCheck = customerId) => {
     setErrorMsg('');
     if (!idToCheck.trim()) return;
 
-    const cust = customers.find(c => c.id.toLowerCase() === idToCheck.trim().toLowerCase());
-    if (cust) {
-      setFoundCustomer(cust);
-      setCustomerId(cust.id);
-      setIsScanning(false);
-    } else {
+    setLoading(true);
+    try {
+      const cust = await fetchCustomer(idToCheck.trim().toUpperCase());
+      if (cust) {
+        setFoundCustomer(cust);
+        setCustomerId(cust.id);
+        setIsScanning(false);
+      } else {
+        setErrorMsg('Customer ID Tidak ditemukan');
+        setFoundCustomer(null);
+      }
+    } catch (err) {
+      console.error(err);
       setErrorMsg('Customer ID Tidak ditemukan');
       setFoundCustomer(null);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -118,9 +129,10 @@ const SelfServiceLogin = ({ customers, onLogin }) => {
 
                 <button
                   onClick={() => handleCheck()}
-                  className="w-full mt-4 py-3.5 bg-carnival-yellow text-slate-800 rounded-xl font-bold shadow-md hover:bg-yellow-400 transition-all active:scale-95"
+                  disabled={loading}
+                  className="w-full mt-4 py-3.5 bg-carnival-yellow text-slate-800 rounded-xl font-bold shadow-md hover:bg-yellow-400 transition-all active:scale-95 disabled:opacity-50"
                 >
-                  Check
+                  {loading ? 'Memeriksa...' : 'Check'}
                 </button>
               </div>
             )}

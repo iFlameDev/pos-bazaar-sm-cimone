@@ -84,16 +84,46 @@ const ProductSelect = ({
         groups[name] = {
           namaProduk: name,
           kategori: p.kategori,
-          harga: p.harga, // assume same price
-          gambarUrl: p.gambarUrl,
+          harga: Infinity, // find lowest from real variants
+          gambarUrl: p.gambarUrl, // initial fallback
           stokSekarang: 0,
           variants: []
         };
       }
-      groups[name].stokSekarang += (Number(p.stokSekarang) || 0);
+
+      const isParent = 
+        (p.id && String(p.id).toUpperCase().startsWith('PRN-')) || 
+        (p.varian && p.varian.toUpperCase() === 'PARENT-000');
+
+      // Lowest price from real variants
+      const priceVal = Number(p.harga);
+      if (!isParent && !isNaN(priceVal) && priceVal > 0 && priceVal < groups[name].harga) {
+        groups[name].harga = priceVal;
+      }
+
+      // Parent image
+      if (isParent) {
+        groups[name].gambarUrl = p.gambarUrl;
+      }
+
+      if (!isParent) {
+        groups[name].stokSekarang += (Number(p.stokSekarang) || 0);
+      }
+      
       groups[name].variants.push(p);
     });
-    return Object.values(groups);
+    
+    return Object.values(groups).map(g => {
+      const realVariants = g.variants.filter(v => !(
+        (v.id && String(v.id).toUpperCase().startsWith('PRN-')) || 
+        (v.varian && v.varian.toUpperCase() === 'PARENT-000')
+      ));
+      const fallbackPrice = realVariants.find(v => Number(v.harga) > 0)?.harga || 0;
+      return {
+        ...g,
+        harga: g.harga === Infinity ? fallbackPrice : g.harga
+      };
+    });
   }, [products, mode]);
 
   const categories = useMemo(() => {
@@ -105,7 +135,12 @@ const ProductSelect = ({
   const isSearching = search.trim().length > 0;
 
   const filtered = useMemo(() => {
-    let result = mode === 'variant' ? groupedProducts : products;
+    let result = mode === 'variant' 
+      ? groupedProducts 
+      : products.filter(p => !(
+          (p.id && String(p.id).toUpperCase().startsWith('PRN-')) || 
+          (p.varian && p.varian.toUpperCase() === 'PARENT-000')
+        ));
 
     if (isSearching) {
       const q = search.toLowerCase().trim();
@@ -114,7 +149,8 @@ const ProductSelect = ({
       result = result.filter((p) => p.kategori === activeCategory);
     }
 
-    return result;
+    // Sort cheapest to most expensive
+    return [...result].sort((a, b) => a.harga - b.harga);
   }, [groupedProducts, products, activeCategory, search, isSearching, mode]);
 
   return (

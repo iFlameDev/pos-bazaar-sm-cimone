@@ -101,15 +101,18 @@ const CustomerSelect = ({
             <h1 className="text-lg font-bold text-slate-900">{APP_NAME}</h1>
           </div>
           <div className="flex items-center gap-2">
-            {/* Refresh Data Button */}
+            {/* Refresh Button */}
             <button
               onClick={onRefreshData}
               disabled={refreshing}
-              className="w-9 h-9 rounded-lg bg-white/60 border border-slate-200/50 flex items-center justify-center text-slate-700 hover:bg-slate-100/60 hover:text-slate-900 transition-all disabled:opacity-40"
+              className={`p-2 rounded-xl bg-white/60 text-slate-600 hover:bg-slate-100/60 hover:text-carnival-blue transition-all ${
+                refreshing ? 'opacity-50 cursor-not-allowed' : 'active:scale-95'
+              }`}
               title="Refresh Data"
             >
-              <RefreshCw className={`w-4 h-4 ${refreshing ? 'animate-spin' : ''}`} />
+              <RefreshCw className={`w-5 h-5 ${refreshing ? 'animate-spin' : ''}`} />
             </button>
+
             {/* Edit PIC Button */}
             <button
               onClick={onEditPic}
