@@ -46,7 +46,7 @@ export default function App() {
 
   // ── Customer & master data ──
   const [selectedCustomer, setSelectedCustomer] = useLocalStorage('pos_selected_customer', null);
-  const [masterData, setMasterData] = useState({ products: [], customers: [] });
+  const [masterData, setMasterData] = useState({ parentProducts: [], variantProducts: [], customers: [] });
   const [loading, setLoading] = useState(false);
   const [refreshing, setRefreshing] = useState(false);
 
@@ -104,7 +104,27 @@ export default function App() {
         await Promise.all(promises);
       }
 
-      setMasterData({ products: prods || [], customers: custs || [] });
+      const rawProds = prods || [];
+      const isParent = (p) => (p.id && String(p.id).toUpperCase().startsWith('PRN-')) || (p.varian && p.varian.toUpperCase() === 'PARENT-000');
+      
+      const rawParents = rawProds.filter(isParent);
+      const variants = rawProds.filter(p => !isParent(p));
+
+      const parentProducts = rawParents.map(parent => {
+        const childVariants = variants.filter(v => v.namaProduk === parent.namaProduk);
+        const fallbackPrice = childVariants.find(v => Number(v.harga) > 0)?.harga || 0;
+        const totalStock = childVariants.reduce((sum, v) => sum + (Number(v.stokSekarang) || 0), 0);
+        const realCategory = childVariants.find(v => v.kategori)?.kategori || parent.kategori;
+        return {
+          ...parent,
+          harga: fallbackPrice,
+          stokSekarang: totalStock,
+          kategori: realCategory,
+          variants: childVariants
+        };
+      });
+
+      setMasterData({ parentProducts, variantProducts: variants, customers: custs || [] });
       if (prods) preloadImages(prods);
 
     } catch (err) {
@@ -264,7 +284,7 @@ export default function App() {
 
     // Update local master data (no API re-fetch)
     setMasterData((prev) => {
-      const newProducts = prev.products.map((p) => {
+      const newVariants = prev.variantProducts.map((p) => {
         const cartItem = cartItems.find((ci) => ci.productId === p.id);
         if (cartItem) {
           return { ...p, stokSekarang: Math.max(0, p.stokSekarang - cartItem.qty) };
@@ -272,8 +292,14 @@ export default function App() {
         return p;
       });
 
+      const newParents = prev.parentProducts.map(parent => {
+        const childVariants = newVariants.filter(v => v.namaProduk === parent.namaProduk);
+        const totalStock = childVariants.reduce((sum, v) => sum + (Number(v.stokSekarang) || 0), 0);
+        return { ...parent, stokSekarang: totalStock, variants: childVariants };
+      });
+
       const totalCost = cartItems.reduce((sum, ci) => {
-        const prod = prev.products.find((p) => p.id === ci.productId);
+        const prod = prev.variantProducts.find((p) => p.id === ci.productId);
         return sum + (prod ? ci.qty * prod.harga : 0);
       }, 0);
       
@@ -286,7 +312,7 @@ export default function App() {
         return c;
       });
 
-      const newData = { products: newProducts, customers: newCustomers };
+      const newData = { parentProducts: newParents, variantProducts: newVariants, customers: newCustomers };
       return newData;
     });
 
@@ -340,7 +366,7 @@ export default function App() {
         return c;
       });
 
-      const newProducts = prev.products.map((p) => {
+      const newVariants = prev.variantProducts.map((p) => {
         if (changedItems) {
           const change = changedItems.find(ci => ci.idProduk === p.id);
           if (change) {
@@ -350,8 +376,15 @@ export default function App() {
         return p;
       });
 
-      const newData = { products: newProducts, customers: newCustomers };
-      setCachedProducts(newProducts);
+      const newParents = prev.parentProducts.map(parent => {
+        const childVariants = newVariants.filter(v => v.namaProduk === parent.namaProduk);
+        const totalStock = childVariants.reduce((sum, v) => sum + (Number(v.stokSekarang) || 0), 0);
+        return { ...parent, stokSekarang: totalStock, variants: childVariants };
+      });
+
+      const newData = { parentProducts: newParents, variantProducts: newVariants, customers: newCustomers };
+      // Note: setCachedProducts wants the flat array if we reload it later, but we can combine them back for cache
+      setCachedProducts([...newParents, ...newVariants]);
       setCachedCustomers(newCustomers);
       return newData;
     });
@@ -403,7 +436,7 @@ export default function App() {
   const cartItems = selectedCustomer ? getCart(selectedCustomer.id) : [];
   const cartItemCount = selectedCustomer ? getCartItemCount(selectedCustomer.id) : 0;
   const cartTotal = selectedCustomer
-    ? getCartTotal(selectedCustomer.id, masterData.products)
+    ? getCartTotal(selectedCustomer.id, masterData.variantProducts)
     : 0;
 
   const currentBalance = currentCustomer ? currentCustomer.saldoSekarang - cartTotal : 0;
@@ -473,7 +506,8 @@ export default function App() {
       {step === 2 && selectedCustomer && (
         <>
           <ProductSelect
-            products={masterData.products}
+            parentProducts={masterData.parentProducts}
+            variantProducts={masterData.variantProducts}
             customer={currentCustomer}
             currentBalance={currentBalance}
             cartDelta={cartTotal > 0 ? -cartTotal : 0}
@@ -511,7 +545,7 @@ export default function App() {
       {step === 3 && selectedCustomer && (
         <CartView
           cartItems={cartItems}
-          products={masterData.products}
+          products={masterData.variantProducts}
           customer={currentCustomer}
           currentBalance={currentBalance}
           cartDelta={cartTotal > 0 ? -cartTotal : 0}
@@ -530,7 +564,7 @@ export default function App() {
       {step === 4 && selectedCustomer && (
         <PurchasedView
           customer={currentCustomer}
-          products={masterData.products}
+          products={masterData.variantProducts}
           picName={picName}
           mode={appMode}
           onBack={handlePurchasedBack}
@@ -541,7 +575,7 @@ export default function App() {
       {/* ── Step 5: Scan View ── */}
       {step === 5 && selectedCustomer && (
         <ScanView
-          products={masterData.products}
+          products={masterData.variantProducts}
           customer={currentCustomer}
           currentBalance={currentBalance}
           cartDelta={cartTotal > 0 ? -cartTotal : 0}

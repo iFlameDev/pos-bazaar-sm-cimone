@@ -57,7 +57,8 @@ const ProductCard = ({ product, onClick, index, mode }) => {
 };
 
 const ProductSelect = ({
-  products,
+  parentProducts,
+  variantProducts,
   customer,
   onProductClick,
   onOpenCart,
@@ -74,78 +75,16 @@ const ProductSelect = ({
   const [activeCategory, setActiveCategory] = useState('Semua');
   const [search, setSearch] = useState('');
 
-  const groupedProducts = useMemo(() => {
-    if (mode !== 'variant') return [];
-    const groups = {};
-    products.forEach((p) => {
-      const name = p.namaProduk;
-      if (!name) return;
-      if (!groups[name]) {
-        groups[name] = {
-          namaProduk: name,
-          kategori: p.kategori,
-          harga: Infinity, // find lowest from real variants
-          gambarUrl: p.gambarUrl, // initial fallback
-          stokSekarang: 0,
-          variants: []
-        };
-      }
-
-      const isParent = 
-        (p.id && String(p.id).toUpperCase().startsWith('PRN-')) || 
-        (p.varian && p.varian.toUpperCase() === 'PARENT-000');
-
-      // Fix bug: Override empty category from parent with actual category from variant
-      if (!groups[name].kategori && p.kategori) {
-        groups[name].kategori = p.kategori;
-      }
-
-      // Lowest price from real variants
-      const priceVal = Number(p.harga);
-      if (!isParent && !isNaN(priceVal) && priceVal > 0 && priceVal < groups[name].harga) {
-        groups[name].harga = priceVal;
-      }
-
-      // Parent image
-      if (isParent) {
-        groups[name].gambarUrl = p.gambarUrl;
-      }
-
-      if (!isParent) {
-        groups[name].stokSekarang += (Number(p.stokSekarang) || 0);
-      }
-      
-      groups[name].variants.push(p);
-    });
-    
-    return Object.values(groups).map(g => {
-      const realVariants = g.variants.filter(v => !(
-        (v.id && String(v.id).toUpperCase().startsWith('PRN-')) || 
-        (v.varian && v.varian.toUpperCase() === 'PARENT-000')
-      ));
-      const fallbackPrice = realVariants.find(v => Number(v.harga) > 0)?.harga || 0;
-      return {
-        ...g,
-        harga: g.harga === Infinity ? fallbackPrice : g.harga
-      };
-    });
-  }, [products, mode]);
-
   const categories = useMemo(() => {
-    const source = mode === 'variant' ? groupedProducts : products;
+    const source = mode === 'variant' ? parentProducts : variantProducts;
     const cats = [...new Set(source.map((p) => p.kategori).filter(Boolean))];
     return ['Semua', ...cats.sort()];
-  }, [groupedProducts, products, mode]);
+  }, [parentProducts, variantProducts, mode]);
 
   const isSearching = search.trim().length > 0;
 
   const filtered = useMemo(() => {
-    let result = mode === 'variant' 
-      ? groupedProducts 
-      : products.filter(p => !(
-          (p.id && String(p.id).toUpperCase().startsWith('PRN-')) || 
-          (p.varian && p.varian.toUpperCase() === 'PARENT-000')
-        ));
+    let result = mode === 'variant' ? parentProducts : variantProducts;
 
     if (isSearching) {
       const q = search.toLowerCase().trim();
@@ -156,7 +95,7 @@ const ProductSelect = ({
 
     // Sort cheapest to most expensive
     return [...result].sort((a, b) => a.harga - b.harga);
-  }, [groupedProducts, products, activeCategory, search, isSearching, mode]);
+  }, [parentProducts, variantProducts, activeCategory, search, isSearching, mode]);
 
   return (
     <div className="min-h-screen bg-transparent flex flex-col">
@@ -233,10 +172,10 @@ const ProductSelect = ({
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
             {filtered.map((item, idx) => (
               <ProductCard
-                key={mode === 'variant' ? item.namaProduk : item.id}
+                key={item.id || item.namaProduk}
                 product={item}
                 mode={mode}
-                onClick={() => onProductClick(mode === 'variant' ? item.variants : item)}
+                onClick={() => onProductClick(mode === 'variant' ? (item.variants || [item]) : item)}
                 index={idx}
               />
             ))}
