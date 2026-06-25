@@ -1,0 +1,4292 @@
+[
+    {
+        "id": "PRN-014",
+        "namaProduk": "Balancing Blok Tetris",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98y-ls14gylsw1qx05.webp"
+    },
+    {
+        "id": "TOY-053",
+        "namaProduk": "Balancing Blok Tetris",
+        "varian": "",
+        "harga": 48,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98y-ls14gylsw1qx05.webp"
+    },
+    {
+        "id": "ACC-101",
+        "namaProduk": "Bando Pita",
+        "varian": "Merah",
+        "harga": 10,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134201-7r98t-lproiqf21fm883@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-103",
+        "namaProduk": "Bando Pita",
+        "varian": "Biru",
+        "harga": 10,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134201-7r98v-lproiqmtq20i1a@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-104",
+        "namaProduk": "Bando Pita",
+        "varian": "Pink",
+        "harga": 10,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134201-7r98z-lproiqrjkjye0f@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-068",
+        "namaProduk": "Bando Pita",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134201-7r98u-lproiq3yho3pef.webp"
+    },
+    {
+        "id": "ACC-100",
+        "namaProduk": "Bando Pita",
+        "varian": "Putih",
+        "harga": 10,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134201-7r98p-lproiqaw7ipr19@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-102",
+        "namaProduk": "Bando Pita",
+        "varian": "Hitam",
+        "harga": 10,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134201-7r98o-lproiqi3wynzbf@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-029",
+        "namaProduk": "Barrel Jumping",
+        "varian": "",
+        "harga": 26,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98o-ll1t0f7f30w081.webp"
+    },
+    {
+        "id": "PRN-006",
+        "namaProduk": "Barrel Jumping",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98o-ll1t0f7f30w081.webp"
+    },
+    {
+        "id": "TOY-057",
+        "namaProduk": "Bubble Dream Guns",
+        "varian": "Pink",
+        "harga": 38,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/cb73a046a39235886d7416221c694a53@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-017",
+        "namaProduk": "Bubble Dream Guns",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/6fa32b846da06ebc78986e110b54b4b7.webp"
+    },
+    {
+        "id": "TOY-056",
+        "namaProduk": "Bubble Dream Guns",
+        "varian": "Biru",
+        "harga": 38,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/9c74725fd4da97bfcb128d41e3dc1bf0@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-051",
+        "namaProduk": "Buku Tulis Mini",
+        "varian": "Random",
+        "harga": 3,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7rbk9-m71p2grfyugdfc@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-047",
+        "namaProduk": "Buku Tulis Mini",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98w-lnuyju3hysez10.webp"
+    },
+    {
+        "id": "TOY-072",
+        "namaProduk": "Busy Book Anak",
+        "varian": "Number",
+        "harga": 36,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rfgi-m9y9hfbcr1jlee@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-070",
+        "namaProduk": "Busy Book Anak",
+        "varian": "Cognition",
+        "harga": 31,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rfho-m9y9hcn2mj69af@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-073",
+        "namaProduk": "Busy Book Anak",
+        "varian": "Animal",
+        "harga": 31,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rfgl-m9y9hgq4oqzt32@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-071",
+        "namaProduk": "Busy Book Anak",
+        "varian": "Letter",
+        "harga": 31,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rfie-m9y9hdy8piua4a@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-023",
+        "namaProduk": "Busy Book Anak",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rfgr-m9y9gzd025cye9_tn"
+    },
+    {
+        "id": "TOY-015",
+        "namaProduk": "Colloring Roll Paper",
+        "varian": " 5 (1M)",
+        "harga": 8,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-822wq-mncjmpa2a7t00b@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-021",
+        "namaProduk": "Colloring Roll Paper",
+        "varian": "11 (1M)",
+        "harga": 8,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-822wm-mncjmpa2in7o6d@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-020",
+        "namaProduk": "Colloring Roll Paper",
+        "varian": "10 (1M)",
+        "harga": 8,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-822ws-mncjmpa2h8n88f@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-019",
+        "namaProduk": "Colloring Roll Paper",
+        "varian": "9 (1M)",
+        "harga": 8,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-822wr-mncjmpa2fu2s6c@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-018",
+        "namaProduk": "Colloring Roll Paper",
+        "varian": "8 (1M)",
+        "harga": 8,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-822wk-mncjmpa2efic34@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-017",
+        "namaProduk": "Colloring Roll Paper",
+        "varian": "7 (1M)",
+        "harga": 8,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-822wt-mncjmpa2d0xw4e@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-016",
+        "namaProduk": "Colloring Roll Paper",
+        "varian": "6 (1M)",
+        "harga": 8,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-822wo-mncjmpa2bmdg15@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-003",
+        "namaProduk": "Colloring Roll Paper",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98p-lxthrcp7xu7i68_tn"
+    },
+    {
+        "id": "TOY-022",
+        "namaProduk": "Colloring Roll Paper",
+        "varian": "13 (3M)",
+        "harga": 8,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-822wp-mncjmpa2lgck3d@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-014",
+        "namaProduk": "Colloring Roll Paper",
+        "varian": "4 (1M)",
+        "harga": 8,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-822wt-mncjmpa28t8ka2@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-013",
+        "namaProduk": "Colloring Roll Paper",
+        "varian": "3 (1M)",
+        "harga": 8,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-822wg-mncjmpa448hsda@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-023",
+        "namaProduk": "Colloring Roll Paper",
+        "varian": "14 (3M)",
+        "harga": 20,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-822wh-mncjnshh9ptv91@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-024",
+        "namaProduk": "Colloring Roll Paper",
+        "varian": "15 (3M)",
+        "harga": 21,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-822wr-mncjnshl4s1tb1@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-025",
+        "namaProduk": "Colloring Roll Paper",
+        "varian": "16 (3M)",
+        "harga": 21,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-822wh-mncjnshl66m939@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-012",
+        "namaProduk": "Colloring Roll Paper",
+        "varian": "2 (1M)",
+        "harga": 8,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-822wr-mnciltlv2u4kcf@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-011",
+        "namaProduk": "Colloring Roll Paper",
+        "varian": "1 (1M)",
+        "harga": 8,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-822wh-mnciltlv1fk4bc@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-004",
+        "namaProduk": "Coloring Book",
+        "varian": "Binatang Laut",
+        "harga": 14,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134201-23020-jyj4272afknv1b@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-001",
+        "namaProduk": "Coloring Book",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7rasd-m2ffxjb9w3tu70_tn"
+    },
+    {
+        "id": "TOY-009",
+        "namaProduk": "Coloring Book",
+        "varian": "Binatang Darat",
+        "harga": 14,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134201-23020-fv3g01mhfknvc9@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-008",
+        "namaProduk": "Coloring Book",
+        "varian": "Pemandangan",
+        "harga": 16,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134201-23020-v07i75ngfknv4c@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-007",
+        "namaProduk": "Coloring Book",
+        "varian": "Kendaraan",
+        "harga": 16,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134201-23020-zc042q26eknvab@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-006",
+        "namaProduk": "Coloring Book",
+        "varian": "Buah Buahan",
+        "harga": 14,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134201-23020-uglwxswdfknv5c@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-005",
+        "namaProduk": "Coloring Book",
+        "varian": "Kostum",
+        "harga": 14,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134201-23020-2oaz2wkcfknv3a@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-003",
+        "namaProduk": "Coloring Book",
+        "varian": "Sayur",
+        "harga": 14,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134201-23020-v2bkcoo0eknv33@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-002",
+        "namaProduk": "Coloring Book",
+        "varian": "Desert",
+        "harga": 14,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134201-23020-f5jdrhu8eknvee@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-001",
+        "namaProduk": "Coloring Book",
+        "varian": "Alat Rumah",
+        "harga": 16,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134201-23020-f9jek6f5eknv6a@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-055",
+        "namaProduk": "Correction Tape",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-822wq-mmsse57xjldt50.webp"
+    },
+    {
+        "id": "ATK-091",
+        "namaProduk": "Correction Tape",
+        "varian": "Random",
+        "harga": 6,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-822wt-mmssexwnu7etfe@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-138",
+        "namaProduk": "Dompet Gambar Motif Bear",
+        "varian": "Biru",
+        "harga": 15,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7rbkb-m6t9c1lj3ko103@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-137",
+        "namaProduk": "Dompet Gambar Motif Bear",
+        "varian": "Kuning",
+        "harga": 15,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7rbk4-m6t97owyrx4141@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-073",
+        "namaProduk": "Dompet Gambar Motif Bear",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7rbk0-m6t97owydvflea@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-136",
+        "namaProduk": "Dompet Gambar Motif Bear",
+        "varian": "Pink",
+        "harga": 15,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7rbk6-m6t97owyqijl1e@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-135",
+        "namaProduk": "Dompet Gambar Motif Bear",
+        "varian": "Hijau",
+        "harga": 15,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7rbk2-m6t97owyp3z5f8@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-134",
+        "namaProduk": "Dompet Gambar Motif Bear",
+        "varian": "Hitam",
+        "harga": 15,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7rbk8-m6t97owynpep96@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-032",
+        "namaProduk": "Figur Hewan Laut",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-82252-mj9ihubi24927f@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-102",
+        "namaProduk": "Figur Hewan Laut",
+        "varian": "",
+        "harga": 33,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-82252-mj9ihubi24927f@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-044",
+        "namaProduk": "Game Flip Chess",
+        "varian": "Buah",
+        "harga": 34,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-82251-mj3z760c8xl395@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-045",
+        "namaProduk": "Game Flip Chess",
+        "varian": "Hewan",
+        "harga": 34,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-8224t-mj3zvg7d7w9013@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-011",
+        "namaProduk": "Game Flip Chess",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-82250-mj3z760c7j0n48_tn"
+    },
+    {
+        "id": "TOY-028",
+        "namaProduk": "Gelang Diy",
+        "varian": "Big Size",
+        "harga": 40,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7rbk5-m99suctafci5ea@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-005",
+        "namaProduk": "Gelang Diy",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7rbk5-m99suctafci5ea@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-099",
+        "namaProduk": "Gelas Kaca Mini",
+        "varian": "Random",
+        "harga": 16,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7rbk4-m96f1i3lome632@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-067",
+        "namaProduk": "Gelas Kaca Mini",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-824h3-mpfkjmcvugw2a3.webp"
+    },
+    {
+        "id": "ACC-097",
+        "namaProduk": "Gunting Kuku Karakter",
+        "varian": "Pisang",
+        "harga": 7,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-23030-osojbfa1ebovf5@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-066",
+        "namaProduk": "Gunting Kuku Karakter",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-23030-s1dzdr9zebov6c.webp"
+    },
+    {
+        "id": "ACC-089",
+        "namaProduk": "Gunting Kuku Karakter",
+        "varian": "Avocado",
+        "harga": 7,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-23030-mluycg0zebove6@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-090",
+        "namaProduk": "Gunting Kuku Karakter",
+        "varian": "Bear",
+        "harga": 7,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-23030-9kktyj0zebovec@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-091",
+        "namaProduk": "Gunting Kuku Karakter",
+        "varian": "Cherry",
+        "harga": 7,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-23030-gn4o1m0zebovdf@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-092",
+        "namaProduk": "Gunting Kuku Karakter",
+        "varian": "Dino",
+        "harga": 7,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-23030-9otjmq0zebova1@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-093",
+        "namaProduk": "Gunting Kuku Karakter",
+        "varian": "Katak",
+        "harga": 7,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-23030-gfha1w0zebovb8@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-094",
+        "namaProduk": "Gunting Kuku Karakter",
+        "varian": "Matahari",
+        "harga": 7,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-23030-6us5v10zebov41@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-095",
+        "namaProduk": "Gunting Kuku Karakter",
+        "varian": "Nanas",
+        "harga": 7,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-23030-g83w660zebov25@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-096",
+        "namaProduk": "Gunting Kuku Karakter",
+        "varian": "Peach",
+        "harga": 7,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-23030-24srr00zebovde@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-098",
+        "namaProduk": "Gunting Kuku Karakter",
+        "varian": "Telur",
+        "harga": 7,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-23030-zu7crja1ebovd0@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-054",
+        "namaProduk": "Hammer Toys",
+        "varian": "",
+        "harga": 25,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7ra0r-mcbk67kq2pxh4c@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-015",
+        "namaProduk": "Hammer Toys",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7ra0r-mcbk67kq2pxh4c@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-029",
+        "namaProduk": "Happy Owl",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98z-lnau7ga2c2fvf8@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-093",
+        "namaProduk": "Happy Owl",
+        "varian": "",
+        "harga": 30,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98z-lnau7ga2c2fvf8@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-116",
+        "namaProduk": "Headset Stereo",
+        "varian": "Putih",
+        "harga": 11,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98o-lld10fhiyx4hf5@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-071",
+        "namaProduk": "Headset Stereo",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-823oq-mp75pzc8cf7z2a.webp"
+    },
+    {
+        "id": "ACC-122",
+        "namaProduk": "Headset Stereo",
+        "varian": "Navy",
+        "harga": 11,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98t-lld10fhj7cj561@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-121",
+        "namaProduk": "Headset Stereo",
+        "varian": "Hijau",
+        "harga": 11,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98t-lld10fhj5xyp75@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-120",
+        "namaProduk": "Headset Stereo",
+        "varian": "Abu",
+        "harga": 11,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98t-lld10fhj4je9e7@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-119",
+        "namaProduk": "Headset Stereo",
+        "varian": "Pink",
+        "harga": 11,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98z-lld10fhj34tt12@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-118",
+        "namaProduk": "Headset Stereo",
+        "varian": "Hitam",
+        "harga": 11,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98o-lld10fhj1q9d74@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-117",
+        "namaProduk": "Headset Stereo",
+        "varian": "Kuning",
+        "harga": 11,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98s-lld10fhj0box06@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-123",
+        "namaProduk": "Headset Stereo",
+        "varian": "Biru",
+        "harga": 11,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98s-lld10fhj8r3le3@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-094",
+        "namaProduk": "Hungry Duck Shooting Game",
+        "varian": "",
+        "harga": 36,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7rbk0-m9h6j8hwxe5p34@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-030",
+        "namaProduk": "Hungry Duck Shooting Game",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7rbk0-m9h6j8hwxe5p34@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-056",
+        "namaProduk": "Ikat Rambut Bulu",
+        "varian": "Abu",
+        "harga": 3,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rbm0-llvti1eiv4ed21@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-063",
+        "namaProduk": "Ikat Rambut Bulu",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rblh-llvti1estba2a0.webp"
+    },
+    {
+        "id": "ACC-066",
+        "namaProduk": "Ikat Rambut Bulu",
+        "varian": "Navy",
+        "harga": 3,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-822wg-mm5kbqi169s8a2@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-065",
+        "namaProduk": "Ikat Rambut Bulu",
+        "varian": "Biru",
+        "harga": 3,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98u-lokirixavw6h71@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-064",
+        "namaProduk": "Ikat Rambut Bulu",
+        "varian": "Ungu",
+        "harga": 3,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rbnl-llvti1dowc7k2b@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-063",
+        "namaProduk": "Ikat Rambut Bulu",
+        "varian": "Tosca",
+        "harga": 3,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rbld-llvti1fmwb0wc1@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-062",
+        "namaProduk": "Ikat Rambut Bulu",
+        "varian": "Putih",
+        "harga": 3,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rbl0-llvti1douxqyba@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-061",
+        "namaProduk": "Ikat Rambut Bulu",
+        "varian": "Pink",
+        "harga": 3,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rbmj-llvti1dewqxm25@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-060",
+        "namaProduk": "Ikat Rambut Bulu",
+        "varian": "Merah",
+        "harga": 3,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rblt-llvti1e8u4i3b5@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-059",
+        "namaProduk": "Ikat Rambut Bulu",
+        "varian": "Kuning",
+        "harga": 3,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rbne-llvti1eitptx7e@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-058",
+        "namaProduk": "Ikat Rambut Bulu",
+        "varian": "Hitam",
+        "harga": 3,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rblc-llvti1h0q29x3c@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-057",
+        "namaProduk": "Ikat Rambut Bulu",
+        "varian": "Cokelat",
+        "harga": 3,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rbli-llvti1eitpp569@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-026",
+        "namaProduk": "Ikat Rambut Transparant",
+        "varian": "Hitam",
+        "harga": 4,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-23030-iyt4gouqhbov1e@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-025",
+        "namaProduk": "Ikat Rambut Transparant",
+        "varian": "Abu",
+        "harga": 4,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-23030-yqgacvtqhbov99@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-024",
+        "namaProduk": "Ikat Rambut Transparant",
+        "varian": "Hijau",
+        "harga": 4,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-23030-yqgacvtqhbov99@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-023",
+        "namaProduk": "Ikat Rambut Transparant",
+        "varian": "Ungu",
+        "harga": 4,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-23030-gdgngmtqhbov78@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-022",
+        "namaProduk": "Ikat Rambut Transparant",
+        "varian": "Kuning",
+        "harga": 4,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-23030-fru2kdtqhbov2f@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-059",
+        "namaProduk": "Ikat Rambut Transparant",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134201-23020-vzto94tknunv16.webp"
+    },
+    {
+        "id": "ACC-028",
+        "namaProduk": "Ikat Rambut Transparant",
+        "varian": "Biru",
+        "harga": 4,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-23030-j30fk5uqhbov8b@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-027",
+        "namaProduk": "Ikat Rambut Transparant",
+        "varian": "Pink",
+        "harga": 4,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-23030-712riwuqhbovc7@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-048",
+        "namaProduk": "Jam Digital Karakter",
+        "varian": "Biru Captain",
+        "harga": 12,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rfi5-m9gtj5o5zrkpe4@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-049",
+        "namaProduk": "Jam Digital Karakter",
+        "varian": "Hijau Kucing",
+        "harga": 12,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rfhh-m9gtjb105iuf82@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-050",
+        "namaProduk": "Jam Digital Karakter",
+        "varian": "Abu Batman",
+        "harga": 12,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rfgd-m9gtj3elcjhlfb@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-041",
+        "namaProduk": "Jam Digital Karakter",
+        "varian": "Kuning Pikachu",
+        "harga": 12,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rfho-m9gtj82ghfi8d0@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-042",
+        "namaProduk": "Jam Digital Karakter",
+        "varian": "Orange Hello Kitty",
+        "harga": 12,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rffx-m9gtj7wmrd2f14@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-043",
+        "namaProduk": "Jam Digital Karakter",
+        "varian": "Merah Minnie",
+        "harga": 12,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rfez-m9gtja7bd0h596@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-044",
+        "namaProduk": "Jam Digital Karakter",
+        "varian": "Putih Daisy Duck",
+        "harga": 12,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rfh6-m9gtj40if074f7@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-045",
+        "namaProduk": "Jam Digital Karakter",
+        "varian": "Merah Ironman",
+        "harga": 12,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rfi6-m9gtj7d7ifmxa0@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-061",
+        "namaProduk": "Jam Digital Karakter",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rff3-m9gtj2hkq93l8f.webp"
+    },
+    {
+        "id": "ACC-046",
+        "namaProduk": "Jam Digital Karakter",
+        "varian": "Biru Stich",
+        "harga": 12,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rffb-m9gtj4a80ujtbb@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-047",
+        "namaProduk": "Jam Digital Karakter",
+        "varian": "Hitam Spiderman",
+        "harga": 12,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rfi6-m9gtj3pouwd5ed@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-060",
+        "namaProduk": "Jam Digital Polos",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rbmb-loe73dxwlb8qbd.webp"
+    },
+    {
+        "id": "ACC-031",
+        "namaProduk": "Jam Digital Polos",
+        "varian": "Putih",
+        "harga": 15,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rbkj-loe73gdv0m67fb@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-029",
+        "namaProduk": "Jam Digital Polos",
+        "varian": "Biru Muda",
+        "harga": 15,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rbll-loe73fom1kcf28@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-033",
+        "namaProduk": "Jam Digital Polos",
+        "varian": "Hitam",
+        "harga": 15,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rbn6-loe73eu3a7y9cc@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-040",
+        "namaProduk": "Jam Digital Polos",
+        "varian": "Hijau",
+        "harga": 15,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rbn6-lpum8ax0edxj5c@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-039",
+        "namaProduk": "Jam Digital Polos",
+        "varian": "Biru Tua",
+        "harga": 15,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rbkn-loe73fhycpfl1f@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-038",
+        "namaProduk": "Jam Digital Polos",
+        "varian": "Mint",
+        "harga": 15,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rbk9-lpum8asalais82@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-037",
+        "namaProduk": "Jam Digital Polos",
+        "varian": "Orange",
+        "harga": 15,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rbks-lpumf21mnebe4d@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-036",
+        "namaProduk": "Jam Digital Polos",
+        "varian": "Abu",
+        "harga": 15,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rblj-loe73f5qt69c97@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-035",
+        "namaProduk": "Jam Digital Polos",
+        "varian": "Ungu",
+        "harga": 15,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rbmu-loe73fagm9tr10@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-032",
+        "namaProduk": "Jam Digital Polos",
+        "varian": "Merah",
+        "harga": 15,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rbne-loe73fupsmmic9@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-034",
+        "namaProduk": "Jam Digital Polos",
+        "varian": "Cokelat",
+        "harga": 15,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rblr-loe73exp7qzke3@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-030",
+        "namaProduk": "Jam Digital Polos",
+        "varian": "Peach",
+        "harga": 15,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rbmi-loe73g81954v7b@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-080",
+        "namaProduk": "Jepit Mutiara",
+        "varian": "4",
+        "harga": 4,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98s-lqe8a0iztg79f8@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-082",
+        "namaProduk": "Jepit Mutiara",
+        "varian": "6",
+        "harga": 4,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98y-lqe8a0izw9c522@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-083",
+        "namaProduk": "Jepit Mutiara",
+        "varian": "7",
+        "harga": 4,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98t-lqe8a0izxnwl9f@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-088",
+        "namaProduk": "Jepit Mutiara",
+        "varian": "12",
+        "harga": 4,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98u-lqe8a0izqmt400@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-085",
+        "namaProduk": "Jepit Mutiara",
+        "varian": "9",
+        "harga": 4,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98t-lqe8a0j00h1hed@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-084",
+        "namaProduk": "Jepit Mutiara",
+        "varian": "8",
+        "harga": 4,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98w-lqe8a0izz2h19c@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-077",
+        "namaProduk": "Jepit Mutiara",
+        "varian": "1",
+        "harga": 4,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98u-lqe8a0izp8hx17@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-086",
+        "namaProduk": "Jepit Mutiara",
+        "varian": "10",
+        "harga": 4,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r992-lqe8a0j01vlx05@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-079",
+        "namaProduk": "Jepit Mutiara",
+        "varian": "3",
+        "harga": 4,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r992-lqe8a0izs1mt93@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-081",
+        "namaProduk": "Jepit Mutiara",
+        "varian": "5",
+        "harga": 4,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98v-lqe8a0izuurp2e@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-087",
+        "namaProduk": "Jepit Mutiara",
+        "varian": "11",
+        "harga": 4,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r991-lqe8a0izp88o61@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-065",
+        "namaProduk": "Jepit Mutiara",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98p-lqe8a0jjn0qncd.webp"
+    },
+    {
+        "id": "ACC-078",
+        "namaProduk": "Jepit Mutiara",
+        "varian": "2",
+        "harga": 4,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r990-lqe8a0izqn2d97@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-051",
+        "namaProduk": "Jepit Rambu Karakter",
+        "varian": "Kuromi",
+        "harga": 8,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-820ng-mnzc7apsuwht09@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-052",
+        "namaProduk": "Jepit Rambu Karakter",
+        "varian": "Hellokitty",
+        "harga": 8,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-820lx-mnzc7a7q2igy15@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-053",
+        "namaProduk": "Jepit Rambu Karakter",
+        "varian": "Melody",
+        "harga": 8,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-820oi-mnzc79d46uiu22@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-054",
+        "namaProduk": "Jepit Rambu Karakter",
+        "varian": "Cinnamoroll",
+        "harga": 8,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-820n8-mnzc78wip6o22b@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-055",
+        "namaProduk": "Jepit Rambu Karakter",
+        "varian": "Pompompurin",
+        "harga": 8,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-820n5-mnzc79t6fx8oe0@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-062",
+        "namaProduk": "Jepit Rambu Karakter",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-820mh-mnzc7e9ir3eudf.webp"
+    },
+    {
+        "id": "ACC-071",
+        "namaProduk": "Jepit Rambut Bulu",
+        "varian": "Coksu",
+        "harga": 6,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98w-loyw4pklk9775c@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-076",
+        "namaProduk": "Jepit Rambut Bulu",
+        "varian": "Hijau",
+        "harga": 6,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r992-loywocrcg0wdd0@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-075",
+        "namaProduk": "Jepit Rambut Bulu",
+        "varian": "Abu",
+        "harga": 6,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98p-loywocrcembxe6@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-074",
+        "namaProduk": "Jepit Rambut Bulu",
+        "varian": "Pink",
+        "harga": 6,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-822wn-mnfegbso8tmrab@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-073",
+        "namaProduk": "Jepit Rambut Bulu",
+        "varian": "Biru",
+        "harga": 6,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98r-loyw4pkln2c398@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-072",
+        "namaProduk": "Jepit Rambut Bulu",
+        "varian": "Peach",
+        "harga": 6,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98r-loyw4pkllnrn9d@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-070",
+        "namaProduk": "Jepit Rambut Bulu",
+        "varian": "Kuning",
+        "harga": 6,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98t-loyw4pkliumrf6@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-069",
+        "namaProduk": "Jepit Rambut Bulu",
+        "varian": "Putih",
+        "harga": 6,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98q-loyw4pklhg2b09@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-068",
+        "namaProduk": "Jepit Rambut Bulu",
+        "varian": "Hitam",
+        "harga": 6,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98w-loyw4pklg1hv12@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-067",
+        "namaProduk": "Jepit Rambut Bulu",
+        "varian": "Cokelat",
+        "harga": 6,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98x-loyw4pklemxf92@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-064",
+        "namaProduk": "Jepit Rambut Bulu",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98q-lx9fb7zgzlai59.webp"
+    },
+    {
+        "id": "ACC-107",
+        "namaProduk": "Jepit Rambut Mini",
+        "varian": "Bunga 20 Pcs",
+        "harga": 14,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7rasl-m0sjonreg3snee@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-069",
+        "namaProduk": "Jepit Rambut Mini",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7rasg-m1hswtj0e37a0c@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-106",
+        "namaProduk": "Jepit Rambut Mini",
+        "varian": "Bintang 20 Pcs",
+        "harga": 14,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7rasb-m0sjonrekbhzd4@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-109",
+        "namaProduk": "Jepit Rambut Mini",
+        "varian": "Mix 20 Pcs",
+        "harga": 14,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7rasg-m0sjonrelq2fd6@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-108",
+        "namaProduk": "Jepit Rambut Mini",
+        "varian": "Mahkota 20 Pcs",
+        "harga": 14,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7rasd-m0sjonren4mv63@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-105",
+        "namaProduk": "Jepit Rambut Mini",
+        "varian": "Love 20 Pcs",
+        "harga": 14,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7ras8-m0sjonreiwxjff@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-017",
+        "namaProduk": "Kacamata Hitam Lipat",
+        "varian": "Hitam Merah",
+        "harga": 13,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98r-m02jdyisx0c2e6@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-058",
+        "namaProduk": "Kacamata Hitam Lipat",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98z-m02jdyislrsi9a.webp"
+    },
+    {
+        "id": "ACC-021",
+        "namaProduk": "Kacamata Hitam Lipat",
+        "varian": "Hijau Oranye",
+        "harga": 13,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98w-m02jdyisokbz54@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-020",
+        "namaProduk": "Kacamata Hitam Lipat",
+        "varian": "Biru Oranye",
+        "harga": 13,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r992-m02jdyislr737c@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-019",
+        "namaProduk": "Kacamata Hitam Lipat",
+        "varian": "Merah Muda Merah",
+        "harga": 13,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r992-m02jdyisyewiba@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-018",
+        "namaProduk": "Kacamata Hitam Lipat",
+        "varian": "Merah Muda Ungu",
+        "harga": 13,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r990-m02jdyisn5rj88@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-013",
+        "namaProduk": "Kaos Kaki Karakter",
+        "varian": "Hijau",
+        "harga": 5,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rffy-m99n9ejayco9f7@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-010",
+        "namaProduk": "Kaos Kaki Karakter",
+        "varian": "Putih",
+        "harga": 5,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rffl-m99n9dbgp3tucd@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-014",
+        "namaProduk": "Kaos Kaki Karakter",
+        "varian": "Biru Tua",
+        "harga": 5,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rfif-m99n9erwlq1h96@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-011",
+        "namaProduk": "Kaos Kaki Karakter",
+        "varian": "Cream",
+        "harga": 5,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rffr-m99n9e6jl8rt68@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-015",
+        "namaProduk": "Kaos Kaki Karakter",
+        "varian": "Abu Tua",
+        "harga": 5,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rfhz-m99n9dr02cnl07@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-012",
+        "namaProduk": "Kaos Kaki Karakter",
+        "varian": "Kuning",
+        "harga": 5,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rffy-m99n9di4mbqfa5@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-057",
+        "namaProduk": "Kaos Kaki Karakter",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rffn-m99n9bhff4pd7a.webp"
+    },
+    {
+        "id": "ACC-009",
+        "namaProduk": "Kaos Kaki Karakter",
+        "varian": "Hitam",
+        "harga": 5,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rfga-m99n9e0po5llcc@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-016",
+        "namaProduk": "Kaos Kaki Karakter",
+        "varian": "Abu Muda",
+        "harga": 5,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rffs-m99n9engs7hjf7@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-005",
+        "namaProduk": "Kaos Kaki Polos",
+        "varian": "Hijau",
+        "harga": 6,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/17b3601fd6a8481963777f789985f7c0@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-056",
+        "namaProduk": "Kaos Kaki Polos",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-22120-13wq67p4gmlv18.webp"
+    },
+    {
+        "id": "ACC-001",
+        "namaProduk": "Kaos Kaki Polos",
+        "varian": "Hitam",
+        "harga": 6,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/f75aed3c28d31b775caf758ffed7f12b@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-002",
+        "namaProduk": "Kaos Kaki Polos",
+        "varian": "Putih",
+        "harga": 6,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/dd98b025ac50c2c683aae30889181a1e@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-003",
+        "namaProduk": "Kaos Kaki Polos",
+        "varian": "Orange",
+        "harga": 6,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/cf332dc59fd0cb098b1a2145c3b0d183@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-004",
+        "namaProduk": "Kaos Kaki Polos",
+        "varian": "Fanta",
+        "harga": 6,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-823rh-mop1ji7fmt4x5d@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-006",
+        "namaProduk": "Kaos Kaki Polos",
+        "varian": "Biru",
+        "harga": 6,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/2250b0480ac5b3c7c8e4cdfc89516169@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-007",
+        "namaProduk": "Kaos Kaki Polos",
+        "varian": "Abu",
+        "harga": 6,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/866d80560669b4acc158afd9421badb7@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-008",
+        "namaProduk": "Kaos Kaki Polos",
+        "varian": "Navy",
+        "harga": 6,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7rbk5-matgwby2efn82f@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-034",
+        "namaProduk": "Keychain Diamond Painting",
+        "varian": "Gudetama",
+        "harga": 12,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7rasm-m16qo12m9lhb1a@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-007",
+        "namaProduk": "Keychain Diamond Painting",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7qul6-lh7kv368ijmz40@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-033",
+        "namaProduk": "Keychain Diamond Painting",
+        "varian": "Lotso",
+        "harga": 12,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7rasg-m16qo12m86wv38@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-035",
+        "namaProduk": "Keychain Diamond Painting",
+        "varian": "Anime - Random",
+        "harga": 14,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7qul6-lh7kv368mrcb02@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-030",
+        "namaProduk": "Keychain Diamond Painting",
+        "varian": "Kuromi",
+        "harga": 12,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7rasb-m16qo12m6scf64@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-031",
+        "namaProduk": "Keychain Diamond Painting",
+        "varian": "Hello Kitty",
+        "harga": 12,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7rash-m16qo12m162na8@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-032",
+        "namaProduk": "Keychain Diamond Painting",
+        "varian": "Pompom Purin",
+        "harga": 12,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7rase-m16qo12m3z7j1e@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-002",
+        "namaProduk": "Keychain Lukis Akrilik",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7rasm-m4yb57k0iz9if0_tn"
+    },
+    {
+        "id": "TOY-010",
+        "namaProduk": "Keychain Lukis Akrilik",
+        "varian": "Random",
+        "harga": 16,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7rasf-m4ygtz46wn19ac.webp"
+    },
+    {
+        "id": "ATK-086",
+        "namaProduk": "Kotak Pensil Besar 2 Sisi",
+        "varian": "Navy",
+        "harga": 17,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rdwc-mbt6r270hr956e@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-054",
+        "namaProduk": "Kotak Pensil Besar 2 Sisi",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rdvw-mbt6qzznpvspf6@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-090",
+        "namaProduk": "Kotak Pensil Besar 2 Sisi",
+        "varian": "Abu",
+        "harga": 15,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rdx4-mbt6r30farmed8@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-089",
+        "namaProduk": "Kotak Pensil Besar 2 Sisi",
+        "varian": "Cream",
+        "harga": 17,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rdw7-mbt6r2r9sc2id6@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-088",
+        "namaProduk": "Kotak Pensil Besar 2 Sisi",
+        "varian": "Hijau",
+        "harga": 14,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rdy4-mbt6r2ie3x5z89@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-085",
+        "namaProduk": "Kotak Pensil Besar 2 Sisi",
+        "varian": "Pink",
+        "harga": 15,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rdvc-mbt6r21qphee1e@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-087",
+        "namaProduk": "Kotak Pensil Besar 2 Sisi",
+        "varian": "Kuning",
+        "harga": 17,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rdxp-mbt6r2caa1ix8e@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-140",
+        "namaProduk": "Kunciran Towel Ring Karakter",
+        "varian": "Beruang",
+        "harga": 10,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rdvp-mda584h841dl7a@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-074",
+        "namaProduk": "Kunciran Towel Ring Karakter",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rdxi-mda5831cc64g52@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-141",
+        "namaProduk": "Kunciran Towel Ring Karakter",
+        "varian": "Panda",
+        "harga": 10,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rdyk-mda584n1yb101b@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-142",
+        "namaProduk": "Kunciran Towel Ring Karakter",
+        "varian": "Daisy",
+        "harga": 10,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rdyf-mda584tpoitq2e@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-143",
+        "namaProduk": "Kunciran Towel Ring Karakter",
+        "varian": "Cupcake",
+        "harga": 10,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rdvp-mda5850xb75se5@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-144",
+        "namaProduk": "Kunciran Towel Ring Karakter",
+        "varian": "Cherry Pink",
+        "harga": 10,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rdxh-mda5857v11q825@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-145",
+        "namaProduk": "Kunciran Towel Ring Karakter",
+        "varian": "Bintang Ungu",
+        "harga": 10,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rdvf-mda585gqpgxlf1@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-146",
+        "namaProduk": "Kunciran Towel Ring Karakter",
+        "varian": "Pita Segi",
+        "harga": 10,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rdwn-mda585nefpz06a@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-147",
+        "namaProduk": "Kunciran Towel Ring Karakter",
+        "varian": "Pita Bulat",
+        "harga": 10,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rdvm-mda585so6ltldb@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-148",
+        "namaProduk": "Kunciran Towel Ring Karakter",
+        "varian": "Mahkota",
+        "harga": 10,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rdxn-mda585zvvzv2f7@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-149",
+        "namaProduk": "Kunciran Towel Ring Karakter",
+        "varian": "Biru",
+        "harga": 10,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rdw0-mda58673mudqbc@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-150",
+        "namaProduk": "Kunciran Towel Ring Karakter",
+        "varian": "Cherry Ungu",
+        "harga": 10,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rdvk-mda586ebaxo97c@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-139",
+        "namaProduk": "Kunciran Towel Ring Karakter",
+        "varian": "Bunga",
+        "harga": 10,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rdw2-mda5848wg7i820@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-050",
+        "namaProduk": "Lem Stick Karakter",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-22090-wpbp8qrb8yhv10.webp"
+    },
+    {
+        "id": "ATK-065",
+        "namaProduk": "Lem Stick Karakter",
+        "varian": "",
+        "harga": 5,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/dd8d250a9e5d913aeea3c3a1293dc627.webp"
+    },
+    {
+        "id": "PRN-025",
+        "namaProduk": "Mainan Anak Bebek",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7qukz-lkdd2lsuhef6ae@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-075",
+        "namaProduk": "Mainan Anak Bebek",
+        "varian": "",
+        "harga": 26,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7qukz-lkdd2lsuhef6ae@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-105",
+        "namaProduk": "Mainan Buah",
+        "varian": "Buah Potong",
+        "harga": 39,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7ra0t-mb4z0467rfxnee@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-035",
+        "namaProduk": "Mainan Buah",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7ra0k-mb4z0467q1d7b7.webp"
+    },
+    {
+        "id": "TOY-103",
+        "namaProduk": "Mainan Dinosaurus",
+        "varian": "",
+        "harga": 20,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7rasj-m3opdi1msb1851@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-033",
+        "namaProduk": "Mainan Dinosaurus",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7rasj-m3opdi1msb1851@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-022",
+        "namaProduk": "Mainan Ember Pasir",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7rbk7-m7k4rowzh8gu5a@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-069",
+        "namaProduk": "Mainan Ember Pasir",
+        "varian": "",
+        "harga": 26,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7rbk7-m7k4rowzh8gu5a@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-034",
+        "namaProduk": "Mainan Hewan ",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7rbk7-m8uh62owyyal66@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-104",
+        "namaProduk": "Mainan Hewan ",
+        "varian": "",
+        "harga": 37,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-824hb-mpew3samk0zxc0.webp"
+    },
+    {
+        "id": "TOY-074",
+        "namaProduk": "Mainan Lumba-Lumba Berenang",
+        "varian": "",
+        "harga": 13,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98o-lkuebn1e8yde62@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-024",
+        "namaProduk": "Mainan Lumba-Lumba Berenang",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98o-lkuebn1e8yde62@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-019",
+        "namaProduk": "Mainan Mobil Diecast",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7rasd-m3izbxqugelf10@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-059",
+        "namaProduk": "Mainan Mobil Diecast",
+        "varian": "",
+        "harga": 37,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7rasd-m3izbxqugelf10@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-060",
+        "namaProduk": "Mainan Mobil Jeep",
+        "varian": "Biru",
+        "harga": 18,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98o-lnwjtxloxx7ace@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-067",
+        "namaProduk": "Mainan Mobil Jeep",
+        "varian": "Silver",
+        "harga": 18,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98t-lnwjtxlp7r6ecf@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-064",
+        "namaProduk": "Mainan Mobil Jeep",
+        "varian": "Biru Metalik",
+        "harga": 18,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r991-lnwjtxlp3jh2d8@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-063",
+        "namaProduk": "Mainan Mobil Jeep",
+        "varian": "Merah",
+        "harga": 18,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98y-lnwjtxlp24wme4@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-062",
+        "namaProduk": "Mainan Mobil Jeep",
+        "varian": "Kuning",
+        "harga": 18,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98u-lnwjtxlp0qc615@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-061",
+        "namaProduk": "Mainan Mobil Jeep",
+        "varian": "Hijau",
+        "harga": 18,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98u-lnwjtxlozbrq30@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-066",
+        "namaProduk": "Mainan Mobil Jeep",
+        "varian": "Gold",
+        "harga": 18,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98v-lnwjtxlp6cly81@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-020",
+        "namaProduk": "Mainan Mobil Jeep",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7qul6-lj6orks3tr9z51_tn"
+    },
+    {
+        "id": "TOY-065",
+        "namaProduk": "Mainan Mobil Jeep",
+        "varian": "Merah Metalik",
+        "harga": 18,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98o-lnwjtxlp4y1id2@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-010",
+        "namaProduk": "Notebook Kecil",
+        "varian": "Beruang Kutub",
+        "harga": 6,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7ras9-m1qds483vy5t70@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-012",
+        "namaProduk": "Notebook Kecil",
+        "varian": "Seni Kata",
+        "harga": 6,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7rasa-m3ok62f0ysv475@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-011",
+        "namaProduk": "Notebook Kecil",
+        "varian": "Kelinci Buah",
+        "harga": 6,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7rasm-m3ok62f130kg3f@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-006",
+        "namaProduk": "Notebook Kecil",
+        "varian": "Cute Dino",
+        "harga": 6,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7rasg-m1qds483qbw141@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-009",
+        "namaProduk": "Notebook Kecil",
+        "varian": "Awan",
+        "harga": 6,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7rask-m1qds483rqgha3@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-007",
+        "namaProduk": "Notebook Kecil",
+        "varian": "Semesta",
+        "harga": 6,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7rasa-m1qds483t50x6a@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-037",
+        "namaProduk": "Notebook Kecil",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98o-lvlrl3b8yemh2e.webp"
+    },
+    {
+        "id": "ATK-013",
+        "namaProduk": "Notebook Kecil",
+        "varian": "Bunga",
+        "harga": 6,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7rasi-m3ok62f11m0012@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-005",
+        "namaProduk": "Notebook Kecil",
+        "varian": "Astronot",
+        "harga": 6,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7rasa-m1qds483oxblb4@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-008",
+        "namaProduk": "Notebook Kecil",
+        "varian": "Bulan",
+        "harga": 6,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7rasc-m3uapirv17nz6e@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-034",
+        "namaProduk": "Paket Alat Tulis Aimilo",
+        "varian": "Kelinci",
+        "harga": 7,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98w-lvaa11vzglxj9b@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-033",
+        "namaProduk": "Paket Alat Tulis Aimilo",
+        "varian": "Astronot",
+        "harga": 7,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7rbka-mab44r3j4upxbe@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-035",
+        "namaProduk": "Paket Alat Tulis Aimilo",
+        "varian": "Dinosaurus",
+        "harga": 7,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98x-lvaa11vzf7d304@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-036",
+        "namaProduk": "Paket Alat Tulis Aimilo",
+        "varian": "Beruang",
+        "harga": 7,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r991-lvaa11vzce877c@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-040",
+        "namaProduk": "Paket Alat Tulis Aimilo",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7rasf-m0whi3frkowwdf.webp"
+    },
+    {
+        "id": "TOY-026",
+        "namaProduk": "Paket Melukis Anak",
+        "varian": "Mini - 7 Lbr",
+        "harga": 8,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7rasj-m2qbgc00zhed0b@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-027",
+        "namaProduk": "Paket Melukis Anak",
+        "varian": "Besar - 12 Lbr",
+        "harga": 15,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98u-lmtslg6dyr6s42@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-004",
+        "namaProduk": "Paket Melukis Anak",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-824if-mfm7b1iln3t680.webp"
+    },
+    {
+        "id": "ATK-077",
+        "namaProduk": "Penggaris 30 Cm",
+        "varian": "Bunny Biru",
+        "harga": 8,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-81ztp-meuyvt99l4ow52@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-076",
+        "namaProduk": "Penggaris 30 Cm",
+        "varian": "Cute Kuning",
+        "harga": 8,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-81ztk-meuyvt99ibk070@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-075",
+        "namaProduk": "Penggaris 30 Cm",
+        "varian": "Cute Biru",
+        "harga": 8,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-81ztk-meuyvt99gwzk59@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-074",
+        "namaProduk": "Penggaris 30 Cm",
+        "varian": "Checker Orange",
+        "harga": 8,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-81ztd-meuvx2i4c3d1f6@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-078",
+        "namaProduk": "Penggaris 30 Cm",
+        "varian": "Bunny Hijau",
+        "harga": 8,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-81zti-meuyvt99mj9c25@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-052",
+        "namaProduk": "Penggaris 30 Cm",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-81zto-meuyvt99qqyo0b@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-045",
+        "namaProduk": "Penghapus Joyko",
+        "varian": "Putih",
+        "harga": 2,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9993,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7rase-m6539czrj5i0db@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-044",
+        "namaProduk": "Penghapus Joyko",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7rasf-m6539czrgcjm00.webp"
+    },
+    {
+        "id": "ATK-046",
+        "namaProduk": "Penghapus Joyko",
+        "varian": "Warna Warni Random",
+        "harga": 2,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7rbk8-m66lydmef7h498@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-044",
+        "namaProduk": "Penghapus Joyko",
+        "varian": "Hitam",
+        "harga": 2,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7rash-m6539czrkk2g70@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-050a",
+        "namaProduk": "Penghapus Mekanik",
+        "varian": "Pink",
+        "harga": 10,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98v-lx22ibhhzga64d@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-049",
+        "namaProduk": "Penghapus Mekanik",
+        "varian": "Hijau",
+        "harga": 10,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r991-lx22ibhi6h4e45@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-050d",
+        "namaProduk": "Penghapus Mekanik",
+        "varian": "Baby Blue",
+        "harga": 10,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r990-lx22ibhi52jy1c@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-050c",
+        "namaProduk": "Penghapus Mekanik",
+        "varian": "Tosca",
+        "harga": 10,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98o-lx22ibhi29f2a3@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-050",
+        "namaProduk": "Penghapus Mekanik",
+        "varian": "Ungu",
+        "harga": 10,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98q-lx22ibhi0uumaa@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-050b",
+        "namaProduk": "Penghapus Mekanik",
+        "varian": "Oranye",
+        "harga": 10,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98w-lx22ibhi3nzi9f@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-046",
+        "namaProduk": "Penghapus Mekanik",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98p-lx9icj0cmuy6ec.webp"
+    },
+    {
+        "id": "ATK-048",
+        "namaProduk": "Penghapus Mekanik",
+        "varian": "Biru",
+        "harga": 10,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134201-7r98y-lmwu3es2wkgx15@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-032",
+        "namaProduk": "Pensil Karakter Kartun",
+        "varian": "Random",
+        "harga": 2,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98s-lm8ouo9hluoe32.webp"
+    },
+    {
+        "id": "PRN-039",
+        "namaProduk": "Pensil Karakter Kartun",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rbkb-lm70gqp9xavfc3.webp"
+    },
+    {
+        "id": "ATK-079",
+        "namaProduk": "Pensil Mekanik Sayuran",
+        "varian": "Wortel",
+        "harga": 5,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7qvg9-lilhcrex99jjaf@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-084",
+        "namaProduk": "Pensil Mekanik Sayuran",
+        "varian": "Pisang",
+        "harga": 5,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7qvet-lilhcrs8prsn14@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-083",
+        "namaProduk": "Pensil Mekanik Sayuran",
+        "varian": "Nanas Kuning",
+        "harga": 5,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7qul8-linwklork57b4e@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-082",
+        "namaProduk": "Pensil Mekanik Sayuran",
+        "varian": "Kaktus",
+        "harga": 5,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r991-lnmbj3hyjdmi23@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-081",
+        "namaProduk": "Pensil Mekanik Sayuran",
+        "varian": "Nanas Hijau",
+        "harga": 5,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7qves-lilhcrluz406f4@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-080",
+        "namaProduk": "Pensil Mekanik Sayuran",
+        "varian": "Jagung",
+        "harga": 5,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7qvfx-lilhcren9oe952@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-053",
+        "namaProduk": "Pensil Mekanik Sayuran",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7qvdn-lilhcqginlyv61@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-018",
+        "namaProduk": "Pistol Air",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-822wj-mo6nwk70k2yue7@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-058",
+        "namaProduk": "Pistol Air",
+        "varian": "",
+        "harga": 10,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-822wj-mo6nwk70k2yue7@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-097",
+        "namaProduk": "Pistol Air Mainan Karakter",
+        "varian": "Nailong Biru",
+        "harga": 18,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-8261s-ml1s3rvin0g116@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-031",
+        "namaProduk": "Pistol Air Mainan Karakter",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-825zp-mj860erel5a8ca@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-095",
+        "namaProduk": "Pistol Air Mainan Karakter",
+        "varian": "Nailong",
+        "harga": 20,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-8257y-mg389yeazmry33@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-096",
+        "namaProduk": "Pistol Air Mainan Karakter",
+        "varian": "Capybara",
+        "harga": 23,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-825au-mg389yjmvrpm0c@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-101",
+        "namaProduk": "Pistol Air Mainan Karakter",
+        "varian": "Winnie The Pooh",
+        "harga": 24,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-820nm-mo3h5o2e8npe30@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-100",
+        "namaProduk": "Pistol Air Mainan Karakter",
+        "varian": "Lotso",
+        "harga": 24,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-820lw-mo3h5nwhbg906c@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-099",
+        "namaProduk": "Pistol Air Mainan Karakter",
+        "varian": "Kuromi",
+        "harga": 24,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-820nu-mo3h5nqwc0zo61@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-098",
+        "namaProduk": "Pistol Air Mainan Karakter",
+        "varian": "Beruang",
+        "harga": 24,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-820nc-mo3h5ngkpyps3a@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-008",
+        "namaProduk": "Pokemon Mini Bricks",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7rasm-m291pzjfmf7u0c_tn"
+    },
+    {
+        "id": "TOY-036",
+        "namaProduk": "Pokemon Mini Bricks",
+        "varian": "Psyduck",
+        "harga": 14,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98y-lxax7fobfhgq9a@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-037",
+        "namaProduk": "Pokemon Mini Bricks",
+        "varian": "Whismur",
+        "harga": 14,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98r-lxax7fobcobu08@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-038",
+        "namaProduk": "Pokemon Mini Bricks",
+        "varian": "Turtwig",
+        "harga": 13,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r991-lxax7fobe2wa68@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-041",
+        "namaProduk": "Pokemon Mini Bricks",
+        "varian": "Bulbasaur Cup",
+        "harga": 16,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-8224o-mjgrpbhnknpja5@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-040",
+        "namaProduk": "Pokemon Mini Bricks",
+        "varian": "Pikachu Cup",
+        "harga": 16,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98t-lxrt0ege74p9c4@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-039",
+        "namaProduk": "Pokemon Mini Bricks",
+        "varian": "Caterpie",
+        "harga": 13,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98t-lxax7fobmiay8c@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-128",
+        "namaProduk": "Pop Socket Hp",
+        "varian": "Minnie",
+        "harga": 5,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rblh-lounf15e095j2f@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-129",
+        "namaProduk": "Pop Socket Hp",
+        "varian": "Pawn",
+        "harga": 5,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rbmj-lounf1f3m2326c@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-130",
+        "namaProduk": "Pop Socket Hp",
+        "varian": "Little Pony",
+        "harga": 5,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rbn6-lounf1nz924ode@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-131",
+        "namaProduk": "Pop Socket Hp",
+        "varian": "Avocado",
+        "harga": 5,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rbnj-lounf1wawv9i39@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-133",
+        "namaProduk": "Pop Socket Hp",
+        "varian": "Tom",
+        "harga": 5,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rbmd-lounf2gu2tp916@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-132",
+        "namaProduk": "Pop Socket Hp",
+        "varian": "Pikachu",
+        "harga": 5,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rbml-lounf20qqddy61@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-127",
+        "namaProduk": "Pop Socket Hp",
+        "varian": "Mickey",
+        "harga": 5,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rbnl-lounf0u0gwz7f2@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-126",
+        "namaProduk": "Pop Socket Hp",
+        "varian": "Cat",
+        "harga": 5,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rbkf-lounf0kuub6084@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-125",
+        "namaProduk": "Pop Socket Hp",
+        "varian": "Pig",
+        "harga": 5,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rblj-lounf079e7q275@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-124",
+        "namaProduk": "Pop Socket Hp",
+        "varian": "Minion",
+        "harga": 5,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rbko-lounf03djvz972@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-072",
+        "namaProduk": "Pop Socket Hp",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rblx-lounip8aq19v39@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-051",
+        "namaProduk": "Pulpen 10 Warna Karakter",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98x-lmk5tgtqnn6n19.webp"
+    },
+    {
+        "id": "ATK-071",
+        "namaProduk": "Pulpen 10 Warna Karakter",
+        "varian": "Dino Pen 3",
+        "harga": 17,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98y-lxjgexygkip86b@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-072",
+        "namaProduk": "Pulpen 10 Warna Karakter",
+        "varian": "Whale",
+        "harga": 17,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98x-lxjgexyglx9o09@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-073",
+        "namaProduk": "Pulpen 10 Warna Karakter",
+        "varian": "Sea Horse",
+        "harga": 17,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r991-lxjgexygj44sc5@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-066",
+        "namaProduk": "Pulpen 10 Warna Karakter",
+        "varian": "Astronot ",
+        "harga": 14,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98r-lpnf5rx7ddkt32@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-067",
+        "namaProduk": "Pulpen 10 Warna Karakter",
+        "varian": "Fast Food",
+        "harga": 14,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98q-lmk5tgtquo0v5a@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-068",
+        "namaProduk": "Pulpen 10 Warna Karakter",
+        "varian": "Unicorn Pen",
+        "harga": 14,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98o-loo0hu750d4r3e@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-069",
+        "namaProduk": "Pulpen 10 Warna Karakter",
+        "varian": "Dino Pen 1",
+        "harga": 14,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98w-loo0hu751rp756@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-070",
+        "namaProduk": "Pulpen 10 Warna Karakter",
+        "varian": "Dino Pen 2",
+        "harga": 17,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98x-lpnf5rx7hla5b4@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-042",
+        "namaProduk": "Pulpen Gel Aimilo",
+        "varian": "Hitam",
+        "harga": 2,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7rbka-m8pxl9zk4hld55@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-043",
+        "namaProduk": "Pulpen Gel Aimilo",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-82250-ml78vv965atkd0.webp"
+    },
+    {
+        "id": "ATK-043",
+        "namaProduk": "Pulpen Gel Aimilo",
+        "varian": "Biru",
+        "harga": 2,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7rbk7-m8pxl9zk5w5tb7@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-020",
+        "namaProduk": "Pulpen Glitter",
+        "varian": "Ungu Daisy",
+        "harga": 5,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134201-7r98o-lpvrc25ael8m89@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-031",
+        "namaProduk": "Pulpen Glitter",
+        "varian": "Bulan Putih",
+        "harga": 5,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98z-lv6wpguv1glv48@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-030",
+        "namaProduk": "Pulpen Glitter",
+        "varian": "Bulan Pink",
+        "harga": 5,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98x-lv6wpguv021f63@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-029",
+        "namaProduk": "Pulpen Glitter",
+        "varian": "Bulan Biru",
+        "harga": 5,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r990-lv6wpguuyngzaa@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-028",
+        "namaProduk": "Pulpen Glitter",
+        "varian": "Bulan Kuning",
+        "harga": 5,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98s-lv6wpguux8wjc9@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-027",
+        "namaProduk": "Pulpen Glitter",
+        "varian": "Kupu Putih",
+        "harga": 5,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134201-7r98p-lpvyspor9ybc84@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-019",
+        "namaProduk": "Pulpen Glitter",
+        "varian": "Kuning Daisy",
+        "harga": 5,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134201-7r98t-lpvrc21yjgnaaf@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-018",
+        "namaProduk": "Pulpen Glitter",
+        "varian": "Pink Daisy",
+        "harga": 5,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134201-7r98z-lpvrc1ycor8uf1@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-017",
+        "namaProduk": "Pulpen Glitter",
+        "varian": "Sleep Bunny Pk",
+        "harga": 5,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98x-lrtvzl1ymcspf1@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-016",
+        "namaProduk": "Pulpen Glitter",
+        "varian": "Sleep Bunny Pt",
+        "harga": 5,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7rbk2-ma2ioilkrxn1e0@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-038",
+        "namaProduk": "Pulpen Glitter",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134201-7r98u-lq4fc2hppnwlca.webp"
+    },
+    {
+        "id": "ATK-025",
+        "namaProduk": "Pulpen Glitter",
+        "varian": "Kupu Biru",
+        "harga": 5,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134201-7r992-lpvyspc9s8k030@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-024",
+        "namaProduk": "Pulpen Glitter",
+        "varian": "Kupu Pink",
+        "harga": 5,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134201-7r98o-lpvysp7tyq428b@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-023",
+        "namaProduk": "Pulpen Glitter",
+        "varian": "Cat Sleep Pk",
+        "harga": 5,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134201-7r98q-lprp1ny4pbcic3@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-022",
+        "namaProduk": "Pulpen Glitter",
+        "varian": "Cat Sleep Pt",
+        "harga": 5,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134201-7r98t-lprp1gzkvyr612@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-021",
+        "namaProduk": "Pulpen Glitter",
+        "varian": "Hiaju Daisy",
+        "harga": 5,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134201-7r98o-lpvrc28m9pyq34@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-015",
+        "namaProduk": "Pulpen Glitter",
+        "varian": "Happy Bunny Pk",
+        "harga": 5,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134201-7r98s-lprp1galwie6e9@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-014",
+        "namaProduk": "Pulpen Glitter",
+        "varian": "Happy Bunny Pt",
+        "harga": 5,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134201-7r98u-lpvrc1edhz8ye9@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-026",
+        "namaProduk": "Pulpen Glitter",
+        "varian": "Kupu Ungu",
+        "harga": 5,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134201-7r991-lpvysphtk40581@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-002",
+        "namaProduk": "Pulpen Kucing",
+        "varian": "Biru",
+        "harga": 2,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rfi6-m9mu04527h5db7@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-003",
+        "namaProduk": "Pulpen Kucing",
+        "varian": "Putih",
+        "harga": 3,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rfhe-m9mu03epa1sh6b@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-004",
+        "namaProduk": "Pulpen Kucing",
+        "varian": "Hitam",
+        "harga": 3,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rfga-m9mu04981ehue9@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-001",
+        "namaProduk": "Pulpen Kucing",
+        "varian": "Tosca",
+        "harga": 3,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-7rfhu-m9mu03wglheh0c@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-036",
+        "namaProduk": "Pulpen Kucing",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7rbk3-mac6uw4d6phh9a.webp"
+    },
+    {
+        "id": "PRN-026",
+        "namaProduk": "Puzzle Alphabet",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134201-7r98o-lkorswrrnhr4c3@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-076",
+        "namaProduk": "Puzzle Alphabet",
+        "varian": "",
+        "harga": 29,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134201-7r98o-lkorswrrnhr4c3@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-087",
+        "namaProduk": "Puzzle Kayu Hewan & Kendaraan",
+        "varian": "Air Plane",
+        "harga": 14,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134201-7qukx-lkjbh9cx2gcgb1@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-084",
+        "namaProduk": "Puzzle Kayu Hewan & Kendaraan",
+        "varian": "Rocket",
+        "harga": 14,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134201-7qukz-lkjbh8esge9680@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-089",
+        "namaProduk": "Puzzle Kayu Hewan & Kendaraan",
+        "varian": "Owl",
+        "harga": 14,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134201-7qul8-lkjbhay2qtdu1c@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-083",
+        "namaProduk": "Puzzle Kayu Hewan & Kendaraan",
+        "varian": "Car",
+        "harga": 14,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134201-7qul6-lkjbh89sp45ede@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-082",
+        "namaProduk": "Puzzle Kayu Hewan & Kendaraan",
+        "varian": "Elephant",
+        "harga": 14,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134201-7qula-lkjbh7q3hxuca5@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-081",
+        "namaProduk": "Puzzle Kayu Hewan & Kendaraan",
+        "varian": "Fish",
+        "harga": 14,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134201-7quky-lkjbh7k9p25m59@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-090",
+        "namaProduk": "Puzzle Kayu Hewan & Kendaraan",
+        "varian": "Panda",
+        "harga": 14,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134201-7qul5-lkjbhb8cd7eedf@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-080",
+        "namaProduk": "Puzzle Kayu Hewan & Kendaraan",
+        "varian": "Frog",
+        "harga": 14,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134201-7qukx-lkjbh7fjvz9w64@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-091",
+        "namaProduk": "Puzzle Kayu Hewan & Kendaraan",
+        "varian": "Crab",
+        "harga": 14,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134201-7qul6-lkjbhbe639d612@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-088",
+        "namaProduk": "Puzzle Kayu Hewan & Kendaraan",
+        "varian": "Penguin",
+        "harga": 14,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134201-7qul7-lkjbhaqv1d7u35@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-085",
+        "namaProduk": "Puzzle Kayu Hewan & Kendaraan",
+        "varian": "Train",
+        "harga": 14,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134201-7qukz-lkjbh8js93cy05@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-078",
+        "namaProduk": "Puzzle Kayu Hewan & Kendaraan",
+        "varian": "Gold Fish",
+        "harga": 14,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134201-7qul0-lkjbh6mp26xgb9@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-092",
+        "namaProduk": "Puzzle Kayu Hewan & Kendaraan",
+        "varian": "Starfish",
+        "harga": 14,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134201-7qul9-lkjbhbivwcyc24@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-079",
+        "namaProduk": "Puzzle Kayu Hewan & Kendaraan",
+        "varian": "Bee",
+        "harga": 14,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134201-7quky-lkjbh73wd0sie4@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-028",
+        "namaProduk": "Puzzle Kayu Hewan & Kendaraan",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134201-7r98o-lkjkkaiahnihb0.webp"
+    },
+    {
+        "id": "TOY-086",
+        "namaProduk": "Puzzle Kayu Hewan & Kendaraan",
+        "varian": "Ship",
+        "harga": 14,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134201-7qul4-lkjbh8oi27cp27@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-049",
+        "namaProduk": "Rautan Karakter Boneka",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7rash-m0mkgh7zd9p2b6@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-060",
+        "namaProduk": "Rautan Karakter Boneka",
+        "varian": "Astronot",
+        "harga": 15,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7rasm-m0mkgh7zbv4mdd@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-061",
+        "namaProduk": "Rautan Karakter Boneka",
+        "varian": "Bunny Rainbow",
+        "harga": 15,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7rasm-m0mkgh7zagk62c@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-062",
+        "namaProduk": "Rautan Karakter Boneka",
+        "varian": "Bunny Strawberry",
+        "harga": 15,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7rasi-m0mkgh7z91zqf0@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-063",
+        "namaProduk": "Rautan Karakter Boneka",
+        "varian": "Capybara",
+        "harga": 15,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-81zth-mf0uku1ftm31a3@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-064",
+        "namaProduk": "Rautan Karakter Boneka",
+        "varian": "Pink Bear",
+        "harga": 15,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-823p2-mp7pevgjelmze9@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-070",
+        "namaProduk": "Sisir Rambut Lipat",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-8261x-mkdba68anh1ia4.webp"
+    },
+    {
+        "id": "ACC-115",
+        "namaProduk": "Sisir Rambut Lipat",
+        "varian": "Ungu",
+        "harga": 9,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-8260s-mkdba9ai4idk51@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-114",
+        "namaProduk": "Sisir Rambut Lipat",
+        "varian": "Putih",
+        "harga": 9,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-82626-mkdba8h9eoef6f@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-113",
+        "namaProduk": "Sisir Rambut Lipat",
+        "varian": "Pink",
+        "harga": 9,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-8262a-mkdba8thgh6se5@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-112",
+        "namaProduk": "Sisir Rambut Lipat",
+        "varian": "Kuning",
+        "harga": 9,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-825zq-mkdba8nl8jycc7@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-111",
+        "namaProduk": "Sisir Rambut Lipat",
+        "varian": "Hitam",
+        "harga": 9,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-8260c-mkdba94r0lj606@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-110",
+        "namaProduk": "Sisir Rambut Lipat",
+        "varian": "Biru",
+        "harga": 9,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-8262u-mkdb9zurslqc45@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-021",
+        "namaProduk": "Smart Block",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-8224x-mgrs6jg3a2vhad.webp"
+    },
+    {
+        "id": "TOY-068",
+        "namaProduk": "Smart Block",
+        "varian": "",
+        "harga": 28,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-8224x-mgrs6jg3a2vhad.webp"
+    },
+    {
+        "id": "ATK-040",
+        "namaProduk": "Spidol Set 12 Warna",
+        "varian": "Astronot",
+        "harga": 25,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7rask-m0pca6vkhtue33@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-042",
+        "namaProduk": "Spidol Set 12 Warna",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7ra0o-mdpdq3hrvktrc2.webp"
+    },
+    {
+        "id": "ATK-041",
+        "namaProduk": "Spidol Set 12 Warna",
+        "varian": "Mibaobao",
+        "harga": 25,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7rasg-m0pca6vkj8eu0a@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-047",
+        "namaProduk": "Stabilo 2 Sisi",
+        "varian": "",
+        "harga": 29,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-822wm-mohohwqxpreof0.webp"
+    },
+    {
+        "id": "PRN-045",
+        "namaProduk": "Stabilo 2 Sisi",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-822wg-mohohwr2jxttfc.webp"
+    },
+    {
+        "id": "TOY-055",
+        "namaProduk": "Stacko Mini",
+        "varian": "",
+        "harga": 40,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98r-lyknjk0ph8ug35@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-016",
+        "namaProduk": "Stacko Mini",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r98r-lyknjk0ph8ug35@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-077",
+        "namaProduk": "Stamp Hand Color",
+        "varian": "",
+        "harga": 30,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r991-lrhogu3eu24p5b@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-027",
+        "namaProduk": "Stamp Hand Color",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7r991-lrhogu3eu24p5b@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-053",
+        "namaProduk": "Sticky Notes Kecil",
+        "varian": "Gajah",
+        "harga": 2,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7qul8-ljc6pmf1v3xf41@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-055",
+        "namaProduk": "Sticky Notes Kecil",
+        "varian": "Katak",
+        "harga": 2,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7qul5-ljc6pmf224rn31@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-052",
+        "namaProduk": "Sticky Notes Kecil",
+        "varian": "Kucing",
+        "harga": 2,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7qul7-ljc6pmf1sasj55@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-056",
+        "namaProduk": "Sticky Notes Kecil",
+        "varian": "Babi",
+        "harga": 2,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7qul2-ljc6pmf1xx2bd2@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-057",
+        "namaProduk": "Sticky Notes Kecil",
+        "varian": "Panda",
+        "harga": 2,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7qul5-ljc6pmf1tpcz59@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-059",
+        "namaProduk": "Sticky Notes Kecil",
+        "varian": "Kelinci",
+        "harga": 2,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7qul6-ljc6pmf1qw83a0@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-058",
+        "namaProduk": "Sticky Notes Kecil",
+        "varian": "Ayam",
+        "harga": 2,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7qukw-ljc6pmf20q776d@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-048",
+        "namaProduk": "Sticky Notes Kecil",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-23020-3xcbht0cgynv21.webp"
+    },
+    {
+        "id": "ATK-054",
+        "namaProduk": "Sticky Notes Kecil",
+        "varian": "Kura-Kura",
+        "harga": 2,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7qul3-ljc6pmf1wihv37@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-009",
+        "namaProduk": "Tablet Tulis",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7ra0r-md9umx6et9940a@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-042",
+        "namaProduk": "Tablet Tulis",
+        "varian": "Hijau",
+        "harga": 37,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7ra0r-md9umx6et9940a@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-047",
+        "namaProduk": "Taiyo Push Bricks",
+        "varian": "Cinamonroll",
+        "harga": 32,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-8224x-mfw69t3jgzrcb6@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-046",
+        "namaProduk": "Taiyo Push Bricks",
+        "varian": "Penguin",
+        "harga": 32,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-8224o-mfw69t3jo0lk56@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-051",
+        "namaProduk": "Taiyo Push Bricks",
+        "varian": "Frog",
+        "harga": 32,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-8224p-mfw69t3jmm14f5@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-049",
+        "namaProduk": "Taiyo Push Bricks",
+        "varian": "Bear",
+        "harga": 32,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-8224p-mfw69t3jjsw8fe@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-048",
+        "namaProduk": "Taiyo Push Bricks",
+        "varian": "Kuromi",
+        "harga": 32,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-8224u-mfw69t3jiebsb7@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-012",
+        "namaProduk": "Taiyo Push Bricks",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-8224p-mfw69t3mfqx76a@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-050",
+        "namaProduk": "Taiyo Push Bricks",
+        "varian": "Duck",
+        "harga": 32,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-8224u-mfw69t3jl7goe1@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-154",
+        "namaProduk": "Tas Tote Bag",
+        "varian": "Pink",
+        "harga": 28,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/a6f95992c90ad6292eaceaad3a6929db@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-075",
+        "namaProduk": "Tas Tote Bag",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/80ee115c94a0f1d3d0e95d41e1ae681d.webp"
+    },
+    {
+        "id": "ACC-153",
+        "namaProduk": "Tas Tote Bag",
+        "varian": "Kuning",
+        "harga": 28,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/3e42fea88ea367dbf3645feef4eca107@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-152",
+        "namaProduk": "Tas Tote Bag",
+        "varian": "Hitam",
+        "harga": 28,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/0252a99e828abee3683cff1ca6e98ea3@resize_w900_nl.webp"
+    },
+    {
+        "id": "ACC-151",
+        "namaProduk": "Tas Tote Bag",
+        "varian": "Putih",
+        "harga": 28,
+        "kategori": "Aksesoris",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/a5eb3da5a4b11875fb39147924554b53@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-010",
+        "namaProduk": "Tebak Gambar Board Game",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7rbk1-ma004l9d125v7a@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-043",
+        "namaProduk": "Tebak Gambar Board Game",
+        "varian": "",
+        "harga": 44,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134207-7rbk1-ma004l9d125v7a@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-041",
+        "namaProduk": "Tempat Pensil Kecil",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134201-7r98p-lq4o91tdw85hb4@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-038",
+        "namaProduk": "Tempat Pensil Kecil",
+        "varian": "Owl",
+        "harga": 12,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134201-7r990-lpvput1vuajyec@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-039",
+        "namaProduk": "Tempat Pensil Kecil",
+        "varian": "Rabbit",
+        "harga": 12,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134201-7r98v-lpvput4xptria9@resize_w900_nl.webp"
+    },
+    {
+        "id": "ATK-037",
+        "namaProduk": "Tempat Pensil Kecil",
+        "varian": "Gajah Pink",
+        "harga": 12,
+        "kategori": "ATK",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/id-11134201-7r98r-lpvpus7n2jjza0@resize_w900_nl.webp"
+    },
+    {
+        "id": "TOY-052",
+        "namaProduk": "Uno Card",
+        "varian": "",
+        "harga": 25,
+        "kategori": "Mainan",
+        "stokAwal": 9999,
+        "stokSekarang": 9999,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-81zvh-min1vkc6g7iecd@resize_w900_nl.webp"
+    },
+    {
+        "id": "PRN-013",
+        "namaProduk": "Uno Card",
+        "varian": "PARENT-000",
+        "harga": 0,
+        "kategori": "",
+        "stokAwal": 0,
+        "stokSekarang": 0,
+        "gambarUrl": "https://down-id.img.susercontent.com/file/sg-11134201-81zvh-min1vkc6g7iecd@resize_w900_nl.webp"
+    }
+]

@@ -95,6 +95,11 @@ const ProductSelect = ({
         (p.id && String(p.id).toUpperCase().startsWith('PRN-')) || 
         (p.varian && p.varian.toUpperCase() === 'PARENT-000');
 
+      // Fix bug: Override empty category from parent with actual category from variant
+      if (!groups[name].kategori && p.kategori) {
+        groups[name].kategori = p.kategori;
+      }
+
       // Lowest price from real variants
       const priceVal = Number(p.harga);
       if (!isParent && !isNaN(priceVal) && priceVal > 0 && priceVal < groups[name].harga) {
